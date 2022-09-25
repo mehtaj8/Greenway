@@ -16,17 +16,18 @@
 
 \maketitle
 
-\begin{table}[hp]
-\caption{Revision History} \label{TblRevisionHistory}
-\begin{tabularx}{\textwidth}{llX}
-\toprule
-\textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
-\midrule
-September 25, 2022 & Priyansh Shah, Utsharga Rozario, Jash Mehta, Bilal Shaikh, Pranay Kotian, Sharjil Mohsin & Revision 0\\
-Date2 & Name(s) & Description of changes\\
-... & ... & ...\\
-\bottomrule
-\end{tabularx}
+\begin{table}[!hbp]
+    \caption{Revision History} \label{RevisionHistory}
+    \begin{tabularx}{\textwidth}{llX}
+        \toprule
+            \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
+        \midrule
+            Sep 25, 2022 & 
+            \begin{tabular}{@{}c@{}}Priyansh, Utsharga, Sharjil,\\Jash, Bilal, Pranay\end{tabular}
+            & Rev. 0\\            
+            ... & ... & ...\\
+        \bottomrule
+    \end{tabularx}
 \end{table}
 
 \section{Problem Statement}
@@ -43,9 +44,14 @@ based on real time gas pricing information ensures you save the most money on yo
 journey while minimizing gas usage to encourage a more sustainable lifestyle.
 
 \subsection{Inputs and Outputs}
-
-\wss{Characterize the problem in terms of ``high level'' inputs and outputs.  
-Use abstraction so that you can avoid details.}
+\begin{tabular}{| p{0.5\linewidth} | p{0.5\linewidth} |}
+    \hline
+    \textbf{Inputs} & \textbf{Outputs}\\ \hline
+    Starting location & Most fuel efficient route\\ \hline
+    Ending location & Cost of driving (from starting to ending location)\\ \hline
+    Car specifications (year, make, model, trim) or fuel economy & Suggested stops at gas stations/supercharger locations based on real-time prices\\ \hline
+    User estimate of how much fuel or distance worth of fuel is currently in the gas tank. & \\ \hline
+\end{tabular}
 
 \subsection{Stakeholders}
 
