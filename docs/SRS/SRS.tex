@@ -127,7 +127,7 @@
 \begin{document}
 
 \title{Software Requirements Specification for \progname: subtitle describing software} 
-\author{Author Name(s)}
+\author{\authname}
 \date{\today}
 	
 \maketitle
@@ -327,64 +327,53 @@ which heat is transferred in
 
 \section{Introduction}
 
-\plt{The introduction section is written to introduce the problem.  It starts
-  general and focuses on the problem domain. The general advice is to start with
-a paragraph or two that describes the problem, followed by a ``roadmap''
-paragraph.  A roadmap orients the reader by telling them what sub-sections to
-expect in the Introduction section.}
+Navigation applications are commonly used applications while driving to get
+directions from point A to B, but these applications never tell you how much it
+costs you to get there or how much gas was used on the trip. When carpooling
+with friends, the driver of the vehicle always asks everyone in the group for gas
+money and often times these calculations are mere estimates that are not always
+very accurate. People often wonder how much it costs to get to a destination
+before starting your journey, having an application perform these cost and fuel
+calculations based on real time gas pricing information ensures you save the
+most money on your journey while minimizing gas usage to encourage a more
+sustainable lifestyle. The introduction section focuses on the" Purpose of the Document", 
+the "Scope of Requirements", the "Characteristics of the Intended Reader", 
+and the "Organization of Document". 
 
 \subsection{Purpose of Document}
 
-\plt{This section summarizes the purpose of the SRS document.  It does not focus
-  on the problem itself.  The problem is described in the ``Problem
-  Description'' section (Section~\ref{Sec_pd}).  The purpose is for the document
-  in the context of the project itself, not in the context of this course.
-  Although the ``purpose'' of the document is to get a grade, you should not
-  mention this.  Instead, ``fake it'' as if this is a real project.  The purpose
-  section will be similar between projects.  The purpose of the document is the
-  purpose of the SRS, including communication, planning for the design stage,
-  etc.}
+The purpose of this document is to outline the overall description and target functionality
+of the application to stakeholders. It will communicate, without any ambiguity, the system
+requirements for Greenway and the different use cases and contexts of use. These design
+aspects will be communicated using a combination of diagrams and written descriptions.
+In addition, it will also serve as a reference for verifying correctness and validation of the
+product during the testing phases.
+
 
 \subsection{Scope of Requirements} 
 
-\plt{Modelling the real world requires simplification.  The full complexity of
-  the actual physics, chemistry, biology is too much for existing models, and
-  for existing computational solution techniques.  Rather than say what is in
-  the scope, it is usually easier to say what is not.  You can think of it as
-  the scope is initially everything, and then it is constrained to create the
-  actual scope.  For instance, the problem can be restricted to 2 dimensions, or
-  it can ignore the effect of temperature (or pressure) on the material
-  properties, etc.}  
-
-\plt{The scope section is related to the assumptions section
-  (Section~\ref{sec_assumpt}).  However, the scope and the assumptions are not
-  at the same level of abstraction.  The scope is at a high level.  The focus is
-  on the ``big picture'' assumptions.  The assumptions section lists, and
-  describes, all of the assumptions.}
+The scope of the proposed software, Greenway, is a mapping software that not only 
+gives directions to the intended destination but provides the user with fuel cost calculations.
+The intention is to calculate fuel costs using gas price data, car mileage information and terrain information
+to show how much money it will take to get to the intended destination using the most fuel efficient route.
 
 \subsection{Characteristics of Intended Reader} \label{sec_IntendedReader}
 
-\plt{This section summarizes the skills and knowledge of the readers of the
-  SRS.  It does NOT have the same purpose as the ``User Characteristics''
-  section (Section~\ref{SecUserCharacteristics}).  The intended readers are the
-  people that will read, review and maintain the SRS.  They are the people that
-  will conceivably design the software that is intended to meet the
-  requirements.  The user, on the other hand, is the person that uses the
-  software that is built.  They may never read this SRS document.  Of course,
-  the same person could be a ``user'' and an ``intended reader.''}
-
-\plt{The intended reader characteristics should be written as unambiguously and
-  as specifically as possible.  Rather than say, the user should have an
-  understanding of physics, say what kind of physics and at what level.  For
-  instance, is high school physics adequate, or should the reader have had a
-  graduate course on advanced quantum mechanics?}
+The intended readers characteristics include having knowledge in the following domains, 
+the understanding of mapping software, the knowledge of how data is stored and will be used
+in the context of the google maps API, which algorithms need to be used to calculate the most
+fuel efficient route, the understanding of how terrain information will be used to alter car mileage
+calculations, and the understanding of how information will be retrieved for all types of data being used.
+The intended reader needs this knowledge as it is required to understand the rest of the SRS document;
+this ensures the reader understands what the information is that is being conveyed and how the technology
+is going to be used to put out the final product.
 
 \subsection{Organization of Document}
 
-\plt{This section provides a roadmap of the SRS document.  It will help the
-  reader orient themselves.  It will provide direction that will help them
-  select which sections they want to read, and in what order.  This section will
-  be similar between project.}
+The document is organized into sections with smaller subsection that will aid in conveying information.
+The intention is that these sections will work together to provide a more informed understanding of the product.
+The document is seperated into sections that include, "General System Description", "Specific System Description", "Requirements",
+"Likely Changes", "Unlikely Changes", "Traceability Matrices and Graphs", "Development Plan", and the "Values of Auxiliary Constants".
 
 \section{General System Description}
 
