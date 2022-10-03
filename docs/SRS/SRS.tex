@@ -75,6 +75,9 @@
 \newcounter{lcnum} %Likely change number
 \newcommand{\lthelcnum}{LC\thelcnum}
 \newcommand{\lcref}[1]{LC\ref{#1}}
+\newcounter{ulcnum} %Unlikely change number
+\newcommand{\ltheulcnum}{ULC\theulcnum}
+\newcommand{\ulcref}[1]{ULC\ref{#1}}
 
 \usepackage{fullpage}
 
@@ -1081,8 +1084,13 @@ be covered in the Verification and Validation document.}
 
 \noindent \begin{itemize}
 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] \plt{Give
-    the likely changes, with a reference to the related assumption (aref), as appropriate.}
+\item[LC\refstepcounter{lcnum}\thelcnum\label{Long Journey}:] The addition of the application being able to use mileage data as well as gas tank size to calculate the most efficient route on a long journey, allowing for the least amount of stops to fill up gas.
+
+\item[LC\refstepcounter{lcnum}\thelcnum\label{Electric Cars}:] The addition of the application taking data of electric cars to allow the use of not only gas station but charging stations for electric car users.
+
+\item[LC\refstepcounter{lcnum}\thelcnum\label{Bigger Area}:] The application will be able to be used in all of Ontario with elevation and gas data for all areas.
+
+\item[LC\refstepcounter{lcnum}\thelcnum\label{Application Integration}:] Future changes should allow the application to be used with other apps other than Google Maps, such as Wayz or Apple Maps.
 
 \end{itemize}
 
@@ -1090,9 +1098,11 @@ be covered in the Verification and Validation document.}
 
 \noindent \begin{itemize}
 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] \plt{Give
-    the unlikely changes.  The design can assume that the changes listed will
-    not occur.}
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{Regional Support}:] The application will not support other provinces or countries.
+
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{New Cars}:] The application will not be able to update car catalog information on its own and will require an update to the application when new cars are introduced.
+
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{Hybrid Cars}:] The application will not support hybrid vehicles as they require complex calculations to determine when the electric component of the vehicle is used and when the gas component is.
 
 \end{itemize}
 
