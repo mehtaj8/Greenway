@@ -522,6 +522,96 @@ qualities that the software is expected to exhibit.
   \item \textit{Priority}: High
 \end{itemize}
 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_12}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall store the last 10 addresses that the user input and display it in the search bar.
+  \item \textit{Rationale}: For the user’s convenience, the last 10 search results shall be displayed in case the user wants to go to any of those locations again.
+  \item \textit{Fit Criterion}: After a new address is searched, that search result is added in the last 10 recent results. After 10 searches with different addresses, the oldest search result is overwritten.
+  \item \textit{Undesired Event Handling}: In case nothing shows up, the system shall just show a regular search bar with no history.
+  \item \textit{Priority}: Low
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_13}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall be able to handle an infinite amount of users.
+  \item \textit{Rationale}: This system shall stay available for anyone who is concerned about spending too much for a particular trip.
+  \item \textit{Fit Criterion}: As a local server will be hosting the web app, all users should be able to access the application without being blocked.
+  \item \textit{Undesired Event Handling}: In case nothing shows up, the system shall just show a regular search bar with no history.
+  \item \textit{Priority}: Medium
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_14}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall operate as long as possible.
+  \item \textit{Rationale}: This system shall stay up indefinitely for users who are concerned about how much gas will be used up during their trip.
+  \item \textit{Fit Criterion}: 9 out of 10 users shall be able to use the application without it being unusable.
+  \item \textit{Undesired Event Handling}: N/A
+  \item \textit{Priority}: Low
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_15}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall be able to run on all modern browsers. 
+  \item \textit{Rationale}: Users with the system on many different platforms will be able to use it. 
+  \item \textit{Fit Criterion}: Opening the HTML executable file with all different modern browsers will work.
+  \item \textit{Undesired Event Handling}: N/A
+  \item \textit{Priority}: Medium
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_16}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall have a simple installation process for all potential users.
+  \item \textit{Rationale}: This system shall have a simple installation guide provided with easy steps so that any user should be able to install the web app.
+  \item \textit{Fit Criterion}: 90 percent of a panel of 20 potentials users will be able to install the application without any hassle.
+  \item \textit{Undesired Event Handling}: In case of installation errors, they can refer to the documentation on GitHub about alternative ways to install.
+  \item \textit{Priority}: High
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_17}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall be available to download for the public via GitHub.
+  \item \textit{Rationale}: This system shall be distributed from the GitHub website for free for everyone.
+  \item \textit{Fit Criterion}: All users should be available to pull the repository and install the application in their personal device.
+  \item \textit{Undesired Event Handling}: N/A
+  \item \textit{Priority}: Medium
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_18}:] 
+\begin{itemize}
+  \item \textit{Description}: The system’s code shall be well documented and clear to be easily understandable for any developer maintaining the code.
+  \item \textit{Rationale}: If a new developer went to work on the piece of the system, they should be able to easily understand what was previously worked on.
+  \item \textit{Fit Criterion}: When inspecting the code, comments will be found describing what that section does.
+  \item \textit{Undesired Event Handling}: If any documentation is missing, the developer of the code shall be contacted as soon as possible to provide the corresponding documentation.
+  \item \textit{Priority}: High
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_19}:] 
+\begin{itemize}
+  \item \textit{Description}: Supporting documentation shall be available on GitHub, which includes a user’s guide on how to use the application.
+  \item \textit{Rationale}: In order for users to understand how to download, launch the application, and access relevant data, there should be documentation to explain.
+  \item \textit{Fit Criterion}: When downloading the system, the supporting documentation will be found on the GitHub site. 
+  \item \textit{Undesired Event Handling}: If any documentation is missing, the developer of the code shall be contacted as soon as possible to provide the corresponding documentation.
+  \item \textit{Priority}: Medium
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_20}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall be compatible to run between Windows, Mac, and Linux-based operating systems.
+  \item \textit{Rationale}: In order to support a wide variety of users, we need to allow users on the most commonly used operating systems to download and use the system.
+  \item \textit{Fit Criterion}: Downloading and running the files on all mentioned operating systems will show compatibility.
+  \item \textit{Undesired Event Handling}: If the application does not work on a certain operating system, a support tool will be provided to contact the developers to fix the issue.
+  \item \textit{Priority}: Medium
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_21}:] 
+\begin{itemize}
+  \item \textit{Description}: System should comply with the Google Maps Platform Terms of Service.
+  \item \textit{Rationale}: Mandatory compliance requirement when using the Google Maps Platform API. 
+  \item \textit{Fit Criterion}: The system will be checked directly against each point in the terms of service.
+  \item \textit{Undesired Event Handling}: If the system, at any point, does not comply with the terms of service, the system will be changed to comply with the terms.
+  \item \textit{Priority}: High
+\end{itemize}
+
 \end{itemize}
 
 \section{Likely Changes}    
