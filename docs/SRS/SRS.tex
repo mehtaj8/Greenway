@@ -340,58 +340,109 @@ qualities that the software is expected to exhibit.
 
 \end{itemize}
 
-\subsection{Nonfunctional Requirements}
-
-\plt{List your nonfunctional requirements.  You may consider using a fit
-  criterion to make them verifiable.}
-\plt{The goal is for the nonfunctional requirements to be unambiguous, abstract
-  and verifiable.  This isn't easy to show succinctly, so a good strategy may be
-to give a ``high level'' view of the requirement, but allow for the details to
-be covered in the Verification and Validation document.}
-\plt{An absolute requirement on a quality of the system is rarely needed.  For
-  instance, an accuracy of 0.0101 \% is likely fine, even if the requirement is
-  for 0.01 \% accuracy.  Therefore, the emphasis will often be more on
-  describing now well the quality is achieved, through experimentation, and
-  possibly theory, rather than meeting some bar that was defined a priori.}
-\plt{You do not need an entry for correctness in your NFRs.  The purpose of the
-  SRS is to record the requirements that need to be satisfied for correctness.
-  Any statement of correctness would just be redundant. Rather than discuss
-  correctness, you can characterize how far away from the correct (true)
-  solution you are allowed to be.  This is discussed under accuracy.}
+\subsection{Non-functional Requirements}
 
 \noindent \begin{itemize}
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Accuracy}:]
-  \textbf{Accuracy} \plt{Characterize the accuracy by giving the context/use for
-    the software.  Maybe something like, ``The accuracy of the computed
-    solutions should meet the level needed for $<$engineering or scientific
-    application$>$.  The level of accuracy achieved by \progname{} shall be
-    described following the procedure given in Section~X of the Verification and
-    Validation Plan.''  A link to the VnV plan would be a nice extra.}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_1}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall have a modern minimalist user interface.
+  \item \textit{Rationale}: Using popular modern design principles to create an appealing visual style for the system will make the system easy to use and attractive to users.
+  \item \textit{Fit Criterion}: The system’s UI must follow modern minimalist design principles as defined in popular style guides. Users feedback will be used to assess the overall design of the interface. 
+  \item \textit{Undesired Event Handling}: Given poor user feedback on interface design, user suggestions will be considered and overall interface design will be reevaluated. 
+  \item \textit{Priority}: Medium
+\end{itemize}
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Usability}:] \textbf{Usability}
-  \plt{Characterize the usability by giving the context/use for the software.
-    You should likely reference the user characteristics section.  The level of
-    usability achieved by the software shall be described following the
-    procedure given in Section~X of the Verification and Validation Plan.  A
-    link to the VnV plan would be a nice extra.}
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Maintainability}:]
-  \textbf{Maintainability} \plt{The effort required to make any of the likely
-    changes listed for \progname{} should be less than FRACTION of the original
-    development time.  FRACTION is then a symbolic constant that can be defined
-    at the end of the report.}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_2}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall have a consistent style across the different pages (or interfaces) of the platform. 
+  \item \textit{Rationale}: System will appear more professional. User experience will be more streamlined and less confusing if the system maintains a cohesive style. 
+  \item \textit{Fit Criterion}: Each page/interface shall be checked against a list of common style/design elements that should remain consistent within the project. User feedback will be used to assess style consistency between interfaces. 
+  \item \textit{Undesired Event Handling}: Given feedback on inconsistent style, alterations will be made to the interface to address specific feedback. 
+  \item \textit{Priority}: Medium
+\end{itemize}
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Portability}:]
-  \textbf{Portability} \plt{This NFR is easier to write than the others.  The
-    systems that \progname{} should run on should be listed here.  When possible
-    the specific versions of the potential operating environments should be
-    given.  To make the NFR verifiable a statement could be made that the tests
-    from a given section of the VnV plan can be successfully run on all of the
-    possible operating environments.}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_3}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall have a user interface which is intuitive and easy to navigate. 
+  \item \textit{Rationale}: Ease of use improves learnability and memorability of the system.
+  \item \textit{Fit Criterion}: User feedback will be used to assess ease of use. Metrics such as time taken for new user to complete sample task will be measured.
+  \item \textit{Undesired Event Handling}: Given poor ease of use metrics, the layout, simplicity, and flow of system will be reevaluated and alterations made. 
+  \item \textit{Priority}: High
+\end{itemize}
 
-\item Other NFRs that might be discussed include verifiability,
-  understandability and reusability.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_4}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall retain the user’s previous destinations. 
+  \item \textit{Rationale}: Reduces time taken to select destination if user has frequently used destinations. Improves ease of use (NFR 3) by reducing time needed to complete task. 
+  \item \textit{Fit Criterion}: Are the user’s previous destinations available to the user? Yes/No.  
+  \item \textit{Undesired Event Handling}: If no, functionality should be implemented.
+  \item \textit{Priority}: Medium
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_5}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall have a guide (or short tutorial) for those who are using the application for the first time. 
+  \item \textit{Rationale}: The guide/tutorial will introduce how to use all the features offered by the system.
+  \item \textit{Fit Criterion}: Several metrics measuring task completion will be compared: first time user without tutorial, first time user with tutorial, repeat user without tutorial. User feedback will also be obtained. Majority of users \(\>80\%\) should feel comfortable with system functionality after viewing the tutorial.  
+  \item \textit{Undesired Event Handling}: Given poor learnability, tutorial/guide and overall layout and ease of use (NFR 3) shall be reevaluated and alterations made.
+  \item \textit{Priority}: High
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_6}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall hide the details of its implementation from the user.
+  \item \textit{Rationale}: The implementation (e.g. code, algorithms, etc.), is only relevant to the developers. Users are only concerned about the application functionality and outputs.
+  \item \textit{Fit Criterion}: During software testing, developers can test to see if abstraction was properly used to hide the details of the implementation of the system from the user.  
+  \item \textit{Undesired Event Handling}: Given poor abstraction, details will be hidden or omitted from the user interface. 
+  \item \textit{Priority}: High
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_7}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall be accessible to users with visual impairments. 
+  \item \textit{Rationale}: The system shall be accessible to users with visual impairments. 
+  \item \textit{Fit Criterion}: The system will be tested in conditions where the user is partially or completely visually impaired. 
+  \item \textit{Undesired Event Handling}: Given poor accessibility, modifications to the system will be made to improve the usability of the system under these conditions.
+  \item \textit{Priority}: Medium
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_8}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall complete the route and fuel consumption calculation in a reasonable amount of time (<5 seconds). 
+  \item \textit{Rationale}: The user should not have to wait a very long time after they input their destination into the application.
+  \item \textit{Fit Criterion}: The time between the user input and the route calculation shall not exceed 5 seconds. The system calculation time should be comparable to the default google maps route calculation time.  
+  \item \textit{Undesired Event Handling}: Given poor calculation time, algorithm time efficiency and other sources of lag should be considered and fixed (if possible). 
+  \item \textit{Priority}: Low
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_9}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall calculate fuel consumption as accurately as possible.
+  \item \textit{Rationale}: We want our customers to know exactly how much fuel will be consumed during the trip. It is vital that the value be accurate so that they can plan their trip accordingly.
+  \item \textit{Fit Criterion}: In a panel of 50 users using the application, 80\% of the users are satisfied with the calculation.
+  \item \textit{Undesired Event Handling}: N/A.
+  \item \textit{Priority}: Medium
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_10}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall be available for use 24 hours per day, 365 days per year.
+  \item \textit{Rationale}: Since this is a web app, it will be available for use at any time. Users will be able to use the application at any time of the day without any restriction.
+  \item \textit{Fit Criterion}: 90\% of a panel of 10 users shall be able to use the application without it going offline.
+  \item \textit{Undesired Event Handling}: N/A.
+  \item \textit{Priority}: Low
+\end{itemize}
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_11}:] 
+\begin{itemize}
+  \item \textit{Description}: The system shall be able to respond to invalid or unconventional inputs.  
+  \item \textit{Rationale}: Ensures user error will not cause bugs or impede system functionality. 
+  \item \textit{Fit Criterion}: Test cases with invalid inputs and outliers will be created to test this non-functional requirement.  
+  \item \textit{Undesired Event Handling}: N/A. 
+  \item \textit{Priority}: High
+\end{itemize}
 
 \end{itemize}
 
