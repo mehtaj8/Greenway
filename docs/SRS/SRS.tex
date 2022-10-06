@@ -312,31 +312,109 @@ qualities that the software is expected to exhibit.
 
 \noindent \begin{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall allow the user a way to input start location.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall allow the user a way to input a start location.
+\begin{itemize}
+    \item Rationale: The application must know where the trip begins.
+    \item Constants: None
+    \item Undesired Event Handling: Display an error message and stop application.
+    \item Normal Operation: The system is considered to be operating normally if the user can input a starting location for the trip.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall allow the user a way to input final destination.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall allow the user a way to input a final destination.
+\begin{itemize}
+    \item Rationale: The application must know where the trip ends.
+    \item Constants: None
+    \item Undesired Event Handling: Display an error message and stop application.
+    \item Normal Operation: The system is considered to be operating normally if the user can input a end location for the trip.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall allow the user a way to select car models.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall allow the user a way to select any car model and make.
+\begin{itemize}
+    \item Rationale: The system can use the user’s car model to internally calculate the fuel economy of the vehicle they will be driving in.
+    \item Constants: None
+    \item Undesired Event Handling: Assume the vehicle has the national average fuel economy of 8.9 L/100km.
+    \item Normal Operation: The system is considered to be operating normally if the user can select any car by make/model and the system uses the corresponding fuel economy for its calculations.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall allow the user a way to input the custom details of their car.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall allow the user a way to input the fuel economy of their car.
+\begin{itemize}
+    \item Rationale: The system can use a custom user-entered value to calculate the fuel economy.
+    \item Constants: None
+    \item Undesired Event Handling: Assume the vehicle has the national average fuel economy of 8.9 L/100km.
+    \item Normal Operation: The system is considered to be operating normally if the user can input a numeric value for the fuel economy.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall have a way to update available car models from either user input or external sources.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall have a way to update available car models from either user input or external sources.
+\begin{itemize}
+    \item Rationale: The models available every year change and the system needs to account for newer cars entering the market.
+    \item Constants: None
+    \item Undesired Event Handling: If updates are unsuccessful, continue using the existing database of cars.
+    \item Normal Operation: The system is considered to be operating normally if the user can update the fuel economy of a car.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall have a map to show journey from start to final destination.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall have a map to show journey from start to final destination.
+\begin{itemize}
+    \item Rationale: The user would appreciate having a visual of the route on a map.
+    \item Constants: None
+    \item Undesired Event Handling: Display a message stating “Unable to display map”.
+    \item Normal Operation: The system is considered to be operating normally if the user can view a map of the overview of the route.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall display the gas stations along the route.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall display the gas stations along the route.
+\begin{itemize}
+    \item Rationale: The user can easily see where to refuel if necessary.
+    \item Constants: None
+    \item Undesired Event Handling: Display an error message “Unable to locate Gas Stations.”
+    \item Normal Operation: The system is considered to be operating normally if the map displays gas stations at their locations, indicated with a universal gas icon.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall display charging stations along the route for electric vehicles.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall display charging stations along the route for electric vehicles.
+\begin{itemize}
+    \item Rationale: This accommodates users with electric vehicles so they can make use of the system.
+    \item Constants: None
+    \item Undesired Event Handling: Display an error “Unable to locate charging stations.”
+    \item Normal Operation: The system is considered to be operating normally if the map displays charging stations at their locations, indicated with a universal electricity icon.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall have a way to collect gas prices on route to destination.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall display gas prices at stations on route to destination.
+\begin{itemize}
+    \item Rationale: A key feature of the system is to have real-time gas prices factor into the cost calculations.
+    \item Constants: None
+    \item Undesired Event Handling: Use most recent price available if real-time value is not available.
+    \item Normal Operation: The system is considered to be operating normally if the map displays gas stations at their locations, along with the price listed at each station.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall have a way to calculate the most fuel efficient route.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall have a way to calculate the most fuel efficient route.
+\begin{itemize}
+    \item Rationale: The target user would like to minimize their fuel costs.
+    \item Constants: None
+    \item Undesired Event Handling: Display an error message “Cannot calculate route.”
+    \item Normal Operation: The system is considered to be operating normally if the map displays an optimized route from the defined start and end points.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall have a way to collect elevation data along the suggested route.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall have a way to collect elevation data along the suggested route.
+\begin{itemize}
+    \item Rationale: The system must use elevation data to accurately determine fuel costs based on more uphill/downhill driving required.
+    \item Constants: None
+    \item Undesired Event Handling: Ignore the elevation if unavailable and assume flat drive.
+    \item Normal Operation: The system is considered to be operating normally if different points on the map have appropriate elevations.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall have a way to calculate fuel consumption on different terrain elevations.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system shall have a way to calculate fuel consumption on different terrain elevations.
+\begin{itemize}
+    \item Rationale: The system must use elevation data to accurately determine fuel costs based on more uphill/downhill driving required.
+    \item Constants: None
+    \item Undesired Event Handling: Ignore the elevation if unavailable and assume flat drive.
+    \item Normal Operation: The system is considered to be operating normally if the fuel costs increase with more uphill routes and decrease with more downhill routes.
+\end{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum ] The system shall have a way to calculate the total cost of the journey.
+\item[R\refstepcounter{reqnum}\thereqnum. ] The system must calculate the total cost of the journey.
+\begin{itemize}
+    \item Rationale: The user must know how much their trip costs.
+    \item Constants: None
+    \item Undesired Event Handling: Display a message “An error was encountered calculating the cost”
+    \item Normal Operation: The system is considered to be operating normally if there is an output displaying the total cost of the trip after performing the appropriate calculations.
+\end{itemize}
 
 \end{itemize}
 
