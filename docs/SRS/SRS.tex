@@ -149,6 +149,7 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 05-10-2022 & 1.0 & Software Requirements Specification Version 1\\
+08-10-2022 & 1.1 & Software Requirements Specification Updated\\
 \bottomrule
 \end{tabularx}
 
@@ -360,15 +361,6 @@ qualities that the software is expected to exhibit.
     \item Constants: None
     \item Undesired Event Handling: Display an error message “Unable to locate Gas Stations.”
     \item Normal Operation: The system is considered to be operating normally if the map displays gas stations at their locations, indicated with a universal gas icon.
-	\item Priority: Low
-\end{itemize}
-
-\item[FR\refstepcounter{reqnum}\thereqnum. ] The system shall display charging stations along the route for electric vehicles.
-\begin{itemize}
-    \item Rationale: This accommodates users with electric vehicles so they can make use of the system.
-    \item Constants: None
-    \item Undesired Event Handling: Display an error “Unable to locate charging stations.”
-    \item Normal Operation: The system is considered to be operating normally if the map displays charging stations at their locations, indicated with a universal electricity icon.
 	\item Priority: Low
 \end{itemize}
 
@@ -657,28 +649,28 @@ dependencies of Functional Requirements and Non-Functional Requirements.
 \centerline{%
 \begin{tabular}{l|ccccccccccccc}
 \multicolumn{1}{c|}{NFR IDs} & \multicolumn{12}{c}{FR IDs} \\ \hline
- & \multicolumn{1}{l}{FR1} & \multicolumn{1}{l}{FR2} & \multicolumn{1}{l}{FR3} & \multicolumn{1}{l}{FR4} & \multicolumn{1}{l}{FR5} & \multicolumn{1}{l}{FR6} & \multicolumn{1}{l}{FR7} & \multicolumn{1}{l}{FR8} & \multicolumn{1}{l}{FR9} & \multicolumn{1}{l}{FR10} & \multicolumn{1}{l}{FR11} & \multicolumn{1}{l}{FR12} & \multicolumn{1}{l}{FR13} \\ \hline
-NFR1  & X & X & X & X &  & X & X & X & X &  &  &  & \\ \hline
-NFR2  & X & X & X & X &  & X & X & X & X &  &  &  & \\ \hline
-NFR3  & X & X & X & X &  & X & X & X & X &  &  &  & \\ \hline
-NFR4  &  &  &  &  &  & X &  &  &  &  &  &  &  \\ \hline
-NFR5  & X & X & X & X &  & X & X & X & X &  &  &  & \\ \hline
-NFR6  &  &  &  &  & X &  &  &  &  & X & X & X & X \\ \hline
-NFR7  & X & X & X & X &  & X & X & X & X &  &  &  & \\ \hline
-NFR8  &  &  &  &  &  &  &  &  &  & X & X & X & X  \\ \hline
-NFR9  &  &  &  & X &  &  &  &  &  &  &  &  & X \\ \hline
-NFR10 &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
-NFR11 & X & X & X & X &  &  &  &  &  &  &  &  &  \\ \hline
-NFR12 &  &  &  &  &  & X &  &  &  &  &  &  &  \\ \hline
-NFR13 &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
-NFR14 &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
-NFR15 &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
-NFR16 &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
-NFR17 &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
-NFR18 &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
-NFR19 &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
-NFR20 &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
-NFR21 &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+ & \multicolumn{1}{l}{FR1} & \multicolumn{1}{l}{FR2} & \multicolumn{1}{l}{FR3} & \multicolumn{1}{l}{FR4} & \multicolumn{1}{l}{FR5} & \multicolumn{1}{l}{FR6} & \multicolumn{1}{l}{FR7} & \multicolumn{1}{l}{FR8} & \multicolumn{1}{l}{FR9} & \multicolumn{1}{l}{FR10} & \multicolumn{1}{l}{FR11} & \multicolumn{1}{l}{FR12} \\ \hline
+NFR1  & X & X & X & X &  & X & X & X &  &  &  & \\ \hline
+NFR2  & X & X & X & X &  & X & X & X &  &  &  & \\ \hline
+NFR3  & X & X & X & X &  & X & X & X &  &  &  & \\ \hline
+NFR4  &  &  &  &  &  & X &  &  &   &  &  &  \\ \hline
+NFR5  & X & X & X & X &  & X & X & X &  &  &  & \\ \hline
+NFR6  &  &  &  &  & X &  &  & & X & X & X & X \\ \hline
+NFR7  & X & X & X & X &  & X & X & X &  &  &  & \\ \hline
+NFR8  &  &  &  &  &  &  &  &  & X & X & X & X  \\ \hline
+NFR9  &  &  &  & X &  &  &  &  &  &  &  & X \\ \hline
+NFR10 &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
+NFR11 & X & X & X & X &  &  &  &  &  &  &  &  \\ \hline
+NFR12 &  &  &  &  &  & X &  &  &  &  &  &  \\ \hline
+NFR13 &  &  &  &  &  &  &  &  &  &  &  &   \\ \hline
+NFR14 &  &  &  &  &  &  &  &  &  &  &  &   \\ \hline
+NFR15 &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
+NFR16 &  &  &  &  &  &  &  &  &  &  &  &   \\ \hline
+NFR17 &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
+NFR18 &  &  &  &  &  &  &  &  &  &  &  &   \\ \hline
+NFR19 &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
+NFR20 &  &  &  &  &  &  &  &  &  &  &  &   \\ \hline
+NFR21 &  &  &  &  &  &  &  &  &  &  &  &   \\
 \end{tabular}
 }
 \caption{Traceability Matrix: Functional Requirements to Non-Functional Requirements}
