@@ -5,11 +5,7 @@
 
 \title{Hazard Analysis\\\progname}
 
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
-}
+\author{\authname}
 
 \date{}
 
@@ -18,22 +14,49 @@
 
 \begin{document}
 
-\begin{table}[hp]
-\caption{Revision History} \label{TblRevisionHistory}
-\begin{tabularx}{\textwidth}{llX}
-\toprule
-\textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
-\midrule
-Date1 & Name(s) & Description of changes\\
-Date2 & Name(s) & Description of changes\\
-... & ... & ...\\
-\bottomrule
-\end{tabularx}
-\end{table}
+\maketitle
 
 \newpage
 
-\maketitle
+\section*{Revision History}
 
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\midrule
+19-10-2022 & 1.0 & Hazard Analysis Version 1\\
+\bottomrule
+\end{tabularx}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+\subsection{Background}
+\subsubsection{Scope}
+The scope of the proposed software, Greenway, is a mapping software that not only 
+gives fuel efficient directions to the intended destination but provides the user with fuel cost calculations.
+The intention is to calculate fuel costs using gas price data, car mileage information and terrain information
+to show how much money it will take to get to the intended destination using the most fuel efficient route.
+
+\subsubsection{Document Purpose}
+The purpose of this document is to identify potential hazardous components of Greenway
+and methods to mitigate these risks to an acceptable level. The following sections describe
+details of potential hazards in depth for each subsystem which also helps to understand how
+the system works as a whole to avoid these hazards.
+
+\section{Component Overview}
+Below describes each of the subsystems that make up the larger system.
+
+\section{Safety Considerations}
+
+\section{FMEA Worksheet}
+
+\section{Conclusion}
+In summary, it is important to realize the potential hazards of each function to avoid potential risks and negative experiences for the user. The above document contents highlight
+important safety considerations along with risks/failures for each function. This will ensure
+the program is developed with expected behaviour.
 
 \end{document}
