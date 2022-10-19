@@ -77,23 +77,65 @@ This component is responsible for collecting gas price data from local gas stati
 This component is responsible for calculating fuel cost taking into consideration fuel mileage data, terrain data, and gas price data.
 
 \section{Safety Considerations}
-\begin{itemize}
-	\item[\textbf{Issue 1:}]
-	\item[\textbf{Solution 1:}]
-	\item[\textbf{Issue 2:}]
-	\item[\textbf{Solution 2:}]
-\end{itemize}
 
 \subsection{Car Selection System}
-
+\begin{itemize}
+	\item[\textbf{Issue 1:}] Incorrect input
+	\item[\textbf{Solution 1:}] The system will allow the user to change the selected car. And also allow the user to verify their pick 
+	before confirming it as there selected car.
+	\item[\textbf{Issue 2:}] Invalid input
+	\item[\textbf{Solution 2:}] The system will check if their car exists in the database. And let the user enter a new car if there current one 
+	isn't in the database.
+	\item[\textbf{Issue 3:}] Invalid data
+	\item[\textbf{Solution 3:}] The system will allow the user to verify if our estimate is sensible for their car. If it is not then the user can 
+	manually enter required data like mileage. 
+	\item[\textbf{Issue 4:}] No internet connection
+	\item[\textbf{Solution 4:}] The system will prevent the user from using this system as that is required for the functionality of this system.
+\end{itemize}
 
 \subsection{Destination Selection System}
+\begin{itemize}
+	\item[\textbf{Issue 1:}] Incorrect input
+	\item[\textbf{Solution 1:}] The system will allow the user to change the selected destination. And also allow the user to verify their pick 
+	before confirming it as there selected destination.
+	\item[\textbf{Issue 2:}] Invalid input
+	\item[\textbf{Solution 2:}] The system will check if their destination is valid(reachable by car and exists on the map) before letting them set it as their desired destination.
+	\item[\textbf{Issue 3:}] No internet connection
+	\item[\textbf{Solution 3:}] The system will prevent the user from using this system as that is required for the functionality of this system.
+\end{itemize}
 
 \subsection{Route Calculation System}
+\begin{itemize}
+	\item[\textbf{Issue 1:}] Invalid output
+	\item[\textbf{Solution 1:}] The system will validate the output with estimation tools built into to it ensure that the route is a acceptable range.
+	\item[\textbf{Issue 2:}] No internet connection
+	\item[\textbf{Solution 2:}] The system will prevent the user from using this system as that is required for the functionality of this system.
+	\item[\textbf{Issue 3:}] Hidden Costs
+	\item[\textbf{Solution 3:}] The system will ensure that the user know only fuel efficiency is being used to calculate the given route and it does 
+	not necessarily ensure the cheapest route to take.
+\end{itemize}
 
 \subsection{Terrain Data Collection System}
+\begin{itemize}
+	\item[\textbf{Issue 1:}] Invalid output
+	\item[\textbf{Solution 1:}] The system will validate the output with external database to ensure that the data is in a acceptable range.
+	\item[\textbf{Issue 2:}] No internet connection
+	\item[\textbf{Solution 2:}] The system will prevent the user from using this system as that is required for the functionality of this system.
+	\item[\textbf{Issue 3:}] Extreme Weather
+	\item[\textbf{Solution 3:}] The system will ensure that the user knows weather situations can make a certain route undesirable to take and that they 
+	should do research before going on specific routes.
+\end{itemize}
 
 \subsection{Fuel Cost Calculation System}
+\begin{itemize}
+	\item[\textbf{Issue 1:}] Invalid output
+	\item[\textbf{Solution 1:}] The system will validate the output with external database to ensure that the data is in a acceptable range.
+	\item[\textbf{Issue 2:}] No internet connection
+	\item[\textbf{Solution 2:}] The system will prevent the user from using this system as that is required for the functionality of this system.
+	\item[\textbf{Issue 3:}] Fuel Cost changes
+	\item[\textbf{Solution 3:}] The system will ensure that the user knows when the application got the fuel prices and that there might be certain inaccuracies 
+	with the estimation considering that prices are changing constantly.
+\end{itemize}
 
 \section{FMEA Worksheet}
 
