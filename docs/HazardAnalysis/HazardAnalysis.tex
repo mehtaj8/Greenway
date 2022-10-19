@@ -49,17 +49,17 @@ the system works as a whole to avoid these hazards.
 
 \subsection{Overview}
 \subsubsection{Scope of Hazard Analysis}
-The scope of the this document covers all individual components that build up the entire system. These components include the "Car Selection System", the "Destination Selection System", the "Route Calculation System", the "Terrain Dat Collection System", the "Gas Price Collection System", and the "Fuel Cost Calculation System". The components mentioned each have their own safety considerations.
+The scope of the this document covers all individual components that build up the entire system. These components include the "Car Selection System", the "Destination Selection System", the "Route Calculation System", the "Terrain Data Collection System", the "Gas Price Collection System", and the "Fuel Cost Calculation System". The components mentioned each have their own safety considerations.
 
 \subsubsection{Definition of Hazard}
-Team Roadkill has defined their definition of hazard to be, " ".
+Team Roadkill has defined hazard to be, "any aspect, property, or feature of Greenway which communicates incorrect information to the user or negatively impacts the user experience.".
 
 
 \section{Component Overview}
-Below describes each of the subsystems that make up the larger system.
+The following is a description of each of Greenway's subsystems that make up the larger system.
 
 \subsection{Car Selection System}
-This component is responsible for allowing the user to input car data and collecting car information, such as mileage.
+This component is responsible for allowing the user to input car data and collecting relevant car information, such as mileage.
 
 \subsection{Destination Selection System}
 This component lets the user input the desired destination.
@@ -81,27 +81,27 @@ This component is responsible for calculating fuel cost taking into consideratio
 \subsection{Car Selection System}
 \begin{itemize}
 	\item[\textbf{Issue 1:}] Incorrect input
-	\item[\textbf{Solution 1:}] The system will allow the user to change the selected car. And also allow the user to verify their pick 
+	\item[\textbf{Solution 1:}] The system will allow the user to change the selected car. It will also allow the user to verify their selection 
 	before confirming it as there selected car.
 	\item[\textbf{Issue 2:}] Invalid input
-	\item[\textbf{Solution 2:}] The system will check if their car exists in the database. And let the user enter a new car if there current one 
+	\item[\textbf{Solution 2:}] The system will check if their car exists in the database, and will let the user enter a new car if their current selection
 	isn't in the database.
 	\item[\textbf{Issue 3:}] Invalid data
 	\item[\textbf{Solution 3:}] The system will allow the user to verify if our estimate is sensible for their car. If it is not then the user can 
 	manually enter required data like mileage. 
 	\item[\textbf{Issue 4:}] No internet connection
-	\item[\textbf{Solution 4:}] The system will prevent the user from using this system as that is required for the functionality of this system.
+	\item[\textbf{Solution 4:}] The system will prevent user input and indicate to the user that Internet connectivity is required for the functionality of the system.
 \end{itemize}
 
 \subsection{Destination Selection System}
 \begin{itemize}
 	\item[\textbf{Issue 1:}] Incorrect input
-	\item[\textbf{Solution 1:}] The system will allow the user to change the selected destination. And also allow the user to verify their pick 
+	\item[\textbf{Solution 1:}] The system will allow the user to change the selected destination. It will also allow the user to verify their pick 
 	before confirming it as there selected destination.
 	\item[\textbf{Issue 2:}] Invalid input
-	\item[\textbf{Solution 2:}] The system will check if their destination is valid(reachable by car and exists on the map) before letting them set it as their desired destination.
+	\item[\textbf{Solution 2:}] The system will check if their destination is valid (reachable by car and exists on the map) before letting them set it as their desired destination.
 	\item[\textbf{Issue 3:}] No internet connection
-	\item[\textbf{Solution 3:}] The system will prevent the user from using this system as that is required for the functionality of this system.
+	\item[\textbf{Solution 3:}] The system will prevent user input and indicate to the user that Internet connectivity is required for the functionality of the system.
 \end{itemize}
 
 \subsection{Route Calculation System}
@@ -109,7 +109,7 @@ This component is responsible for calculating fuel cost taking into consideratio
 	\item[\textbf{Issue 1:}] Invalid output
 	\item[\textbf{Solution 1:}] The system will validate the output with estimation tools built into to it ensure that the route is a acceptable range.
 	\item[\textbf{Issue 2:}] No internet connection
-	\item[\textbf{Solution 2:}] The system will prevent the user from using this system as that is required for the functionality of this system.
+	\item[\textbf{Solution 2:}] The system will prevent user input and indicate to the user that Internet connectivity is required for the functionality of the system.
 	\item[\textbf{Issue 3:}] Hidden Costs
 	\item[\textbf{Solution 3:}] The system will ensure that the user know only fuel efficiency is being used to calculate the given route and it does 
 	not necessarily ensure the cheapest route to take.
@@ -118,23 +118,23 @@ This component is responsible for calculating fuel cost taking into consideratio
 \subsection{Terrain Data Collection System}
 \begin{itemize}
 	\item[\textbf{Issue 1:}] Invalid output
-	\item[\textbf{Solution 1:}] The system will validate the output with external database to ensure that the data is in a acceptable range.
+	\item[\textbf{Solution 1:}] The system will validate the output against an external database to ensure that the data is in an acceptable range.
 	\item[\textbf{Issue 2:}] No internet connection
-	\item[\textbf{Solution 2:}] The system will prevent the user from using this system as that is required for the functionality of this system.
+	\item[\textbf{Solution 2:}] The system will prevent user input and indicate to the user that Internet connectivity is required for the functionality of the system.
 	\item[\textbf{Issue 3:}] Extreme Weather
-	\item[\textbf{Solution 3:}] The system will ensure that the user knows weather situations can make a certain route undesirable to take and that they 
+	\item[\textbf{Solution 3:}] The system will ensure that the user knows weather conditions can make certain routes undesirable, and that they 
 	should do research before going on specific routes.
 \end{itemize}
 
 \subsection{Fuel Cost Calculation System}
 \begin{itemize}
 	\item[\textbf{Issue 1:}] Invalid output
-	\item[\textbf{Solution 1:}] The system will validate the output with external database to ensure that the data is in a acceptable range.
+	\item[\textbf{Solution 1:}] The system will validate the output against an external database to ensure that the data is in a acceptable range.
 	\item[\textbf{Issue 2:}] No internet connection
-	\item[\textbf{Solution 2:}] The system will prevent the user from using this system as that is required for the functionality of this system.
+	\item[\textbf{Solution 2:}] The system will prevent user input and indicate to the user that Internet connectivity is required for the functionality of the system.
 	\item[\textbf{Issue 3:}] Fuel Cost changes
-	\item[\textbf{Solution 3:}] The system will ensure that the user knows when the application got the fuel prices and that there might be certain inaccuracies 
-	with the estimation considering that prices are changing constantly.
+	\item[\textbf{Solution 3:}] The system will ensure that the user knows when the application checked the fuel prices and that there might be certain inaccuracies 
+	with the estimation due to prices changing constantly.
 \end{itemize}
 
 \section{FMEA Worksheet}
