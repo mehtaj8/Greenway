@@ -139,6 +139,31 @@ This component is responsible for calculating fuel cost taking into consideratio
 
 \section{FMEA Worksheet}
 
+\begin{table}[htbp]
+	\centering
+	\makebox[\linewidth]{
+	\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+		\multicolumn{6}{c}{}\\
+		\hline
+		\multicolumn{6}{|c|}{\textbf{Failure Mode and Effects Analysis}}\\
+		\hline
+		\textbf{Design Function} & \textbf{Failure Modes} & \textbf{Causes of Failure} & \textbf{Effects of Failure} & \textbf{Detection} & \textbf{Recommended Actions} \\ \hline
+
+		Car Selection System & Invalid input & Users attempt to input a car that doesn't exist & No car is selected & The system check will fail. & Error message is provided telling the user that the car does not exist. \\ \cline{2-6}
+		& Invalid data & Users attempt to put in information that is outside the scope of the vehicle & The car data will have bizarre measurements that will not match other cars' data & The system's sample range will fail. & Provide a message to tell the user to check the estimate and change required data if necessary \\ \cline{2-6}
+		& No internet connection & Internet connection from the users' end is too weak & Unable to access the database that contains all the car data & The retrieval of data from the database will fail & Display an error message to the user that informs that they must be connected to the internet to use the system. \\ \hline
+	
+		Destination Selection System & Incorrect input & Users inputs a destination which is not there intended destination. & User is shown the undesired destination & The confirmation screen will prompt up if the selected destination is correct, if incorrect the user will be select the option to say no. & The system will prompt and allow the user to change the selected destination. \\ \cline{2-6}
+		& Invalid input & Users attempt to input a destination that is not reachable by car or does not exist on the map. & No destination is selected & The system will return an error to the user & Error message is provided telling the user that the destination is not reachable or the destination does not exist. \\ \cline{2-6}
+		& No internet connection & Internet connection from the users' end is too weak & Unable to access destination and map information. & The retrieval of destination and map information will fail & Display an error message to the user that informs that they must be connected to the internet to use the system. \\ \hline
+		
+	\end{tabular}
+}
+
+	\caption{FMEA Table Part 1}
+	\label{FMEAPart1}
+\end{table}
+
 \section{Conclusion}
 In summary, it is important to realize the potential hazards of each function to avoid potential risks and negative experiences for the user. The above document contents highlight
 important safety considerations along with risks/failures for each function. This will ensure
