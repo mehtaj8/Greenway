@@ -164,6 +164,52 @@ This component is responsible for calculating fuel cost taking into consideratio
 	\label{FMEAPart1}
 \end{table}
 
+\begin{table}[htbp]
+	\centering
+	\makebox[\linewidth]{
+	\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+		\multicolumn{6}{c}{}\\
+		\hline
+		\multicolumn{6}{|c|}{\textbf{Failure Mode and Effects Analysis}}\\
+		\hline
+		\textbf{Design Function} & \textbf{Failure Modes} & \textbf{Causes of Failure} & \textbf{Effects of Failure} & \textbf{Detection} & \textbf{Recommended Actions} \\ \hline
+		
+    	Route Calculation System & Invalid output & The system calculates a route calculation that is within acceptable range. & User is shown an estimation that is invalid. & The system's range check will fail. & Error message is provided telling the user that the estimated route calculation failed.\\ \cline{2-6}
+    	& No internet connection & Internet connection from the users' end is too weak & Unable to access destination and map information. & The retrieval of estimated route calculation based on the inputs will fail & Display an error message to the user that informs that they must be connected to the internet to use the system. \\ \cline{2-6}
+    	& Hidden Costs & The system does not calculate the cheapest route with the given the fuel efficiency input. & User assumes they are taking the cheapest route. & The system checks the shortest path against the most fuel efficient path. & Display a message to the user that informs that the route displayed is based only on fuel efficiency and might not give the cheapest route.\\ \hline
+
+    	Terrain Data Collection System & Invalid output & The system calculates that the output data is not within the acceptable range. & User is notified that the estimation is invalid. & The system's range check will fail. & Error message is provided telling the user that the terrain data is invalid. \\ \cline{2-6}
+    	& No internet connection & Internet connection from the users' end is too weak & Unable to access the database that contains all the terrain data & The retrieval of data from the database will fail & Display an error message to the user that informs that they must be connected to the internet to use the system. \\ \cline{2-6}
+    	& Extreme Weather & User attempts to put a destination during severe weather & User assumes that they're taking the route unaffected & System will retrieve weather data using internet connection to confirm extreme weather & Display a warning message to the user that informs certain routes might be undesirable during a severe weather alert. \\ \hline
+	\end{tabular}
+}
+
+	\caption{FMEA Table Part 2}
+	\label{FMEAPart1}
+\end{table}
+
+\begin{table}[htbp]
+	\centering
+	\makebox[\linewidth]{
+	\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+		\multicolumn{6}{c}{}\\
+		\hline
+		\multicolumn{6}{|c|}{\textbf{Failure Mode and Effects Analysis}}\\
+		\hline
+		\textbf{Design Function} & \textbf{Failure Modes} & \textbf{Causes of Failure} & \textbf{Effects of Failure} & \textbf{Detection} & \textbf{Recommended Actions} \\ \hline
+		
+    	Fuel Cost Calculation System & Invalid output & The system calculates a fuel cost calculation that is within acceptable range. & User is shown an estimation that is invalid. & The system's range check will fail. & Error message is provided telling the user that the estimated fuel cost calculation failed.\\ \cline{2-6}
+    	& No internet connection & Internet connection from the users' end is too weak & Unable to access destination and map information. & The retrieval of estimated fuel cost calculation based on the inputs will fail & Display an error message to the user that informs that they must be connected to the internet to use the system. \\ \cline{2-6}
+    	& Fuel Cost changes & The system does not calculate the latest fuel cost within the given route. & User assumes the cost they are seeing up-to-date with latest fuel prices. & The system checks the prices they used against the prices at the moment of showing the fuel cost calculation.  & Display a message to the user that informs that the fuel cost displayed might have inaccuracies due to prices changing constantly.\\ \hline
+	\end{tabular}
+}
+
+	\caption{FMEA Table Part 3}
+	\label{FMEAPart1}
+\end{table}
+
+\newpage
+
 \section{Conclusion}
 In summary, it is important to realize the potential hazards of each function to avoid potential risks and negative experiences for the user. The above document contents highlight
 important safety considerations along with risks/failures for each function. This will ensure
