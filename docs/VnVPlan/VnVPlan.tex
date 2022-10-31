@@ -72,30 +72,41 @@ This document ... \wss{provide an introductory blurb and roadmap of the
 
 \subsection{Summary}
 
-\wss{Say what software is being tested.  Give its name and a brief overview of
-  its general functions.}
+
+The goal of Greenway is to create an application that allows users to provide car information
+and a destination, in return the application supplies the amount of money it will take for
+the user to reach that destination using the most fuel-efficient route calculated by the app.
+The application uses real-time gas price data, information on mileage data, and terrain data
+to calculate and provide the amount of money it would take to reach a destination for users
+who drive many different types of gas vehicles; this allows them to use this app in many
+ways, such as, figuring out which gym may provide the most bang for their buck based on
+distance from their location.
 
 \subsection{Objectives}
 
-\wss{State what is intended to be accomplished.  The objective will be around
-  the qualities that are most important for your project.  You might have
-  something like: ``build confidence in the software correctness,''
-  ``demonstrate adequate usability.'' etc.  You won't list all of the qualities,
-  just those that are most important.}
+The objective of the document is to test the various subsystems identified in the system requirements and the systems design documents to ensure correctness and demonstrate adequate usability. 
+Often times software may have
+bugs that is experienced by the end-user. This document will try to mitigate those issues by
+ensuring the underlying logic for the subsystems are performing as expected. This will be
+done through a suite of Unit Tests to test the functional and non-functional requirements.
+The code tested will be the underlying logic functions that interact with the database and
+send information back to the client since the rest of the system is front-end UI aspects.
+
 
 \subsection{Relevant Documentation}
 
-\wss{Reference relevant documentation.  This will definitely include your SRS
-  and your other project documents (MG, MIS, etc).  You can include these even
-  before they are written, since by the time the project is done, they will be
-  written.}
 
-\citet{SRS}
+The relevant documents include:
+\begin{itemize}
+\item Software Requirment Specification Document
+\item Systems Design Document
+\item Hazard Analysis Document
+\end{itemize}
+
 
 \section{Plan}
 
-\wss{Introduce this section.   You can provide a roadmap of the sections to
-  come.}
+This section includes the following sections, "Verification and Validation Team", "SRS Verification Plan", "Design Verification Plan", "Implementation Verfication Plan", "Automated Testing and Verification Tools", "Software Validation Plan".
 
 \subsection{Verification and Validation Team}
 
