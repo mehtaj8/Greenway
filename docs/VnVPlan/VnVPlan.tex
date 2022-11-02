@@ -163,57 +163,236 @@ This section includes the following sections, "Verification and Validation Team"
 	
 \subsection{Tests for Functional Requirements}
 
-\wss{Subsets of the tests may be in related, so this section is divided into
-  different areas.  If there are no identifiable subsets for the tests, this
-  level of document structure can be removed.}
+The areas of testing listed below are the following: Start screen, Map Interactions, 
+Backend processing, Results Display. Start screen covers functional requirements 1-5 
+from the SRS as all those requirements are related to the inputs and functionality that 
+exists in the program before any processing or output is shown. Map Interaction covers 
+functional requirements 6-8 as these requirements are concerned with functionality related 
+to the map on display. Backend processing covers functional requirements 9-12 as these 
+requirements are concerned with calculations and, external data collection and processing 
+alike.
 
-\wss{Include a blurb here to explain why the subsections below
-  cover the requirements.  References to the SRS would be good.}
+\subsubsection{Start Screen}
 
-\subsubsection{Area of Testing1}
-
-\wss{It would be nice to have a blurb here to explain why the subsections below
-  cover the requirements.  References to the SRS would be good.  If a section
-  covers tests for input constraints, you should reference the data constraints
-  table in the SRS.}
+Start screen covers functional requirements 1-5 from the SRS as all those requirements 
+are related to the inputs and functionality that exists in the program before any 
+processing or output is shown
 		
-\paragraph{Title for Test}
+\paragraph{Preliminary Information Tests}
 
 \begin{enumerate}
 
 \item{test-id1\\}
 
-Control: Manual versus Automatic
+Control: Automatic
 					
-Initial State: 
+Initial State: No input in the start screen
 					
-Input: 
+Input: Start Location
 					
-Output: \wss{The expected result for the given inputs}
+Output: Status Message stating if the Location was accepted
 
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
+Test Case Derivation: The status message should be accepted the location as FR1 in the SRS 
+requires the system to be able to take that as an input.
 					
-How test will be performed: 
+How test will be performed: The testing framework will use a valid start location to input 
+it into the field and ensure the status message is accepted the location.
 					
 \item{test-id2\\}
 
-Control: Manual versus Automatic
+Control: Automatic
 					
-Initial State: 
+Initial State: No input in the start screen
 					
-Input: 
+Input: Location of the Destination
 					
-Output: \wss{The expected result for the given inputs}
+Output: Status Message stating if the Location was accepted
 
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
+Test Case Derivation: The status message should be accepted the location as FR2 in the SRS 
+requires the system to be able to take that as an input.
+					
+How test will be performed: The testing framework will use a valid location for a destination to input 
+it into the field and ensure the status message is accepted the location.
 
-How test will be performed: 
+\item{test-id3\\}
+
+Control: Automatic
+					
+Initial State: No input in the start screen
+					
+Input: Car Details
+					
+Output: Status Message stating if the Car Information was accepted
+
+Test Case Derivation: The status message should be accepted the Car Information as FR3 in the SRS 
+requires the system to be able to take that as an input.
+					
+How test will be performed: The testing framework will use valid Car details for details to input 
+it into the field and ensure the status message is accepted the Car Information.
+
+\item{test-id4\\}
+
+Control: Automatic
+					
+Initial State: Accepted Car details in the start screen
+					
+Input: Car mileage/fuel economy information
+					
+Output: Status Message stating if the Car mileage/fuel economy information was accepted
+
+Test Case Derivation: The status message should be accepted the Car mileage/fuel economy information as FR4 in the SRS 
+requires the system to be able to take that as an input.
+					
+How test will be performed: The testing framework will use valid Car mileage/fuel economy information for details to input 
+it into the field and ensure the status message is accepted the Car mileage/fuel economy information.
+
+\item{test-id5\\}
+
+Control: Automatic
+					
+Initial State: Accepted Car details in the start screen
+					
+Input: Car information
+					
+Output: Status Message stating if the Car information was updated
+
+Test Case Derivation: The status message should be accepted the Car information as FR5 in the SRS 
+requires the system to be able to take that as an input.
+					
+How test will be performed: The testing framework will use valid Car information for details to input 
+it into the field and ensure the status message is updated the Car information.
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
+\subsubsection{Map Interactions}
 
-...
+Map Interaction covers functional requirements 6-8 as these requirements 
+are concerned with functionality related to the map on display.
+		
+\paragraph{Map Tests}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+Control: Manual
+					
+Initial State: Start Screen finished
+					
+Input: None
+					
+Output: If the Map displays a route from start to end based on start screen input.
+
+Test Case Derivation: The Map should display a route from start to end as specified in the Start screen, as FR6 States.
+					
+How test will be performed: The tester will ensure that the map has the correct route showing on it for a given start and 
+end destination with a correct route to compare with.
+					
+\item{test-id2\\}
+
+Control: Manual
+					
+Initial State: Start Screen finished
+					
+Input: None
+					
+Output: If the Map displays all gas stations that it can possibly encounter along the route from a start to end destination.
+
+Test Case Derivation: The Map should display all gas stations along the route from start to end as specified in the Start screen, as FR7 States.
+					
+How test will be performed: The tester will ensure that the map has all the gas stations along the route it shows and that 
+they are being correctly displayed with a map to reference.
+					
+\item{test-id3\\}
+
+Control: Manual
+					
+Initial State: Start Screen finished
+					
+Input: None
+					
+Output: If correct gas prices come up when gas stations along the displayed route are clicked upon.
+
+Test Case Derivation: The Map should display all gas prices in the gas stations along the route from start to end as specified in the Start screen, as FR8 States.
+					
+How test will be performed: The tester will click on all gas stations along the route and check that they are 
+displaying gas prices in a range given beforehand to the tester.
+
+\end{enumerate}
+
+\subsubsection{Backend Processing}
+
+Backend processing covers functional requirements 9-12 as these 
+requirements are concerned with calculations and, external data collection and processing 
+alike.
+		
+\paragraph{Backend Tests}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+Control: Automatic
+					
+Initial State: Start Screen finished
+					
+Input: Route Details
+					
+Output: If the route returned to the user is one that is optimizing the distance and elevation perfectly to reduce fuel costs.
+
+Test Case Derivation: The route displayed to the user should be the most fuel efficient route, as FR9 States.
+					
+How test will be performed: The testing framework will have correct nodes pertaining to the most fuel efficient route and will 
+compare them with nodes outputted by the back end to ensure that they are correct.
+					
+\item{test-id2\\}
+
+Control: Automatic
+					
+Initial State: Start Screen finished
+					
+Input: Route Details
+					
+Output: If the database call on the backend returns correct elevation data for a route.
+
+Test Case Derivation: The most fuel efficient needs accurate elevation data and as such the FR10 is derived from the needs of FR9. And 
+the test is designed to ensure that FR10 is fulfilled in the design.
+					
+How test will be performed: The testing framework will test that the backend is getting the correct elevation data from the database 
+with a reference dataset with correct elevation data.
+					
+\item{test-id3\\}
+
+Control: Automatic
+					
+Initial State: Start Screen finished
+					
+Input: Route Details
+					
+Output: If correct fuel consumption is given by backend for different parts of the route which have different elevation metrics.
+
+Test Case Derivation: The application should be able to calculate accurate fuel consumption in different elevation conditions as 
+distance is not the only metric for determining the most fuel efficient route. This test is made for FR11.
+					
+How test will be performed: The testing framework will test that the backend is calculating the correct fuel consumption data from the database 
+with a reference dataset with correct fuel consumption data.
+					
+\item{test-id4\\}
+
+Control: Automatic
+					
+Initial State: Start Screen finished
+					
+Input: Route Details
+					
+Output: If correct total cost is calculated by the backend for a certain route with a start and end decisions as the route details.
+
+Test Case Derivation: The application should be able to calculate accurate total cost for a certain route, as FR12 states.
+					
+How test will be performed: The testing framework will test that the backend is to ensure that the a correct total cost is being returned 
+with a correct total cost for a route as reference.
+
+\end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements}
 
