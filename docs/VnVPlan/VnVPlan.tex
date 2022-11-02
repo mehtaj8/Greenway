@@ -3,6 +3,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\usepackage{float}
 \hypersetup{
     colorlinks,
     citecolor=blue,
@@ -182,7 +183,7 @@ processing or output is shown
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{preliminary-information-test-1\\}
 
 Control: Automatic
 					
@@ -198,7 +199,7 @@ requires the system to be able to take that as an input.
 How test will be performed: The testing framework will use a valid start location to input 
 it into the field and ensure the status message is accepted the location.
 					
-\item{test-id2\\}
+\item{preliminary-information-test-2\\}
 
 Control: Automatic
 					
@@ -214,7 +215,7 @@ requires the system to be able to take that as an input.
 How test will be performed: The testing framework will use a valid location for a destination to input 
 it into the field and ensure the status message is accepted the location.
 
-\item{test-id3\\}
+\item{preliminary-information-test-3\\}
 
 Control: Automatic
 					
@@ -230,7 +231,7 @@ requires the system to be able to take that as an input.
 How test will be performed: The testing framework will use valid Car details for details to input 
 it into the field and ensure the status message is accepted the Car Information.
 
-\item{test-id4\\}
+\item{preliminary-information-test-4\\}
 
 Control: Automatic
 					
@@ -246,7 +247,7 @@ requires the system to be able to take that as an input.
 How test will be performed: The testing framework will use valid Car mileage/fuel economy information for details to input 
 it into the field and ensure the status message is accepted the Car mileage/fuel economy information.
 
-\item{test-id5\\}
+\item{preliminary-information-test-5\\}
 
 Control: Automatic
 					
@@ -273,7 +274,7 @@ are concerned with functionality related to the map on display.
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{map-test-1\\}
 
 Control: Manual
 					
@@ -288,7 +289,7 @@ Test Case Derivation: The Map should display a route from start to end as specif
 How test will be performed: The tester will ensure that the map has the correct route showing on it for a given start and 
 end destination with a correct route to compare with.
 					
-\item{test-id2\\}
+\item{map-test-2\\}
 
 Control: Manual
 					
@@ -303,7 +304,7 @@ Test Case Derivation: The Map should display all gas stations along the route fr
 How test will be performed: The tester will ensure that the map has all the gas stations along the route it shows and that 
 they are being correctly displayed with a map to reference.
 					
-\item{test-id3\\}
+\item{map-test-3\\}
 
 Control: Manual
 					
@@ -330,7 +331,7 @@ alike.
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{backend-test-1\\}
 
 Control: Automatic
 					
@@ -345,7 +346,7 @@ Test Case Derivation: The route displayed to the user should be the most fuel ef
 How test will be performed: The testing framework will have correct nodes pertaining to the most fuel efficient route and will 
 compare them with nodes outputted by the back end to ensure that they are correct.
 					
-\item{test-id2\\}
+\item{backend-test-2\\}
 
 Control: Automatic
 					
@@ -361,7 +362,7 @@ the test is designed to ensure that FR10 is fulfilled in the design.
 How test will be performed: The testing framework will test that the backend is getting the correct elevation data from the database 
 with a reference dataset with correct elevation data.
 					
-\item{test-id3\\}
+\item{backend-test-3\\}
 
 Control: Automatic
 					
@@ -377,7 +378,7 @@ distance is not the only metric for determining the most fuel efficient route. T
 How test will be performed: The testing framework will test that the backend is calculating the correct fuel consumption data from the database 
 with a reference dataset with correct fuel consumption data.
 					
-\item{test-id4\\}
+\item{backend-test-4\\}
 
 Control: Automatic
 					
@@ -439,10 +440,34 @@ How test will be performed:
 
 ...
 
-\subsection{Traceability Between Test Cases and Requirements}
+\newpage
 
-\wss{Provide a table that shows which test cases are supporting which
-  requirements.}
+\subsection{Traceability Between Test Cases and Requirements}
+  
+  \begin{table}[!hbp]
+	
+	\begin{tabular}{|p{3.5cm}|p{6.5cm}|p{4.5cm}|}
+
+	\hline
+	\textbf{Requirement \#} & \textbf{Description}                                                                                                                                                                  & \textbf{Test ID(s)}                                                                                          \\ \hline
+	FR1                     & The system shall allow the user a way to input a start location.                                                                                     & preliminary-information-test-1                                                                                                 \\ \hline
+	FR2                     & The system shall allow the user a way to input a final destination.                                                                             & preliminary-information-test-2                                                                                               \\ \hline
+	FR3                     & The system shall allow the user a way to select any car model and make.                                                                                                  & preliminary-information-test-3                                                                                         \\ \hline
+	FR4                     & The system shall allow the user a way to input the fuel economy of their car.  & preliminary-information-test-4                                                                                         \\ \hline
+	FR5                     & The system shall have a way to update available car models from either user input or external sources.                                                                                                         & preliminary-information-test-5                                                                                          \\ \hline
+	FR6                     & The system shall have a map to show journey from start to final destination.                                                                                                                                  & map-test-1                                                                                          \\ \hline
+	FR7                     & The system shall display the gas stations along the route.                                                                                                         & map-test-2                                                                                          \\ \hline
+	FR8                    & The system shall display gas prices at stations on route to destination.                                                                                                         & map-test-3                                                                                          \\ \hline
+	FR9                     & The system shall have a way to calculate the most fuel efficient route.                                                                                                         & backend-test-1                                                                                          \\ \hline
+	FR10                    & The system shall have a way to collect elevation data along the suggested route.                                                                                                         & backend-test-2                                                                                          \\ \hline
+	FR11                    & The system shall have a way to calculate fuel consumption on different terrain elevations.                                                                                                         & backend-test-3                                                                                          \\ \hline
+	FR12                     & The system must calculate the total cost of the journey.                                                                                                         & backend-test-4                                                                                          \\ \hline
+	
+	\end{tabular}
+	
+  \end{table}
+
+\newpage
 
 \section{Unit Test Description}
 
