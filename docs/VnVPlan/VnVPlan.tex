@@ -402,32 +402,27 @@ with a correct total cost for a route as reference.
 
 \subsection{Tests for Nonfunctional Requirements} \label{NFR}
 
-\wss{The nonfunctional requirements for accuracy will likely just reference the
-  appropriate functional tests from above.  The test cases should mention
-  reporting the relative error for these tests.}
-
-\wss{Tests related to usability could include conducting a usability test and
-  survey.}
-
-\subsubsection{Area of Testing1}
+\subsubsection{Interface Interactions}
 		
-\paragraph{Title for Test}
+\paragraph{Usability Tests}
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{usability-1\\}
 
-Type: 
+Type: Functional, Manual
 					
-Initial State: 
+Initial State: N/A
 					
-Input/Condition: 
+Input/Condition: N/A
 					
-Output/Result: 
+Output/Result: N/A
+
+Test Case Derivation: As NFR1 states, the system must have a modern, minimalist user interface.
 					
-How test will be performed: 
+How test will be performed: This test will be verified using responses to Usability Survey Question 1
 					
-\item{test-id2\\}
+\item{usability-2\\}
 
 Type: Functional, Dynamic, Manual, Static etc.
 					
@@ -441,7 +436,7 @@ How test will be performed:
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
+\subsubsection{Performance Tests}
 
 ...
 
@@ -474,122 +469,6 @@ How test will be performed:
 
 \newpage
 
-\section{Unit Test Description}
-
-\wss{Reference your MIS and explain your overall philosophy for test case
-  selection.}  
-\wss{This section should not be filled in until after the MIS has
-  been completed.}
-
-\subsection{Unit Testing Scope}
-
-\wss{What modules are outside of the scope.  If there are modules that are
-  developed by someone else, then you would say here if you aren't planning on
-  verifying them.  There may also be modules that are part of your software, but
-  have a lower priority for verification than others.  If this is the case,
-  explain your rationale for the ranking of module importance.}
-
-\subsection{Tests for Functional Requirements}
-
-\wss{Most of the verification will be through automated unit testing.  If
-  appropriate specific modules can be verified by a non-testing based
-  technique.  That can also be documented in this section.}
-
-\subsubsection{Module 1}
-
-\wss{Include a blurb here to explain why the subsections below cover the module.
-  References to the MIS would be good.  You will want tests from a black box
-  perspective and from a white box perspective.  Explain to the reader how the
-  tests were selected.}
-
-\begin{enumerate}
-
-\item{test-id1\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-Initial State: 
-					
-Input: 
-					
-Output: \wss{The expected result for the given inputs}
-
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
-
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-Initial State: 
-					
-Input: 
-					
-Output: \wss{The expected result for the given inputs}
-
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
-
-How test will be performed: 
-
-\item{...\\}
-    
-\end{enumerate}
-
-\subsubsection{Module 2}
-
-...
-
-\subsection{Tests for Nonfunctional Requirements}
-
-\wss{If there is a module that needs to be independently assessed for
-  performance, those test cases can go here.  In some projects, planning for
-  nonfunctional tests of units will not be that relevant.}
-
-\wss{These tests may involve collecting performance data from previously
-  mentioned functional tests.}
-
-\subsubsection{Module ?}
-		
-\begin{enumerate}
-
-\item{test-id1\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-Initial State: 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-
-\end{enumerate}
-
-\subsubsection{Module ?}
-
-...
-
-\subsection{Traceability Between Test Cases and Modules}
-
-\wss{Provide evidence that all of the modules have been considered.}
-				
 \bibliographystyle{plainnat}
 
 \bibliography{../../refs/References}
@@ -598,16 +477,20 @@ How test will be performed:
 
 \section{Appendix}
 
-This is where you can place additional information.
-
 \subsection{Symbolic Parameters}
 
 The definition of the test cases will call for SYMBOLIC\_CONSTANTS.
 Their values are defined in this section for easy maintenance.
 
-\subsection{Usability Survey Questions?}
+\subsection{Usability Survey Questions}
 
-\wss{This is a section that would be appropriate for some projects.}
+\begin{enumerate}
+  \item On a scale of 1 - 10, how aesthetically pleasing is the user interface?
+  \item Does the user interface have a consistent graphical style throughout the system?
+  \item On a scale of 1 - 10, how easy to navigate is the user interface?
+  \item Does the user interface feel minimalist?
+  \item Does the system run on your favorite web browser?
+\end{enumerate}
 
 \newpage{}
 \section*{Appendix --- Reflection}
