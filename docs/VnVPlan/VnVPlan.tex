@@ -502,6 +502,69 @@ How test will be performed: This test will be verified using responses to Usabil
 
 \end{enumerate}
 
+\subsubsection{Performance}
+
+\paragraph{Performance and Robustness Tests}
+
+\begin{enumerate}
+
+\item{test-pr-1\\}
+
+Type: Functional, Manual
+Initial State: N/A
+Input/Condition: Starting location, ending location.
+Output/Result: Route and fuel consumption.
+Test Case Derivation: As NFR8 states, the system shall complete the route and fuel consumption calculation in a reasonable amount of time (<5 seconds).
+How test will be performed: Starting and ending location are entered. Calculate route button is selected. Amount of time to complete calculation is measured. 
+
+\item{test-pr-2\\}
+
+Type: Functional, Manual
+Initial State: N/A	
+Input/Condition: N/A
+Output/Result: N/A
+Test Case Derivation: As NFR9 states, the system shall calculate fuel consumption as accurately as possible.
+How test will be performed: This test will be verified using responses to Usability Survey Question 11. A majority 'Yes' response is a pass.
+
+\item{test-pr-3\\}
+
+Type: Functional, Manual
+Initial State: The application is running. 
+Input/Condition: N/A
+Output/Result: N/A
+Test Case Derivation: As NFR10 states, the system shall be available for use 24 hours per day, 365 days per year.
+How test will be performed: This test will be verified using responses to Usability Survey Question 12. A majority 'No' response is a pass.
+
+\item{test-pr-4\\}
+
+Type: Functional, Manual
+Initial State: N/A	
+Input/Condition: Invalid and edge case inputs for input fields. 
+Output/Result: User is notified that they need to modify input (error handling). 
+Test Case Derivation: As NFR11 states, the system shall be able to respond to invalid or unconventional inputs.
+How test will be performed: User inputs invalid and edge cases inputs. System's response to these inputs shall be recorded.
+
+\item{test-pr-5\\}
+
+Type: Functional, Automated
+Initial State: N/A	
+Input/Condition: N/A
+Output/Result: N/A
+Test Case Derivation: As NFR13 states, the system shall be able to handle an infinite amount of users.
+How test will be performed: Script to run several instances of the program will stress test the system. System's response to a large number of users shall be recorded. 
+
+\item{test-pr-6\\}
+
+Type: Functional, Manual
+Initial State: N/A	
+Input/Condition: N/A		
+Output/Result: N/A
+Test Case Derivation: As NFR14 states, the system shall operate as long as possible.
+How test will be performed: This test will be verified using responses to Usability Survey Question 13. A majority 'No' response is a pass.
+
+\end{enumerate}
+
+
 \subsubsection{Technology}
 
 \paragraph{Technological Tests}
@@ -510,50 +573,76 @@ How test will be performed: This test will be verified using responses to Usabil
 
 \item{test-t-1\\}
 
-Type: Functional, Manual
-					
-Initial State: N/A
-					
-Input/Condition: N/A
-					
+Type: Functional, Manual		
+Initial State: N/A	
+Input/Condition: N/A		
 Output/Result: N/A
-
 Test Case Derivation: As NFR15 states, the system shall be able to run on all modern browsers.
-					
 How test will be performed: This test will be verified using responses to Usability Survey Question 5. A majority 'Yes' response is a pass.
 
 \item{test-t-2\\}
 
 Type: Functional, Manual
-					
 Initial State: N/A
-					
 Input/Condition: N/A
-					
 Output/Result: N/A
-
-Test Case Derivation: As NFR17 states, the system shall be available to download for the public via GitHub.
-					
+Test Case Derivation: As NFR17 states, the system shall be available to download for the public via GitHub.		
 How test will be performed: This test will be verified using responses to Usability Survey Question 9. A majority 'Yes' response is a pass.
 
 \item{test-t-3\\}
 
 Type: Functional, Manual
-					
 Initial State: N/A
-					
-Input/Condition: N/A
-					
+Input/Condition: N/A		
 Output/Result: N/A
-
-Test Case Derivation: As NFR20 states, the system shall be compatible to run between Windows, Mac, and Linux-based operating systems.
-					
+Test Case Derivation: As NFR20 states, the system shall be compatible to run between Windows, Mac, and Linux-based operating systems.		
 How test will be performed: This test will be verified using responses to Usability Survey Question 10. A majority 'Yes' response is a pass.
-
 
 \end{enumerate}
 
-...
+\subsubsection{Maintainability}
+
+\paragraph{Maintainability Tests}
+
+\begin{enumerate}
+
+\item{test-m-1\\}
+
+Type: Functional, Manual		
+Initial State: N/A	
+Input/Condition: N/A		
+Output/Result: N/A
+Test Case Derivation: As NFR18 states, he system's code shall be well documented and clear to be easily understandable for any developer maintaining the code.
+How test will be performed: Code inspection will be used to validate that all source code changes are documented and maintainable. 
+
+\item{test-m-2\\}
+
+Type: Functional, Manual
+Initial State: N/A
+Input/Condition: N/A
+Output/Result: N/A
+Test Case Derivation: As NFR19 states, supporting documentation shall be available on GitHub, which includes a user's guide on how to use the application.	
+How test will be performed: This test will be verified using responses to Usability Survey Question 14. A majority 'Yes' response is a pass.
+
+\end{enumerate}
+
+\subsubsection{Legal}
+
+\paragraph{Legal Tests}
+
+\begin{enumerate}
+
+\item{test-l-1\\}
+
+Type: Functional, Manual
+Initial State: N/A	
+Input/Condition: N/A		
+Output/Result: N/A
+Test Case Derivation: As NFR21 states, the system should comply with the Google Maps Platform Terms of Service.
+How test will be performed: Use Google Maps API to validate that our system is compliant with Google TOS. 
+
+\end{enumerate}
+
 
 \newpage
 
@@ -610,6 +699,10 @@ Their values are defined in this section for easy maintenance.
   \item Was the installation process easy?
   \item Is the application available to download and install via GitHub.
   \item Is the system able to run on your operating system (only answer if you are on a Windows, MacOS, Linux device). Answer 'Yes' if not applicable.
+  \item Is the system's calculation of fuel consumption accurate?
+  \item Is the system ever unavailable?
+  \item Have you experienced any unexpected crashes?
+  \item Is there a read me file in project Github repo that documents how to use the application?
 \end{enumerate}
 
 \newpage{}
