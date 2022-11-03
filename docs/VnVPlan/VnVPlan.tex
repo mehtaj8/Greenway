@@ -402,13 +402,13 @@ with a correct total cost for a route as reference.
 
 \subsection{Tests for Nonfunctional Requirements} \label{NFR}
 
-\subsubsection{Interface Interactions}
+\subsubsection{User Interface}
 		
 \paragraph{Usability Tests}
 
 \begin{enumerate}
 
-\item{usability-1\\}
+\item{test-ui-1\\}
 
 Type: Functional, Manual
 					
@@ -420,23 +420,138 @@ Output/Result: N/A
 
 Test Case Derivation: As NFR1 states, the system must have a modern, minimalist user interface.
 					
-How test will be performed: This test will be verified using responses to Usability Survey Question 1
+How test will be performed: This test will be verified using responses to Usability Survey Question 1 and 4. An average score of over 7 on Q1 and majority 'Yes' response to Q4 is considered a pass.
 					
-\item{usability-2\\}
+\item{test-ui-2\\}
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
+Type: Functional, Manual
+
+Initial State: N/A
+
+Input/Condition: N/A
+
+Output/Result: N/A
+
+Test Case Derivation: As NFR2 states, the system shall have a consistent style across the different pages (or interfaces) of the platform.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 2. A majority 'Yes' response is a pass.
+
+\item{test-ui-3\\}
+
+Type: Functional, Manual
+
+Initial State: N/A
+
+Input/Condition: N/A
+
+Output/Result: N/A
+
+Test Case Derivation: As NFR3 states, the system shall have a user interface which is intuitive and easy to navigate.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 3. An average score of over a 7 is considered a pass.
+
+\item{test-ui-4\\}
+
+Type: Functional, Manual
+
+Initial State: N/A
+
+Input/Condition: N/A
+
+Output/Result: N/A
+
+Test Case Derivation: As NFR6 states, the system shall hide the details of its implementation from the user.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 6. A majority 'No' response is a pass.
+
+\item{test-ui-5\\}
+
+Type: Functional, Manual
+
+Initial State: N/A
+
+Input/Condition: N/A
+
+Output/Result: N/A
+
+Test Case Derivation: As NFR7 states, the system shall hide the details of its implementation from the user.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 7. A majority 'Yes' response is a pass.
 
 \end{enumerate}
 
-\subsubsection{Performance Tests}
+\subsubsection{User Experience}
+
+\paragraph{Quality of Life Tests}
+
+\begin{enumerate}
+
+\item{test-qol-1\\}
+
+Type: Functional, Manual
+					
+Initial State: N/A
+					
+Input/Condition: N/A
+					
+Output/Result: N/A
+
+Test Case Derivation: As NFR16 states, the system shall have a simple installation process for all potential users.
+					
+How test will be performed: This test will be verified using responses to Usability Survey Question 8. A majority 'Yes' response is a pass.
+
+\end{enumerate}
+
+\subsubsection{Technology}
+
+\paragraph{Technological Tests}
+
+\begin{enumerate}
+
+\item{test-t-1\\}
+
+Type: Functional, Manual
+					
+Initial State: N/A
+					
+Input/Condition: N/A
+					
+Output/Result: N/A
+
+Test Case Derivation: As NFR15 states, the system shall be able to run on all modern browsers.
+					
+How test will be performed: This test will be verified using responses to Usability Survey Question 5. A majority 'Yes' response is a pass.
+
+\item{test-t-2\\}
+
+Type: Functional, Manual
+					
+Initial State: N/A
+					
+Input/Condition: N/A
+					
+Output/Result: N/A
+
+Test Case Derivation: As NFR17 states, the system shall be available to download for the public via GitHub.
+					
+How test will be performed: This test will be verified using responses to Usability Survey Question 9. A majority 'Yes' response is a pass.
+
+\item{test-t-3\\}
+
+Type: Functional, Manual
+					
+Initial State: N/A
+					
+Input/Condition: N/A
+					
+Output/Result: N/A
+
+Test Case Derivation: As NFR20 states, the system shall be compatible to run between Windows, Mac, and Linux-based operating systems.
+					
+How test will be performed: This test will be verified using responses to Usability Survey Question 10. A majority 'Yes' response is a pass.
+
+
+\end{enumerate}
 
 ...
 
@@ -490,6 +605,11 @@ Their values are defined in this section for easy maintenance.
   \item On a scale of 1 - 10, how easy to navigate is the user interface?
   \item Does the user interface feel minimalist?
   \item Does the system run on your favorite web browser?
+  \item Are details of implementation visible to a user?
+  \item Is it possible to use the application with a visual impairment?
+  \item Was the installation process easy?
+  \item Is the application available to download and install via GitHub.
+  \item Is the system able to run on your operating system (only answer if you are on a Windows, MacOS, Linux device). Answer 'Yes' if not applicable.
 \end{enumerate}
 
 \newpage{}
