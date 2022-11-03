@@ -19,7 +19,7 @@
 \begin{document}
 
 \title{Project Title: System Verification and Validation Plan for \progname{}} 
-\author{Author Name}
+\author{\authname}
 \date{\today}
 	
 \maketitle
@@ -31,8 +31,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+03-11-2022 & 1.0 & Verification and Validation Plan Version 1\\
 \bottomrule
 \end{tabularx}
 
@@ -66,8 +65,7 @@ Date 2 & 1.1 & Notes\\
 
 \pagenumbering{arabic}
 
-This document ... \wss{provide an introductory blurb and roadmap of the
-  Verification and Validation plan}
+This document shows the Verification and Validation plan for our software, which includes both the verification and implementation of the program. This document will show the plans for all critical documentation as well the system tests used for verfication of the code.
 
 \section{General Information}
 
@@ -511,55 +509,86 @@ How test will be performed: This test will be verified using responses to Usabil
 \item{test-pr-1\\}
 
 Type: Functional, Manual
+
 Initial State: N/A
+
 Input/Condition: Starting location, ending location.
+
 Output/Result: Route and fuel consumption.
-Test Case Derivation: As NFR8 states, the system shall complete the route and fuel consumption calculation in a reasonable amount of time (<5 seconds).
+
+Test Case Derivation: As NFR8 states, the system shall complete the route and fuel consumption calculation in a reasonable amount of time ($<$5 seconds).
+
 How test will be performed: Starting and ending location are entered. Calculate route button is selected. Amount of time to complete calculation is measured. 
 
 \item{test-pr-2\\}
 
 Type: Functional, Manual
+
 Initial State: N/A	
+
 Input/Condition: N/A
+
 Output/Result: N/A
+
 Test Case Derivation: As NFR9 states, the system shall calculate fuel consumption as accurately as possible.
+
 How test will be performed: This test will be verified using responses to Usability Survey Question 11. A majority 'Yes' response is a pass.
 
 \item{test-pr-3\\}
 
 Type: Functional, Manual
+
 Initial State: The application is running. 
+
 Input/Condition: N/A
+
 Output/Result: N/A
+
 Test Case Derivation: As NFR10 states, the system shall be available for use 24 hours per day, 365 days per year.
+
 How test will be performed: This test will be verified using responses to Usability Survey Question 12. A majority 'No' response is a pass.
 
 \item{test-pr-4\\}
 
 Type: Functional, Manual
+
 Initial State: N/A	
+
 Input/Condition: Invalid and edge case inputs for input fields. 
+
 Output/Result: User is notified that they need to modify input (error handling). 
+
 Test Case Derivation: As NFR11 states, the system shall be able to respond to invalid or unconventional inputs.
+
 How test will be performed: User inputs invalid and edge cases inputs. System's response to these inputs shall be recorded.
 
 \item{test-pr-5\\}
 
 Type: Functional, Automated
+
 Initial State: N/A	
+
+
 Input/Condition: N/A
+
 Output/Result: N/A
+
 Test Case Derivation: As NFR13 states, the system shall be able to handle an infinite amount of users.
+
 How test will be performed: Script to run several instances of the program will stress test the system. System's response to a large number of users shall be recorded. 
 
 \item{test-pr-6\\}
 
 Type: Functional, Manual
+
 Initial State: N/A	
+
 Input/Condition: N/A		
+
 Output/Result: N/A
+
 Test Case Derivation: As NFR14 states, the system shall operate as long as possible.
+
 How test will be performed: This test will be verified using responses to Usability Survey Question 13. A majority 'No' response is a pass.
 
 \end{enumerate}
@@ -574,28 +603,43 @@ How test will be performed: This test will be verified using responses to Usabil
 \item{test-t-1\\}
 
 Type: Functional, Manual		
+
 Initial State: N/A	
+
 Input/Condition: N/A		
+
 Output/Result: N/A
+
 Test Case Derivation: As NFR15 states, the system shall be able to run on all modern browsers.
+
 How test will be performed: This test will be verified using responses to Usability Survey Question 5. A majority 'Yes' response is a pass.
 
 \item{test-t-2\\}
 
 Type: Functional, Manual
+
 Initial State: N/A
+
 Input/Condition: N/A
+
 Output/Result: N/A
+
 Test Case Derivation: As NFR17 states, the system shall be available to download for the public via GitHub.		
+
 How test will be performed: This test will be verified using responses to Usability Survey Question 9. A majority 'Yes' response is a pass.
 
 \item{test-t-3\\}
 
 Type: Functional, Manual
+
 Initial State: N/A
+
 Input/Condition: N/A		
+
 Output/Result: N/A
+
 Test Case Derivation: As NFR20 states, the system shall be compatible to run between Windows, Mac, and Linux-based operating systems.		
+
 How test will be performed: This test will be verified using responses to Usability Survey Question 10. A majority 'Yes' response is a pass.
 
 \end{enumerate}
@@ -609,19 +653,29 @@ How test will be performed: This test will be verified using responses to Usabil
 \item{test-m-1\\}
 
 Type: Functional, Manual		
+
 Initial State: N/A	
+
 Input/Condition: N/A		
+
 Output/Result: N/A
+
 Test Case Derivation: As NFR18 states, he system's code shall be well documented and clear to be easily understandable for any developer maintaining the code.
+
 How test will be performed: Code inspection will be used to validate that all source code changes are documented and maintainable. 
 
 \item{test-m-2\\}
 
 Type: Functional, Manual
+
 Initial State: N/A
+
 Input/Condition: N/A
+
 Output/Result: N/A
+
 Test Case Derivation: As NFR19 states, supporting documentation shall be available on GitHub, which includes a user's guide on how to use the application.	
+
 How test will be performed: This test will be verified using responses to Usability Survey Question 14. A majority 'Yes' response is a pass.
 
 \end{enumerate}
@@ -635,10 +689,15 @@ How test will be performed: This test will be verified using responses to Usabil
 \item{test-l-1\\}
 
 Type: Functional, Manual
+
 Initial State: N/A	
+
 Input/Condition: N/A		
+
 Output/Result: N/A
+
 Test Case Derivation: As NFR21 states, the system should comply with the Google Maps Platform Terms of Service.
+
 How test will be performed: Use Google Maps API to validate that our system is compliant with Google TOS. 
 
 \end{enumerate}
@@ -668,6 +727,46 @@ How test will be performed: Use Google Maps API to validate that our system is c
 	FR12                     & The system must calculate the total cost of the journey.                                                                                                         & backend-test-4                                                                                          \\ \hline
 	
 	\end{tabular}
+	
+  \end{table}
+  
+   \begin{table}[!hbp]
+	
+	\begin{tabular}{|p{3.5cm}|p{6.5cm}|p{4.5cm}|}
+
+	\hline
+	\textbf{Requirement \#} & \textbf{Description}                                                                                                                                                                  & \textbf{Test ID(s)}                                                                                          \\ \hline
+	NFR1                     & The system shall have a modern minimalist user interface.                                                                                    & test-ui-1                                                                                                 \\ \hline
+	NFR2                     & The system shall have a consistent style across the different pages (or interfaces) of the platform.                                                                             & test-ui-2                                                                                                 \\ \hline
+	NFR3                     & The system shall have a user interface which is intuitive and easy to navigate.                                                                                                 & test-ui-3                                                                                         \\ \hline
+	NFR6                     & The system shall hide the details of its implementation from the user. & test-ui-4                                                                                           \\ \hline
+	NFR7                     & The system shall be accessible to users with visual impairments.                                                                                                        & test-ui-5                                                                                            \\ \hline
+	NFR16                     & The system shall have a simple installation process for all potential users.                                                                                                                                 & test-qol-1                                                                                          \\ \hline
+	NFR8                     & The system shall complete the route and fuel consumption calculation in a reasonable amount of time (<5 seconds).                                                                                                                                & test-pr-1                                                                                          \\ \hline
+	NFR9                    & The system shall calculate fuel consumption as accurately as possible.                                                                                                                                & test-pr-2                                                                                          \\ \hline
+	NFR10                     & The system shall be available for use 24 hours per day,  365 days per year.                                                                                                                                & test-pr-3                                                                                          \\ \hline
+	NFR11                     & The system shall be able to respond to invalid or unconventional inputs.                                                                                                                                & test-pr-4                                                                                          \\ \hline
+	NFR13                     & The system shall be able to handle an infinite amount of users.                                                                                                                                & test-pr-5                                                                                          \\ \hline
+	NFR14                     & The system shall operate as long as possible.                                                                                                                                & test-pr-6                                                                                          \\ \hline
+	NFR15                     & The system shall be able to run on all modern browsers.                                                                                                        & test-t-1                                                                                          \\ \hline
+	NFR17                    & The system shall be available to download for the public via GitHub.                                                                                                        & test-t-2                                                                                          \\ \hline
+	\end{tabular}
+	
+  \end{table}
+  
+  \newpage	
+  
+\begin{table}[!hbp]
+	
+	\begin{tabular}{|p{3.5cm}|p{6.5cm}|p{4.5cm}|}
+
+	\hline
+	\textbf{Requirement \#} & \textbf{Description}                                                                                                                                                                  & \textbf{Test ID(s)}                                                                                          \\ \hline	
+	NFR20                     & The system shall be compatible to run between Windows, Mac, and Linux-based operating systems.                                                                                                       & test-t-3                                                                                          \\ \hline
+	NFR18                    & The system's code shall be well documented and clear to be easily understandable for any developer maintaining the code.                                                                                                        & test-m-1                                                                                          \\ \hline
+	NFR19                    & Supporting documentation shall be available on GitHub, which includes a user's guide on how to use the application.                                                                                                        & test-m-2                                                                                          \\ \hline
+	NFR21                     & The system should comply with the Google Maps Platform Terms of Service.                                                                                                        & test-l-1                                                                                          \\ \hline
+		\end{tabular}
 	
   \end{table}
 
