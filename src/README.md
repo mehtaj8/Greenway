@@ -17,7 +17,7 @@ The folders and files for this project are as follows:
     - `App.js`
     - `index.js`
   
-**Ignore other folders files not mentioned, other folders and files are for project setup**
+**Ignore other folders and files not mentioned, other folders and files are for project setup**
 
 ## Usage
 
