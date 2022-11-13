@@ -277,3 +277,29 @@ TSWLatexianTemp*
 
 # DS_Store file from Mac computers
 .DS_Store
+
+# dependencies
+src/greenway/backend/node_modules
+src/greenway/node_modules
+src/greenway/.pnp
+src/greenway.pnp.js
+
+# testing
+src/greenway/coverage
+
+# production
+src/greenway/build
+
+# misc
+src/greenway/.DS_Store
+src/greenway/.env.local
+src/greenway/.env.development.local
+src/greenway/.env.test.local
+src/greenway/.env.production.local
+
+src/greenway/npm-debug.log*
+src/greenway/yarn-debug.log*
+src/greenway/yarn-error.log*
+
+src/greenway/.env
+src/greenway/backend/.env
