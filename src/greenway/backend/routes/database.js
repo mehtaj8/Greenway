@@ -4,8 +4,10 @@ const dotenv = require('dotenv');
 const axios = require("axios");
 const { MongoClient } = require('mongodb');
 dotenv.config();
-var db;
-var collection;
+var elevDB;
+var elevCollection;
+var carDB;
+var carCollection;
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
@@ -13,8 +15,10 @@ const client = new MongoClient(uri);
 async function connect() {
     await client.connect();
     console.log('Connected successfully to server');
-    db = client.db('elevationData');
-    collection = db.collection('elevationData');
+    elevDB = client.db('elevationData');
+    elevCollection = elevDB.collection('elevationData');
+    carDB = client.db('carData');
+    carCollection = carDB.collection('carData');
 }
 
 connect();
@@ -29,6 +33,45 @@ async function getElevationData(points){
         });
     }
     return elevationData;
+}
+
+async function getCarMakes() {
+    const makeList = await carCollection.distinct("Make");
+    return makeList;
+}
+
+function getCarModels(make) {
+    //console.log(make);
+    let models = [];
+    let query = { Make: make };
+    //models = await carCollection.find(query);
+    return new Promise(function(resolve, reject) {
+        carCollection.find(query).toArray( function(err, docs) {
+         if (err) {
+           // Reject the Promise with an error
+           return reject(err)
+         }
+   
+         // Resolve (or fulfill) the promise with data
+         return resolve(docs)
+       })
+     });
+}
+
+function getCarData(make, model) {
+    let query = { Make: make, Model: model };
+    //models = await carCollection.find(query);
+    return new Promise(function(resolve, reject) {
+        carCollection.find(query).toArray( function(err, docs) {
+         if (err) {
+           // Reject the Promise with an error
+           return reject(err)
+         }
+   
+         // Resolve (or fulfill) the promise with data
+         return resolve(docs)
+       })
+     });
 }
 
 router.post('/elevation', async(req, res) => {
@@ -46,10 +89,47 @@ router.post('/elevation', async(req, res) => {
     }
 
     console.log(itemList);
-    const insertResult = await collection.insertMany(itemList);
+    const insertResult = await elevCollection.insertMany(itemList);
     console.log('Inserted documents =>', insertResult);
 
     res.send("Successfully added data");
+});
+
+router.get('/cardata/makes', async(req, res) => {
+    const makeList = await getCarMakes();
+    //console.log(makeList);
+
+    res.send(makeList);
+});
+
+router.get('/cardata/models/:make', async(req, res) => {
+    const make = req.params.make;
+    //console.log(make);
+    let out = [];
+    const modelList = await getCarModels(make);
+
+    for (let i = 0; i < modelList.length; i++){
+        out.push(modelList[i].Model);
+    }
+
+    res.send(out);
+});
+
+router.get('/cardata/getMilage/:make/:model', async(req, res) => {
+    const make = req.params.make;
+    const model = req.params.model;
+    //console.log(make);
+    let out = [];
+    const DataList = await getCarData(make, model);
+    let member = 'Fuel Consumption Comb (L/100 km)';
+    console.log(DataList);
+
+    for (let i = 0; i < DataList.length; i++){
+        let curr = DataList[i];
+        out.push(curr[member]);
+    }
+
+    res.send(out);
 });
 
 module.exports = router;
