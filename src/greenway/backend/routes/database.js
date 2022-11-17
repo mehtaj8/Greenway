@@ -40,13 +40,38 @@ async function getCarMakes() {
     return makeList;
 }
 
-async function getCarModels(make) {
+function getCarModels(make) {
     //console.log(make);
     let models = [];
     let query = { Make: make };
-    models = await carCollection.find(query);
-    console.log(models);
-    return models;
+    //models = await carCollection.find(query);
+    return new Promise(function(resolve, reject) {
+        carCollection.find(query).toArray( function(err, docs) {
+         if (err) {
+           // Reject the Promise with an error
+           return reject(err)
+         }
+   
+         // Resolve (or fulfill) the promise with data
+         return resolve(docs)
+       })
+     });
+}
+
+function getCarData(make, model) {
+    let query = { Make: make, Model: model };
+    //models = await carCollection.find(query);
+    return new Promise(function(resolve, reject) {
+        carCollection.find(query).toArray( function(err, docs) {
+         if (err) {
+           // Reject the Promise with an error
+           return reject(err)
+         }
+   
+         // Resolve (or fulfill) the promise with data
+         return resolve(docs)
+       })
+     });
 }
 
 router.post('/elevation', async(req, res) => {
@@ -82,12 +107,27 @@ router.get('/cardata/models/:make', async(req, res) => {
     //console.log(make);
     let out = [];
     const modelList = await getCarModels(make);
-    modelList.toArray(function(err, result) {
-        if (err) throw err;
-        out = result;
-    });
-    console.log("MODEL LIST");
-    console.log(out);
+
+    for (let i = 0; i < modelList.length; i++){
+        out.push(modelList[i].Model);
+    }
+
+    res.send(out);
+});
+
+router.get('/cardata/getMilage/:make/:model', async(req, res) => {
+    const make = req.params.make;
+    const model = req.params.model;
+    //console.log(make);
+    let out = [];
+    const DataList = await getCarData(make, model);
+    let member = 'Fuel Consumption Comb (L/100 km)';
+    console.log(DataList);
+
+    for (let i = 0; i < DataList.length; i++){
+        let curr = DataList[i];
+        out.push(curr[member]);
+    }
 
     res.send(out);
 });

@@ -6,8 +6,6 @@ import {
     ButtonGroup,
     HStack,
     Input,
-    Wrap,
-    WrapItem,
     Center,
     Container
 } from '@chakra-ui/react'
@@ -149,13 +147,17 @@ function calcCar() {
     var make = document.getElementById('make').value;
     var model = document.getElementById('model').value;
 
-    axios.get("http://localhost:3001/db/cardata/makes").then((response, error) => {
+    // axios.get("http://localhost:3001/db/cardata/makes").then((response, error) => {
+    //     console.log(response);
+    // })
+
+    // axios.get("http://localhost:3001/db/cardata/models/BMW").then((response, error) => {
+    //     console.log(response);
+    // })
+    axios.get("http://localhost:3001/db/cardata/getMilage/"+ make + "/" + model).then((response, error) => {
         console.log(response);
     })
 
-    axios.get("http://localhost:3001/db/cardata/models/BMW").then((response, error) => {
-        console.log(response);
-    })
 }
 
 // Gives an overview of the path in the console
