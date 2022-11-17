@@ -92,7 +92,7 @@ class MapContainer extends Component {
                                 <Input id='model' type='text' placeholder='Model' />
                             </Box>
                             <ButtonGroup >
-                                <Button colorScheme='blue' type='submit'>
+                                <Button colorScheme='blue' type='submit' onClick={calcCar}>
                                     Select Car
                                 </Button>
                             </ButtonGroup>
@@ -149,27 +149,13 @@ function calcCar() {
     var make = document.getElementById('make').value;
     var model = document.getElementById('model').value;
 
-    // Set origin and destination and feed it to the directionsService
-    // if (make !== '' && model !== '') {
-    //     var request = {
-    //         origin: start,
-    //         destination: end,
-    //         travelMode: 'DRIVING',
-    //     };
+    axios.get("http://localhost:3001/db/cardata/makes").then((response, error) => {
+        console.log(response);
+    })
 
-    //     directionsService.route(request, function (result, status) {
-    //         if (status === 'OK') {
-    //             directionsRenderer.setDirections(result);
-    //             pathOverview(result);
-    //         }
-    //     });
-    // }
-    // // Reset map if input boxes are empty
-    // else {
-    //     directionsRenderer.set('directions', null);
-    //     mainMap.panTo(mac);
-    //     mainMap.setZoom(13);
-    // }
+    axios.get("http://localhost:3001/db/cardata/models/BMW").then((response, error) => {
+        console.log(response);
+    })
 }
 
 // Gives an overview of the path in the console

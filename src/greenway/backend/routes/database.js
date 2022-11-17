@@ -41,12 +41,11 @@ async function getCarMakes() {
 }
 
 async function getCarModels(make) {
+    //console.log(make);
     let models = [];
-    await carCollection.find(query).toArray(function(err, result) {
-        if (err) throw err;
-        console.log(result);
-        models = result;
-    });
+    let query = { Make: make };
+    models = await carCollection.find(query);
+    console.log(models);
     return models;
 }
 
@@ -73,17 +72,24 @@ router.post('/elevation', async(req, res) => {
 
 router.get('/cardata/makes', async(req, res) => {
     const makeList = await getCarMakes();
-    console.log(makeList);
+    //console.log(makeList);
 
     res.send(makeList);
 });
 
 router.get('/cardata/models/:make', async(req, res) => {
     const make = req.params.make;
+    //console.log(make);
+    let out = [];
     const modelList = await getCarModels(make);
-    console.log(modelList);
+    modelList.toArray(function(err, result) {
+        if (err) throw err;
+        out = result;
+    });
+    console.log("MODEL LIST");
+    console.log(out);
 
-    res.send(modelList);
+    res.send(out);
 });
 
 module.exports = router;
