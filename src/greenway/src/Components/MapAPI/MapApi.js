@@ -23,8 +23,46 @@ axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded'
 class MapContainer extends Component {
     state = {
         mileage: "No car selected yet",
-        gasprice: 0
+        gasprice: 0,
+        travel_distance: 0
     };
+
+    calcRoute = () => {
+
+        const setDistance = (val) => {
+            this.setState({travel_distance: val/1000});
+        }
+
+        var start = document.getElementById('start').value;
+        var end = document.getElementById('end').value;
+        var travel_distance_test = 2;
+    
+        // Set origin and destination and feed it to the directionsService
+        if (start !== end && start !== '' && end !== '') {
+            var request = {
+                origin: start,
+                destination: end,
+                travelMode: 'DRIVING',
+            };
+    
+            directionsService.route(request, function (result, status) {
+                if (status === 'OK') {
+                    directionsRenderer.setDirections(result);
+                    console.log(result.routes[0].legs[0].distance.value);
+                    travel_distance_test = result.routes[0].legs[0].distance.value;
+                    setDistance(travel_distance_test);
+                    pathOverview(result);
+                }
+            });
+        }
+        // Reset map if input boxes are empty
+        else {
+            directionsRenderer.set('directions', null);
+            mainMap.panTo(mac);
+            mainMap.setZoom(13);
+        }
+        //this.setState({travel_distance: travel_distance_test});
+    }
 
     calcCar = () => {
         var make = document.getElementById('make').value;
@@ -89,7 +127,7 @@ class MapContainer extends Component {
                                 <Input id='end' type='text' placeholder='Destination' />
                             </Box>
                             <ButtonGroup>
-                                <Button colorScheme='blue' type='submit' onClick={calcRoute}>
+                                <Button colorScheme='blue' type='submit' onClick={this.calcRoute}>
                                     Calculate Route
                                 </Button>
                             </ButtonGroup>
@@ -142,7 +180,13 @@ class MapContainer extends Component {
                         <HStack spacing={2} justifyContent='stretch'>
                             <Box flexGrow={1}>
                                 <Text>
-                                    Mileage: {this.state.mileage}
+                                    Mileage: {this.state.mileage} L/100km, Gas Price: ${this.state.gasprice}, 
+                                </Text>
+                                <Text>
+                                    Distance: {this.state.travel_distance} km
+                                </Text>
+                                <Text>
+                                    Total price of trip: ${this.state.mileage*this.state.gasprice*this.state.travel_distance/100}
                                 </Text>
                             </Box>
                         </HStack>
@@ -168,32 +212,6 @@ const apiIsLoaded = (map, maps) => {
 }
 
 // Calculate Route
-function calcRoute() {
-    var start = document.getElementById('start').value;
-    var end = document.getElementById('end').value;
-
-    // Set origin and destination and feed it to the directionsService
-    if (start !== end && start !== '' && end !== '') {
-        var request = {
-            origin: start,
-            destination: end,
-            travelMode: 'DRIVING',
-        };
-
-        directionsService.route(request, function (result, status) {
-            if (status === 'OK') {
-                directionsRenderer.setDirections(result);
-                pathOverview(result);
-            }
-        });
-    }
-    // Reset map if input boxes are empty
-    else {
-        directionsRenderer.set('directions', null);
-        mainMap.panTo(mac);
-        mainMap.setZoom(13);
-    }
-}
 
 // Gives an overview of the path in the console
 function pathOverview(directionResult) {
