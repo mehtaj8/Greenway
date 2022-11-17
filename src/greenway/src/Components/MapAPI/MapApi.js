@@ -22,7 +22,8 @@ axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded'
 
 class MapContainer extends Component {
     state = {
-        mileage: "No car selected yet"
+        mileage: "No car selected yet",
+        gasprice: 0
     };
 
     calcCar = () => {
@@ -39,6 +40,11 @@ class MapContainer extends Component {
         axios.get("http://localhost:3001/db/cardata/getMilage/"+ make + "/" + model).then((response, error) => {
             console.log(response);
             this.setState({mileage: response.data});
+        })
+
+        axios.get("http://localhost:3001/gasprice/ontario").then((response, error) => {
+            console.log(response);
+            this.setState({gasprice: response.data});
         })
     }
 
