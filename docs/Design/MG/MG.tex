@@ -188,7 +188,14 @@ actually be implemented.
 
 \begin{description}
 \item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
-\item ...
+\item [\refstepcounter{mnum} \mthemnum \label{mLI}:] Location Input Module
+\item [\refstepcounter{mnum} \mthemnum \label{mCI}:] Car Input Module
+\item [\refstepcounter{mnum} \mthemnum \label{mMDisp}:] Map Display Module
+\item [\refstepcounter{mnum} \mthemnum \label{mFI}:] Fuel Information Module
+\item [\refstepcounter{mnum} \mthemnum \label{mEL}:] Elevation Module
+\item [\refstepcounter{mnum} \mthemnum \label{mMData}:] Map Data Module
+\item [\refstepcounter{mnum} \mthemnum \label{mCD}:] Car Data Module
+\item [\refstepcounter{mnum} \mthemnum \label{mFD}:] Fuel Data Module
 \end{description}
 
 
@@ -202,19 +209,16 @@ actually be implemented.
 {Hardware-Hiding Module} & ~ \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\ 
-& ?\\
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & Location Input Module\\
+& Car Input Module\\
+& Map Display Module\\
+& Fuel Information Module\\
+& Elevation Module\\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module} & {?}\\
-& ?\\
-& ?\\
+\multirow{3}{0.3\textwidth}{Software Decision Module} & Map Data Module\\
+& Car Data Module\\
+& Fuel Data Module\\
 \bottomrule
 
 \end{tabular}
@@ -276,18 +280,54 @@ to be implemented.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Input Format Module (\mref{mInput})}
+\subsubsection{Location Input Module (\mref{mLI})}
 
 \begin{description}
-\item[Secrets:]The format and structure of the input data.
-\item[Services:]Converts the input data into the data structure used by the
-  input parameters module.
-\item[Implemented By:] [Your Program Name Here]
-\item[Type of Module:] [Record, Library, Abstract Object, or Abstract Data Type]
-  [Information to include for leaf modules in the decomposition by secrets tree.]
+\item[Secrets:] Handles the user input of any location data.
+\item[Services:] Converts the user input of location to coordinates with the assistance 
+of Map Data Module. Stores any necessary information from the conversion and for future 
+use in the app.
+\item[Implemented By:] \progname{}
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Car Input Module (\mref{mCI})}
+
+\begin{description}
+\item[Secrets:] Handles the user input of any car related data.
+\item[Services:] Converts the user input of car details to store necessary information. 
+And works with Car Data to validate car details to use with the application.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\subsubsection{Map Display Module (\mref{mMDisp})}
+
+\begin{description}
+\item[Secrets:] Displays the Map and coordinates interactions related with it.
+\item[Services:] Works with the Map Data Module to retrieve map details accurately 
+update the display for it as necessary. Along with using the data provided by the 
+Location Input Module to update any markers on the map.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\subsubsection{Fuel Information Module (\mref{mFI})}
+
+\begin{description}
+\item[Secrets:] Handles any information related to mileage data and fuel prices. Respectively 
+outputs or takes in put of any related data.
+\item[Services:] Works with the Fuel Data Module to retrieve accurate fuel prices and mileage 
+data respectively. Along with parsing information for use in any other module.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\subsubsection{Elevation Module (\mref{mEL})}
+
+\begin{description}
+\item[Secrets:] Handles any information related to Elevation related information at any point 
+on the map.
+\item[Services:] Works with the Map Data Module to retrieve Elevation data to use for computations 
+such as total cost and mileage changes respectively due to elevation gradients.
+\item[Implemented By:] \progname{}
+\end{description}
 
 
 \subsection{Software Decision Module}
@@ -303,7 +343,32 @@ to be implemented.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Map Data Module (\mref{mMData})}
+
+\begin{description}
+\item[Secrets:] Retrieves any map related data that is required for the application to function.
+\item[Services:] Uses HTTPS get requests with Google Maps API's to retrieve necessary information 
+for the getting map related data and stores it respectively.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\subsubsection{Car Data Module (\mref{mCD})}
+
+\begin{description}
+\item[Secrets:] Retrieves any car related data that is required for the application to function.
+\item[Services:] Uses HTTPS RESP API requests with existing MongoDB Database to retrieve any car related 
+data for validation purposes. Similarily, store any information that is not found in the database.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\subsubsection{Fuel Data Module (\mref{mFD})}
+
+\begin{description}
+\item[Secrets:] Retrieves any Fuel related data that is required for the application to function.
+\item[Services:] Uses HTTPS get requests with existing Fuel Information API to retrieve any fuel related 
+data for calculations. Similarily, store any information that is not from the API calls.
+\item[Implemented By:] \progname{}
+\end{description}
 
 \section{Traceability Matrix} \label{SecTM}
 
@@ -318,17 +383,18 @@ requirements and between the modules and the anticipated changes.
 \toprule
 \textbf{Req.} & \textbf{Modules}\\
 \midrule
-R1 & \mref{mHH}, \mref{mInput}, \mref{mParams}, \mref{mControl}\\
-R2 & \mref{mInput}, \mref{mParams}\\
-R3 & \mref{mVerify}\\
-R4 & \mref{mOutput}, \mref{mControl}\\
-R5 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R6 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R7 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R8 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R9 & \mref{mVerifyOut}\\
-R10 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}\\
-R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
+FR1 & \mref{mLI}, \mref{mMData}, \mref{mMDisp}\\
+FR2 & \mref{mLI}, \mref{mMData}, \mref{mMDisp}\\
+FR3 & \mref{mCI}, \mref{mCD},\\
+FR4 & \mref{mFI}, \mref{mFD}\\
+FR5 & \mref{mCI}, \mref{mCD}\\
+FR6 & \mref{mMDisp}, \mref{mMData}\\
+FR7 & \mref{mMDisp}, \mref{mFI}, \mref{mFD}\\
+FR8 & \mref{mFI}, \mref{mFD}\\
+FR9 & \mref{mMData}, \mref{mCD}, \mref{mFD}\\
+FR10 & \mref{mEL}, \mref{mMData}\\
+FR11 & \mref{mEL}, \mref{mMData}, \mref{mFI}, \mref{mFD}\\
+FR12 & \mref{mMData}, \mref{mCD}, \mref{mFD}\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Requirements and Modules}
