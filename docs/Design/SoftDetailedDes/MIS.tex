@@ -40,7 +40,7 @@ urlcolor=cyan          % color of external links
 
 \title{Module Interface Specification for \progname{}}
 
-\author{\authname}
+\author{\authname{}}
 
 \date{\today}
 
@@ -53,7 +53,7 @@ urlcolor=cyan          % color of external links
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
+Jan 18, 2023 & 1.0 & Revision 0\\
 Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
@@ -62,9 +62,7 @@ Date 2 & 1.1 & Notes\\
 
 \section{Symbols, Abbreviations and Acronyms}
 
-See SRS Documentation at \wss{give url}
-
-\wss{Also add any additional symbols, abbreviations or acronyms}
+See SRS Documentation on \href{https://github.com/mehtaj8/Greenway/blob/main/docs/SRS/SRS.pdf}{project repo}.
 
 \newpage
 
@@ -77,21 +75,18 @@ See SRS Documentation at \wss{give url}
 \section{Introduction}
 
 The following document details the Module Interface Specifications for
-\wss{Fill in your project name and description}
+\progname{}.
 
 Complementary documents include the System Requirement Specifications
 and Module Guide.  The full documentation and implementation can be
-found at \url{...}.  \wss{provide the url for your repo}
+found at \url{https://github.com/mehtaj8/Greenway}.
 
 \section{Notation}
 
-\wss{You should describe your notation.  You can use what is below as
-  a starting point.}
-
-The structure of the MIS for modules comes from \citet{HoffmanAndStrooper1995},
+The structure of the MIS for modules comes from HoffmanAndStrooper1995,
 with the addition that template modules have been adapted from
-\cite{GhezziEtAl2003}.  The mathematical notation comes from Chapter 3 of
-\citet{HoffmanAndStrooper1995}.  For instance, the symbol := is used for a
+GhezziEtAl2003.  The mathematical notation comes from Chapter 3 of
+HoffmanAndStrooper1995.  For instance, the symbol := is used for a
 multiple assignment statement and conditional rules follow the form $(c_1
 \Rightarrow r_1 | c_2 \Rightarrow r_2 | ... | c_n \Rightarrow r_n )$.
 
@@ -120,32 +115,32 @@ different types. In addition, \progname \ uses functions, which
 are defined by the data types of their inputs and outputs. Local functions are
 described by giving their type signature followed by their specification.
 
+\newpage
+
 \section{Module Decomposition}
 
 The following table is taken directly from the Module Guide document for this project.
 
-\begin{table}[h!]
+\begin{table}[h]
 \centering
 \begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
 \toprule
 \textbf{Level 1} & \textbf{Level 2}\\
 \midrule
 
-{Hardware-Hiding} & ~ \\
+{Hardware-Hiding Module} & ~ \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding} & Input Parameters\\
-& Output Format\\
-& Output Verification\\
-& Temperature ODEs\\
-& Energy Equations\\ 
-& Control Module\\
-& Specification Parameters Module\\
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & Location Input Module\\
+& Car Input Module\\
+& Map Display Module\\
+& Fuel Information Module\\
+& Elevation Module\\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision} & {Sequence Data Structure}\\
-& ODE Solver\\
-& Plotting\\
+\multirow{3}{0.3\textwidth}{Software Decision Module} & Map Data Module\\
+& Car Data Module\\
+& Fuel Data Module\\
 \bottomrule
 
 \end{tabular}
@@ -154,21 +149,198 @@ The following table is taken directly from the Module Guide document for this pr
 \end{table}
 
 \newpage
-~\newpage
 
-\section{MIS of \wss{Module Name}} \label{Module} \wss{Use labels for
-  cross-referencing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\wss{You can reference SRS labels, such as R\ref{R_Inputs}.}
+\section{MIS of Location Input Module (M2)} 
 
-\wss{It is also possible to use \LaTeX for hypperlinks to external documents.}
+\label{Module}
 
-\subsection{Module}
+\subsection{Module extends React.Component}
 
-\wss{Short name for the module}
+Location\_Input\_Module
 
 \subsection{Uses}
 
+Map\_Data\_Module
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  setCurrentLocation & String & ~ & Location not found.\\
+  \hline
+  setDestinationLocation & String & ~ & Location not found.\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{props}: \text{HTML attribute}$\\
+
+\subsubsection{Environment Variables}
+
+None
+
+\subsubsection{Assumptions}
+
+None
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = initialBlock$
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent setCurrentLocation($String$):
+\begin{itemize}
+\item transition: This function sets the current location from the user.
+\item exception: Location not found.
+\end{itemize}
+
+\noindent setDestinationLocation($String$):
+\begin{itemize}
+\item transition: This function sets the destination location from the user.
+\item exception: Location not found.
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the output of the Input Location Module.
+\item exception: none
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of Car Input Module (M3)} 
+
+\label{Module} 
+
+\subsection{Module extends React.Component}
+
+Car\_Input\_Module
+
+\subsection{Uses}
+
+Car\_Data\_Module
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  constructor & HTML attribute & ~ & ~\\
+  \hline
+  setCarMake & String & ~ & Make not found.\\
+  \hline
+  setCarModel & String & ~ & Model not found.\\
+  \hline
+  setCarYear & Number & ~ & Car not found.\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+$\mathit{props}: \text{HTML attribute}$\\
+
+\subsubsection{Environment Variables}
+
+None
+
+\subsubsection{Assumptions}
+
+None
+
+\subsubsection{Access Routine Semantics}
+
+\noindent constructor($props$):
+\begin{itemize}
+\item transition: $\mathit{state} = initialBlock$
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent setCarMake($String$):
+\begin{itemize}
+\item transition: This function sets the make of the car from the user.
+\item exception: Location not found.
+\end{itemize}
+
+\noindent setCarModel($String$):
+\begin{itemize}
+\item transition: This function sets the model of the car from the user.
+\item exception: Location not found.
+\end{itemize}
+
+\noindent setCarYear($String$):
+\begin{itemize}
+\item transition: This function sets the manufacturing year of the car from the user.
+\item exception: Location not found.
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the output of the Input Car Module.
+\item exception: none
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of Map Display Module (M4)} 
+
+\subsection{Module}
+
+Map\_Display\_Module, Location\_Input\_Module
+
+\subsection{Uses}
+
+Map\_Data\_Module
 
 \subsection{Syntax}
 
@@ -176,66 +348,389 @@ The following table is taken directly from the Module Guide document for this pr
 
 \subsubsection{Exported Access Programs}
 
-\begin{center}
-\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-\wss{accessProg} & - & - & - \\
-\hline
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  getRoute & List$<$String, String$>$ & List$<\mathbb{R},\mathbb{R}>$ & Location not found.\\
+  \hline
+  calRoute & $\mathbb{R}$ & ~ & Make not found.\\
+  \hline
+  pathOverview & List$<\mathbb{R},\mathbb{R}>$ & ReactDOM & Location not found.\\
+  render & ~ & ReactDOM & ~\\
+  \hline
 \end{tabular}
-\end{center}
+
 
 \subsection{Semantics}
 
 \subsubsection{State Variables}
 
-\wss{Not all modules will have state variables.  State variables give the module
-  a memory.}
+Map\_state: $String$
 
 \subsubsection{Environment Variables}
 
-\wss{This section is not necessary for all modules.  Its purpose is to capture
-  when the module has external interaction with the environment, such as for a
-  device driver, screen interface, keyboard, file, etc.}
+None
 
 \subsubsection{Assumptions}
 
-\wss{Try to minimize assumptions and anticipate programmer errors via
-  exceptions, but for practical purposes assumptions are sometimes appropriate.}
+None
 
 \subsubsection{Access Routine Semantics}
 
-\noindent \wss{accessProg}():
+\noindent getRoute(List$<$String, String$>$):
 \begin{itemize}
-\item transition: \wss{if appropriate} 
-\item output: \wss{if appropriate} 
-\item exception: \wss{if appropriate} 
+\item output: List$<\mathbb{R},\mathbb{R}>$ : Coordinates of the start and destination locations.
+\item exception: Location not found.
 \end{itemize}
 
-\wss{A module without environment variables or state variables is unlikely to
-  have a state transition.  In this case a state transition can only occur if
-  the module is changing the state of another module.}
+\noindent calRoute($String$):
+\begin{itemize}
+\item transition: This function sets the model of the car from the user.
+\item exception: Location not found.
+\end{itemize}
 
-\wss{Modules rarely have both a transition and an output.  In most cases you
-  will have one or the other.}
+\noindent pathOverview(List$<\mathbb{R},\mathbb{R}>$):
+\begin{itemize}
+\item Output: The route from start to end destination.
+\item exception: Map component not loaded.
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the output of the MAP component.
+\item exception: none
+\end{itemize}
 
 \subsubsection{Local Functions}
 
-\wss{As appropriate} \wss{These functions are for the purpose of specification.
-  They are not necessarily something that is going to be implemented
-  explicitly.  Even if they are implemented, they are not exported; they only
-  have local scope.}
+None
 
 \newpage
 
-\bibliographystyle {plainnat}
-\bibliography {../../../refs/References}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of Fuel Information Module (M5)} 
+
+\label{Module} 
+
+\subsection{Module extends React.Component}
+
+Fuel\_Information\_Module
+
+\subsection{Uses}
+
+Fuel\_Data\_Module, Car\_Data\_Module, Car\_Input\_Module
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  getMileage & List$<$String, String, $\mathbb{R}>$ & $\mathbb{R}$ & ~\\
+  \hline
+  getFuelPrice & List$<\mathbb{R},\mathbb{R}>$ & $\mathbb{R}$ & ~\\
+  \hline
+  getElevation & List$<\mathbb{R},\mathbb{R}>$ & Array$<\mathbb{R}>$ & ~\\
+  \hline
+  calFuelUsage & List$<\mathbb{R},\mathbb{R},\mathbb{R}>$ & $\mathbb{R}$ & ~\\
+  \hline
+  render & ~ & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None
+
+\subsubsection{Environment Variables}
+
+None
+
+\subsubsection{Assumptions}
+
+None
+
+\subsubsection{Access Routine Semantics}
+
+\noindent getMilage (List$<$String, String, $\mathbb{R}>$) :
+\begin{itemize}
+\item output: $\mathbb{R}$ : The mileage of the car model.
+\item exception: Location not found.
+\end{itemize}
+
+\noindent getFuelPrice(List$<\mathbb{R},\mathbb{R}>$) :
+\begin{itemize}
+\item output: $\mathbb{R}$ : The average fuel price on the route to destination.
+\item exception: Location not found.
+\end{itemize}
+
+\noindent getElevation(List$<\mathbb{R},\mathbb{R}>$) :
+\begin{itemize}
+\item output: Array$<\mathbb{R}>$ : All the elevation point from the current location to destination location.
+\item exception: Map component not loaded.
+\end{itemize}
+
+\noindent calFuelUsage(List$<\mathbb{R},\mathbb{R},\mathbb{R}>$):
+\begin{itemize}
+\item output: $\mathbb{R}$ : The total fuel usage for the trip.
+\item exception: Map component not loaded.
+\end{itemize}
+
+\noindent render():
+\begin{itemize}
+\item output: This function renders the outputs the milage, the distance travelled and the total cost.
+\item exception: none
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None
 
 \newpage
 
-\section{Appendix} \label{Appendix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\wss{Extra information if required}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of Elevation Module (M6)} 
+
+\label{Module} 
+
+\subsection{Module extends React.Component}
+
+Elevation\_Information\_Module
+
+\subsection{Uses}
+
+Map\_Data\_Module
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  getElevation & List$<\mathbb{R},\mathbb{R}>$ & Array$<\mathbb{R}>$ & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None
+
+\subsubsection{Environment Variables}
+
+None
+
+\subsubsection{Assumptions}
+
+None
+
+\subsubsection{Access Routine Semantics}
+
+\noindent getElevation(List$<\mathbb{R},\mathbb{R}>$) :
+\begin{itemize}
+\item output: Array$<\mathbb{R}>$ : All the elevation point from the current location to destination location.
+\item exception: Map component not loaded.
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of Map Data Module (M7)} 
+
+\label{Module} 
+
+\subsection{Module extends React.Component}
+
+Map\_Data\_Module
+
+\subsection{Uses}
+
+None
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  getMapData & List$<\mathbb{R},\mathbb{R}>$ & Array$<\mathbb{R}>$ & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None
+
+\subsubsection{Environment Variables}
+
+None
+
+\subsubsection{Assumptions}
+
+None
+
+\subsubsection{Access Routine Semantics}
+
+\noindent getMapData(List$<\mathbb{R},\mathbb{R}>$) :
+\begin{itemize}
+\item output: Array$<\mathbb{R}>$ : Retrieves all the map components used for determining the current and the destination locations.
+\item exception: Map component not loaded.
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of Car Data Module (M8)} 
+
+\label{Module} 
+
+\subsection{Module extends React.Component}
+
+Car\_Data\_Module
+
+\subsection{Uses}
+
+None
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  getCarData & List$<$string, string, $\mathbb{R}>$ & Array$<\mathbb{R}>$ & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None
+
+\subsubsection{Environment Variables}
+
+None
+
+\subsubsection{Assumptions}
+
+None
+
+\subsubsection{Access Routine Semantics}
+
+\noindent getCarData(List$<$string, string, $\mathbb{R}>$) :
+\begin{itemize}
+\item output: Array$<\mathbb{R}>$ : Retrieves all the data related to the car chosen by the user from the database, which includes the make and the model of the car, the year it was manufactured, and it's fuel mileage.
+\item exception: Car component not loaded.
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of Fuel Data Module (M9)} 
+
+\label{Module} 
+
+\subsection{Module extends React.Component}
+
+Fuel\_Data\_Module
+
+\subsection{Uses}
+
+None
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  getFuelData & List$<\mathbb{R},\mathbb{R}>$ & Array$<\mathbb{R}>$ & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None
+
+\subsubsection{Environment Variables}
+
+None
+
+\subsubsection{Assumptions}
+
+None
+
+\subsubsection{Access Routine Semantics}
+
+\noindent getFuelData(List$<\mathbb{R},\mathbb{R}>$) :
+\begin{itemize}
+\item output: Array$<\mathbb{R}>$ : Retrieves all fuel prices near current location.
+\item exception: Fuel component not loaded.
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
