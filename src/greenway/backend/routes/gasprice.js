@@ -14,4 +14,15 @@ router.get('/ontario', async(req, res) => {
     res.send(out);
 });
 
+router.get('/precise', async(req, res) => {
+    let lat = req.query.lat;
+    let long = req.query.long;
+    let out = 0;
+    await axios.post("https://www.gasbuddy.com/gaspricemap/county?lat="+lat+"&lng="+long+"&usa=false").then((response, err) => {
+        out = response.data[0].Price;
+    });
+
+    res.send({price: out});
+});
+
 module.exports = router;
