@@ -175,7 +175,7 @@ class MapContainer extends Component {
                         m={4}
                         bgColor='white'
                         shadow='base'
-                        maxW='600px'
+                        maxW='400px'
                     >
                         <HStack spacing={2} justifyContent='stretch'>
                             <Box flexGrow={1}>
