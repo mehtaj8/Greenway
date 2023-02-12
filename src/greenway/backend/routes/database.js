@@ -74,6 +74,43 @@ function getCarData(make, model) {
      });
 }
 
+function getElevationDB(long, lat){
+    let query = { longitude: long,  latitude: lat };
+    //models = await carCollection.find(query);
+    return new Promise(function(resolve, reject) {
+        elevCollection.find(query).toArray( function(err, docs) {
+         if (err) {
+           // Reject the Promise with an error
+           return reject(err)
+         }
+   
+         // Resolve (or fulfill) the promise with data
+         return resolve(docs)
+       })
+    });
+}
+
+router.post('/retrieveElevation', async(req, res) => {
+    const points = req.body.points;
+    const elevationList = [];
+    var currElev = 0;
+
+
+    for (let i = 0; i < points.length; i++){
+        currElev = await getElevationDB(points[i].longitude, points[i].latitude);
+        if (currElev.length > 0){
+            elevationList.push(currElev[0].elevation);
+        }else {
+            elevationList.push(currElev.elevation);
+        }
+        
+    }
+
+    //console.log(itemList);
+
+    res.send({elevation: elevationList});
+});
+
 router.post('/elevation', async(req, res) => {
     const points = req.body.points;
     const elevationList = await getElevationData(points);
