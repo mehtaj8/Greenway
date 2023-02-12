@@ -8,7 +8,7 @@ interface Props {
 
 const Header = ({ showSidebarButton = true, onShowSidebar }: Props) => {
   return (
-    <Flex bg="none" p={4} color="white" justifyContent="center">
+    <Flex bg="#ffffff" p={4} color="white" justifyContent="center">
       <Box flex="1">
         {showSidebarButton && (
           <IconButton
