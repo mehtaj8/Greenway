@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Box, useBreakpointValue } from '@chakra-ui/react'
+import { Box, Container, useBreakpointValue } from '@chakra-ui/react'
 
 import Sidebar from './../Sidebar/SideBar';
 import Header from './../Header/Header';
-import MapContainer from './../MapAPI/MapApi';
+import MapModule from './../MapAPI/MapModule';
 
 const smVariant = { navigation: 'drawer', navigationButton: true }
 const mdVariant = { navigation: 'sidebar', navigationButton: false }
