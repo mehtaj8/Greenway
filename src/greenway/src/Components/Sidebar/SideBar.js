@@ -2,49 +2,41 @@ import {
     Box,
     Button,
     Center,
-    Drawer,
-    DrawerOverlay,
-    DrawerCloseButton,
-    DrawerHeader,
-    DrawerBody,
-    DrawerContent,
-    Icon,
-    Input,
     Spacer,
     VStack,
     Text,
   } from '@chakra-ui/react';  
 import { ChevronLeftIcon } from '@chakra-ui/icons'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import LocationInput from './../Location Input Module/LocationInput';
 import CarInput from './../Car Input Module/CarInput';
 import TripDetails from './../Trip Details Module/TripDetails';
-  
-  interface Props {
-    onClose: Function;
-    isOpen: boolean;
-    variant: 'drawer' | 'sidebar';
-  }
 
   
-  const SidebarContent = ({ onClick }: { onClick: Function }) => {
+  const SidebarContent = (props) => {
     const [x,setX] = useState(true);
+    const [startLoc, setStartLoc] = useState(0);
+    const [endLoc, setEndLoc] = useState(0);
+
+    useEffect(()=>{props.updateStart(startLoc)},[startLoc]);
+    useEffect(()=>{props.updateEnd(endLoc)},[endLoc]);
+
     return (
         <>
         {x ?
         <VStack p={5} h ='70vh'>
-        <LocationInput/>
+        <LocationInput fromChangeFunction={(event) => {setStartLoc(event.target.value)}} ToChangeFunction={(event) => {setEndLoc(event.target.value)}}/>
         <Spacer/>
         <CarInput/>
         <Spacer/>
-        <Button onClick={() => {setX(!x); }} w="100%" bg='#FFBC49' borderRadius='40px' p={5}>
+        <Button onClick={() => {setX(!x); props.evalFunc();}} w="100%" bg='#FFBC49' borderRadius='40px' p={5}>
             Evaluate
         </Button>
         </VStack>
         : <VStack p={5} h ='70vh'>
-        <LocationInput/>
+        <LocationInput fromChangeFunction={(event) => {setStartLoc(event.target.value)}} ToChangeFunction={(event) => {setEndLoc(event.target.value)}}/>
         <Spacer/>
-        <TripDetails/>
+        <TripDetails Mileage={props.Mileage} GasPrice={props.GasPrice} Distance={props.Distance} TotalPrice={props.TotalPrice}/>
         <Spacer/>
         <Button onClick={() => {setX(!x); }} w="100%" bg='#FFBC49' borderRadius='40px' p={5}>
             <ChevronLeftIcon/> Back
@@ -55,8 +47,8 @@ import TripDetails from './../Trip Details Module/TripDetails';
 )
 }
   
-  const Sidebar = ({ isOpen, variant, onClose }: Props) => {
-    return variant === 'sidebar' ? (
+  const Sidebar = (props) => {
+    return (
       <Box
         position="fixed"
         left={0}
@@ -77,21 +69,22 @@ import TripDetails from './../Trip Details Module/TripDetails';
         borderBottomEndRadius='20px' >
         <Text>Welcome to <b marginLeft='10px'>GreenWay!</b></Text>
         </Center>
-        <SidebarContent onClick={onClose} />
+        <SidebarContent Mileage={props.Mileage} GasPrice={props.GasPrice} Distance={props.Distance} TotalPrice={props.TotalPrice} evalFunc={props.evalFunc} updateStart={props.updateStart} updateEnd={props.updateEnd} onClick={props.onClose} />
       </Box>
-    ) : (
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader bg='#FFBC49'><Text>Welcome to <b marginLeft='10px'>GreenWay!</b></Text></DrawerHeader>
-            <DrawerBody>
-              <SidebarContent onClick={onClose} />
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
-    )
+    ) 
+    // : (
+    //   <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+    //     <DrawerOverlay>
+    //       <DrawerContent>
+    //         <DrawerCloseButton />
+    //         <DrawerHeader bg='#FFBC49'><Text>Welcome to <b marginLeft='10px'>GreenWay!</b></Text></DrawerHeader>
+    //         <DrawerBody>
+    //           <SidebarContent onClick={onClose} />
+    //         </DrawerBody>
+    //       </DrawerContent>
+    //     </DrawerOverlay>
+    //   </Drawer>
+    // )
   }
   
   export default Sidebar
