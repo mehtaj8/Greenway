@@ -1,12 +1,7 @@
 import { Box, Center, IconButton, Text, Flex } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 
-interface Props {
-  onShowSidebar: Function;
-  showSidebarButton?: boolean;
-}
-
-const Header = ({ showSidebarButton = true, onShowSidebar }: Props) => {
+const Header = (showSidebarButton = true, onShowSidebar) => {
   return (
     <Flex bg="#ffffff" p={4} color="white" justifyContent="center">
       <Box flex="1">
