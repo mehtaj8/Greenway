@@ -134,7 +134,7 @@ export default function MapModule() {
         return Totalprice.toFixed(2);
     }
 
-    const calcRoute = async () => {
+    const calcRoute = async (mileageLocal) => {
 
         // const setDistance = (val) => {
         //     this.setState({travel_distance: val/1000});
@@ -148,7 +148,7 @@ export default function MapModule() {
         var start = startLoc;//document.getElementById('start').value;
         var end = endLoc;//document.getElementById('end').value;
         var travel_distance_test = 2;
-        var mileageLocal = mileage;
+        //var mileageLocal = mileage;
     
         // Set origin and destination and feed it to the directionsService
         if (start !== end && start !== '' && end !== '') {

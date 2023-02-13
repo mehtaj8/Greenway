@@ -17,6 +17,7 @@ import TripDetails from './../Trip Details Module/TripDetails';
     const [x,setX] = useState(true);
     const [startLoc, setStartLoc] = useState(0);
     const [endLoc, setEndLoc] = useState(0);
+    const [mileage, setMileage] = useState(0);
 
     useEffect(()=>{props.updateStart(startLoc)},[startLoc]);
     useEffect(()=>{props.updateEnd(endLoc)},[endLoc]);
@@ -27,16 +28,16 @@ import TripDetails from './../Trip Details Module/TripDetails';
         <VStack p={5} h ='70vh'>
         <LocationInput fromChangeFunction={(event) => {setStartLoc(event.target.value)}} ToChangeFunction={(event) => {setEndLoc(event.target.value)}}/>
         <Spacer/>
-        <CarInput/>
+        <CarInput setMileage={setMileage}/>
         <Spacer/>
-        <Button onClick={() => {setX(!x); props.evalFunc();}} w="100%" bg='#FFBC49' borderRadius='40px' p={5}>
+        <Button onClick={() => {setX(!x); props.evalFunc(mileage);}} w="100%" bg='#FFBC49' borderRadius='40px' p={5}>
             Evaluate
         </Button>
         </VStack>
         : <VStack p={5} h ='70vh'>
         <LocationInput fromChangeFunction={(event) => {setStartLoc(event.target.value)}} ToChangeFunction={(event) => {setEndLoc(event.target.value)}}/>
         <Spacer/>
-        <TripDetails Mileage={props.Mileage} GasPrice={props.GasPrice} Distance={props.Distance} TotalPrice={props.TotalPrice}/>
+        <TripDetails Mileage={mileage} GasPrice={props.GasPrice} Distance={props.Distance} TotalPrice={props.TotalPrice}/>
         <Spacer/>
         <Button onClick={() => {setX(!x); }} w="100%" bg='#FFBC49' borderRadius='40px' p={5}>
             <ChevronLeftIcon/> Back
