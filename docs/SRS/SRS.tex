@@ -16,6 +16,7 @@
 \usepackage{caption}
 \usepackage{pdflscape}
 \usepackage{afterpage}
+\usepackage[normalem]{ulem}
 
 \usepackage[round]{natbib}
 
@@ -150,6 +151,7 @@
 \midrule
 05-10-2022 & 1.0 & Software Requirements Specification Version 1\\
 08-10-2022 & 1.1 & Software Requirements Specification Updated\\
+13-02-2023 & 1.2 & Software Requirements Specification Rev 0 Updated\\
 \bottomrule
 \end{tabularx}
 
@@ -355,13 +357,13 @@ qualities that the software is expected to exhibit.
 	\item Priority: Medium
 \end{itemize}
 
-\item[FR\refstepcounter{reqnum}\thereqnum. ] The system shall display the gas stations along the route.
+\item[FR\refstepcounter{reqnum}\thereqnum. ] \sout{The system shall display the gas stations along the route.}
 \begin{itemize}
-    \item Rationale: The user can easily see where to refuel if necessary.
-    \item Constants: None
-    \item Undesired Event Handling: Display an error message “Unable to locate Gas Stations.”
-    \item Normal Operation: The system is considered to be operating normally if the map displays gas stations at their locations, indicated with a universal gas icon.
-	\item Priority: Low
+    \item \sout{Rationale: The user can easily see where to refuel if necessary.}
+    \item \sout{Constants: None}
+    \item \sout{Undesired Event Handling: Display an error message “Unable to locate Gas Stations.”}
+    \item \sout{Normal Operation: The system is considered to be operating normally if the map displays gas stations at their locations, indicated with a universal gas icon.}
+    \item \sout{Priority: Low}
 \end{itemize}
 
 \item[FR\refstepcounter{reqnum}\thereqnum. ] The system shall display gas prices at stations on route to destination.
@@ -445,11 +447,11 @@ qualities that the software is expected to exhibit.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_4}:] 
 \begin{itemize}
-  \item \textit{Description}: The system shall retain the user’s previous destinations. 
-  \item \textit{Rationale}: Reduces time taken to select destination if user has frequently used destinations. Improves ease of use (NFR 3) by reducing time needed to complete task. 
-  \item \textit{Fit Criterion}: Are the user’s previous destinations available to the user? Yes/No.  
-  \item \textit{Undesired Event Handling}: If no, functionality should be implemented.
-  \item \textit{Priority}: Medium
+  \item \sout{\textit{Description}: The system shall retain the user’s previous destinations.}
+  \item \sout{\textit{Rationale}: Reduces time taken to select destination if user has frequently used destinations. Improves ease of use (NFR 3) by reducing time needed to complete task.}
+  \item \sout{\textit{Fit Criterion}: Are the user’s previous destinations available to the user? Yes/No.}
+  \item \sout{\textit{Undesired Event Handling}: If no, functionality should be implemented.}
+  \item \sout{\textit{Priority}: Medium}
 \end{itemize}
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_5}:] 
@@ -517,11 +519,11 @@ qualities that the software is expected to exhibit.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_12}:] 
 \begin{itemize}
-  \item \textit{Description}: The system shall store the last 10 addresses that the user input and display it in the search bar.
-  \item \textit{Rationale}: For the user’s convenience, the last 10 search results shall be displayed in case the user wants to go to any of those locations again.
-  \item \textit{Fit Criterion}: After a new address is searched, that search result is added in the last 10 recent results. After 10 searches with different addresses, the oldest search result is overwritten.
-  \item \textit{Undesired Event Handling}: In case nothing shows up, the system shall just show a regular search bar with no history.
-  \item \textit{Priority}: Low
+  \item \sout{\textit{Description}: The system shall store the last 10 addresses that the user input and display it in the search bar.}
+  \item \sout{\textit{Rationale}: For the user’s convenience, the last 10 search results shall be displayed in case the user wants to go to any of those locations again.}
+  \item \sout{\textit{Fit Criterion}: After a new address is searched, that search result is added in the last 10 recent results. After 10 searches with different addresses, the oldest search result is overwritten.}
+  \item \sout{\textit{Undesired Event Handling}: In case nothing shows up, the system shall just show a regular search bar with no history.}
+  \item \sout{\textit{Priority}: Low}
 \end{itemize}
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_13}:] 
@@ -615,11 +617,11 @@ qualities that the software is expected to exhibit.
 
 \item[LC\refstepcounter{lcnum}\thelcnum\label{Long Journey}:] The addition of the application being able to use mileage data as well as gas tank size to calculate the most efficient route on a long journey, allowing for the least amount of stops to fill up gas.
 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{Electric Cars}:] The addition of the application taking data of electric cars to allow the use of not only gas station but charging stations for electric car users.
+\item[LC\refstepcounter{lcnum}\thelcnum\label{Electric Cars}:] \sout{The addition of the application taking data of electric cars to allow the use of not only gas station but charging stations for electric car users.}
 
 \item[LC\refstepcounter{lcnum}\thelcnum\label{Bigger Area}:] The application will be able to be used in all of Ontario with elevation and gas data for all areas.
 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{Application Integration}:] Future changes should allow the application to be used with other apps other than Google Maps, such as Wayz or Apple Maps.
+\item[LC\refstepcounter{lcnum}\thelcnum\label{Application Integration}:] \sout{Future changes should allow the application to be used with other apps other than Google Maps, such as Wayz or Apple Maps.}
 
 \end{itemize}
 
@@ -631,7 +633,7 @@ qualities that the software is expected to exhibit.
 
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{New Cars}:] The application will not be able to update car catalog information on its own and will require an update to the application when new cars are introduced.
 
-\item[ULC\refstepcounter{ulcnum}\theulcnum\label{Hybrid Cars}:] The application will not support hybrid vehicles as they require complex calculations to determine when the electric component of the vehicle is used and when the gas component is.
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{Hybrid Cars}:] The application will not support hybrid \textcolor{red}{and electric} vehicles as they require complex calculations to determine when the electric component of the vehicle is used \textcolor{red}{for both hybrid and electric vehicles} and when the gas component is \textcolor{red}{for hybrid vehicles}.
 
 \end{itemize}
 
