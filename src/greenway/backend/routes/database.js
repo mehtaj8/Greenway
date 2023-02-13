@@ -37,7 +37,7 @@ async function getElevationData(points){
 
 async function getCarYears(){
     const yearList = await carCollection.distinct("Year");
-    console.log(yearList);
+    //console.log(yearList);
     return yearList;
 }
 
@@ -129,7 +129,7 @@ router.get('/cardata/makes/:year', async(req, res) => {
     const year = req.params.year;
 
     const makeList = await getCarMakes(year);
-    console.log(makeList);
+    //console.log(makeList);
 
     res.send(makeList);
 });
@@ -139,7 +139,7 @@ router.get('/cardata/models/:year/:make', async(req, res) => {
     const year = req.params.year;
     //console.log(make);
     const modelList = await getCarModels(year, make);
-    console.log(modelList);
+    //console.log(modelList);
     res.send(modelList);
 });
 
