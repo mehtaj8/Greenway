@@ -35,43 +35,30 @@ async function getElevationData(points){
     return elevationData;
 }
 
-async function getCarMakes() {
-    const makeList = await carCollection.distinct("Make");
+async function getCarYears(){
+    const yearList = await carCollection.distinct("Year");
+    console.log(yearList);
+    return yearList;
+}
+
+async function getCarMakes(year) {
+    const query = {"Year": {$eq: parseInt(year)}};
+    const makeList = await carCollection.distinct("Make", query);
     return makeList;
 }
 
-function getCarModels(make) {
-    //console.log(make);
-    let models = [];
-    let query = { Make: make };
-    //models = await carCollection.find(query);
-    return new Promise(function(resolve, reject) {
-        carCollection.find(query).toArray( function(err, docs) {
-         if (err) {
-           // Reject the Promise with an error
-           return reject(err)
-         }
-   
-         // Resolve (or fulfill) the promise with data
-         return resolve(docs)
-       })
-     });
+async function getCarModels(year, make) {
+    const query = {Year: {$eq: parseInt(year)}, Make: {$eq: make}};
+    const modelList = await carCollection.distinct("Model", query);
+    return modelList;
+    
 }
 
-function getCarData(make, model) {
-    let query = { Make: make, Model: model };
-    //models = await carCollection.find(query);
-    return new Promise(function(resolve, reject) {
-        carCollection.find(query).toArray( function(err, docs) {
-         if (err) {
-           // Reject the Promise with an error
-           return reject(err)
-         }
-   
-         // Resolve (or fulfill) the promise with data
-         return resolve(docs)
-       })
-     });
+async function getCarData(year, make, model) {
+    let query = {Year: {$eq: parseInt(year)}, Make: {$eq: make}, Model: {$eq: model}};
+    const FuelComp = await carCollection.distinct("Fuel Consumption Comb (L/100 km)", query);
+    return FuelComp;
+    
 }
 
 function getElevationDB(long, lat){
@@ -132,41 +119,39 @@ router.post('/elevation', async(req, res) => {
     res.send("Successfully added data");
 });
 
-router.get('/cardata/makes', async(req, res) => {
-    const makeList = await getCarMakes();
-    //console.log(makeList);
+router.get('/cardata/years', async(req, res) => {
+    const yearList = await getCarYears();
+    res.send(yearList);
+
+});
+
+router.get('/cardata/makes/:year', async(req, res) => {
+    const year = req.params.year;
+
+    const makeList = await getCarMakes(year);
+    console.log(makeList);
 
     res.send(makeList);
 });
 
-router.get('/cardata/models/:make', async(req, res) => {
+router.get('/cardata/models/:year/:make', async(req, res) => {
     const make = req.params.make;
+    const year = req.params.year;
     //console.log(make);
-    let out = [];
-    const modelList = await getCarModels(make);
-
-    for (let i = 0; i < modelList.length; i++){
-        out.push(modelList[i].Model);
-    }
-
-    res.send(out);
+    const modelList = await getCarModels(year, make);
+    console.log(modelList);
+    res.send(modelList);
 });
 
-router.get('/cardata/getMilage/:make/:model', async(req, res) => {
+router.get('/cardata/getMilage/:year/:make/:model', async(req, res) => {
+    const year = req.params.year;
     const make = req.params.make;
     const model = req.params.model;
-    //console.log(make);
-    let out = [];
-    const DataList = await getCarData(make, model);
-    let member = 'Fuel Consumption Comb (L/100 km)';
-    console.log(DataList);
 
-    for (let i = 0; i < DataList.length; i++){
-        let curr = DataList[i];
-        out.push(curr[member]);
-    }
+    const FuelComp = await getCarData(year, make, model);
+    console.log(FuelComp);
 
-    res.send(out);
+    res.send(FuelComp);
 });
 
 module.exports = router;
