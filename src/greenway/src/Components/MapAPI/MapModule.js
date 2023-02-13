@@ -107,9 +107,9 @@ export default function MapModule() {
             points.push({latitude: myRoute[i].lat(), longitude: myRoute[i].lng()});
         }
 
-        // await axios.post("http://localhost:3001/db/elevation", {points: points}).then((response, error) => {
-        //     console.log(response);
-        // })
+        await axios.post("http://localhost:3001/db/elevation", {points: points}).then((response, error) => {
+            console.log(response);
+        })
 
         if (myRoute.length % 5 !== 0){
             points.push({latitude: myRoute[myRoute.length-1].lat(), longitude: myRoute[myRoute.length-1].lng()});
