@@ -720,6 +720,31 @@ Impact: None
 
 \section{Changes Due to Testing}
 
+\subsection{Preliminary Information Tests}
+To start with there will be some changes incoming to the SRS firstly FR-1 and FR-2 will be removed or modified due to 
+preliminary-information-test-1 and 2. And FR-3 will be modified due to the results of test preliminary-information-test-3. 
+The test preliminary-information-test-4 showed there is a need for small popup with the use of a toast ui component in the 
+app and this will be added to the application. The test preliminary-information-test-5 showed that the SRS needs to be updated 
+with removal or modification of FR-5 due to the changed priorities of the application.
+
+\subsection{Map Interactions}
+The test Mapmap-test-2 showed that the SRS needs to be changed for FR-7 as the refueling functionality has been modified from 
+original concept of the application so this requirement will be changed or removed entirely. Similar idea for map-test-3 as the 
+refueling functionality of the original concept has changed there is no need to show individual fuel prices in a certain area 
+with the need of it being removed/changed.
+
+\subsection{Backend Processing}
+No changes to the backend from the testing.
+
+\subsection{Nonfunctional Requirements}
+From test-ui-5 it can be seen due to the change in goals for the app accessibility for the visually impaired is infeasible so NFR-7 will 
+be changed or removed. The test test-qol-1 it can be seen that instructions need to be added to the applications for making it simpler to 
+install. The test test-pr-1 failed as the application we have is un optimized for performance optimization and as such the app will focus 
+on reducing processing time and interactions with database to reduce calculation time. From the result of test-pr-4 it is that the app is 
+unable to correctly respond to a lot of invalid inputs and since the focus of our app has changed to assuming correct inputs the SRS will 
+be updated to modify or remove NFR11.
+
+\section{Automated Testing}
 \newpage
 		
 \section{Trace to Requirements}
@@ -828,6 +853,10 @@ graduate attribute of Lifelong Learning.  Please answer the following questions:
 
 \begin{itemize}
 \item Utsharga: A lot more external testing was required compared to what we had planned. These changes had occured due to us lacking of insight. Through our user survey we verfied and validated our results and we plan to make changes according to that.
+\item Bilal: The VnV plan was different from the VnV as the requirements implemented have changed for the implementation so the test results are 
+different from expectations. A lot of changes occured due to infeasible implementation of certain core features and changes in focus for the app. 
+All these changes are not possible to predicted before hand unless multiple small poc are made for each feature which is obviously not doable in 
+the timeframe of this project.
 \end{itemize}
 
 \end{document}
