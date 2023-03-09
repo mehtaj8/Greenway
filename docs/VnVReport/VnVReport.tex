@@ -297,11 +297,356 @@ Impact: None.
 
 \section{Nonfunctional Requirements Evaluation}
 
-\subsection{Usability}
+\subsection{User Interface}
 		
+\paragraph{Usability Tests}
+
+\begin{enumerate}
+
+\item{test-ui-1\\}
+
+Type: Functional, Manual
+					
+Initial State: A tester launches the Greenway app.
+					
+Input/Condition: A tester will observe the UI of the app to see if it has a modern, minimalistic look.
+					
+Desired Output/Result: After 10 testers use the application, there was an average score of 8 scored on Question 1 of the Usability Survey and 70\% of testers answered 'Yes' on question 4 of the survey.
+
+Actual Output/Result: There was an average score of 10 scored on question 1 of the survey, and 100\% of testers  answered 'Yes' on question 4 of the survey.
+					
+How test will be performed: This test will be verified using responses to Usability Survey Question 1 and 4. An average score of over 7 on Q1 and majority 'Yes' response to Q4 is considered a pass.
+
+Result: Test case passed as the desired output was achieved.
+
+Impact: None.
+					
+\item{test-ui-2\\}
+
+Type: Functional, Manual
+
+Initial State: A tester is viewing a page of the user interface.
+
+Input/Condition: A tester clicks on any button that leads them to another page of the application. 
+
+Desired Output/Result: After 10 testers use the application, about 70\% of testers answered 'Yes' on question 2 of the survey.
+
+Actual Output/Result: 100\% of testers answered 'Yes' on question 2 of the survey.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 2. A majority 'Yes' response is a pass.
+
+Result: Test case passed as the desired output was achieved.
+
+Impact: None.
+
+\item{test-ui-3\\}
+
+Type: Functional, Manual
+
+Initial State: A tester is viewing a page of the user interface.
+
+Input/Condition: A tester clicks on any button that helps them navigate around the page. 
+
+Desired Output/Result: After 10 testers use the application,  there was an average score of 8 scored on Question 3 of the Usability Survey
+
+Actual Output/Result: The average score on question 3 of the survey was 9.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 3. An average score of over a 7 is considered a pass.
+
+Result: Test case passed as the desired output was achieved.
+
+Impact: None.
+
+\item{test-ui-4\\}
+
+Type: Functional, Manual
+
+Initial State: The tester is on the main page of the application.
+
+Input/Condition: After the tester fills up all the field and presses the button that will calculate the route, they will check to see if any of the calculations are visible on the application itself.
+
+Desired Output/Result: After 10 testers use the application, about 70\% of testers answered 'No' on question 6 of the survey.
+
+Actual Output/Result: 100\% of testers answered 'No' on question 6 of the survey.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 6. A majority 'No' response is a pass.
+
+Result: Test case passed as the desired output was achieved.
+
+Impact: None.
+
+\item{test-ui-5\\}
+
+Type: Functional, Manual
+
+Initial State: The tester is on the main page of the application.
+
+Input/Condition: The tester will try to use the application with colour blind glasses to see if the application is still useable.
+
+Desired Output/Result: After 10 testers use the application, about 70\% of testers answered 'Yes' on question 7 of the survey.
+
+Actual Output/Result: 40\% of testers answered 'Yes' on question 7 of the survey.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 7. A majority 'Yes' response is a pass.
+
+Result: Test case failed as the desired output was not achieved.
+
+Impact: 
+
+\end{enumerate}
+
+\subsection{User Experience}
+
+\paragraph{Quality of Life Tests}
+
+\begin{enumerate}
+
+\item{test-qol-1\\}
+
+Type: Functional, Manual
+					
+Initial State: The tester will be on the GitHub page of the Greenway app.
+					
+Input/Condition: The tester will follow the installation process on the GitHub page to see how simple it is.
+					
+Desired Output/Result: After 10 testers use the application, about 70\% of testers answered 'Yes' on question 7 of the survey.
+
+Actual Output/Result: 50\% of testers answered 'Yes' on question 7 of the survey.
+					
+How test will be performed: This test will be verified using responses to Usability Survey Question 8. A majority 'Yes' response is a pass.
+
+Result: Test case failed as the desired output was not achieved.
+
+Impact: The installation process on the GitHub page needs to be simplified in order it easier for all potential users to understand the process.
+
+\end{enumerate}
+
 \subsection{Performance}
 
-\subsection{etc.}
+\paragraph{Performance and Robustness Tests}
+
+\begin{enumerate}
+
+\item{test-pr-1\\}
+
+Type: Functional, Manual
+
+Initial State: The tester is on the main page of the application.
+
+Input/Condition: The tester inputs the starting location and the ending location fields and press the route calculation button. They will then observe the total time it takes to complete the calculation.
+
+Desired Output/Result: After 10 testers use the application, the average time calculated between all testers should be less than 5 seconds.
+
+Actual Output/Result: The average time calculated between all testers is 9.8 seconds.
+
+How test will be performed: Starting and ending location are entered. Calculate route button is selected. Amount of time to complete calculation is measured. 
+
+Result: Test case failed as the desired output was not achieved.
+
+Impact: 
+
+\item{test-pr-2\\}
+
+Type: Functional, Manual
+
+Initial State: The tester is on the main page of the application.
+
+Input/Condition: The tester 
+
+Desired Output/Result: 
+
+Actual Output/Result:
+
+Test Case Derivation: As NFR9 states, the system shall calculate fuel consumption as accurately as possible.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 11. A majority 'Yes' response is a pass.
+
+\item{test-pr-3\\}
+
+Type: Functional, Manual
+
+Initial State: The application is running. 
+
+Input/Condition: N/A
+
+Desired Output/Result: 
+
+Actual Output/Result:
+
+Test Case Derivation: As NFR10 states, the system shall be available for use 24 hours per day, 365 days per year.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 12. A majority 'No' response is a pass.
+
+\item{test-pr-4\\}
+
+Type: Functional, Manual
+
+Initial State: N/A	
+
+Input/Condition: Invalid and edge case inputs for input fields. 
+
+Desired Output/Result:  User is notified that they need to modify input (error handling). 
+
+Actual Output/Result:
+
+Test Case Derivation: As NFR11 states, the system shall be able to respond to invalid or unconventional inputs.
+
+How test will be performed: User inputs invalid and edge cases inputs. System's response to these inputs shall be recorded.
+
+\item{test-pr-5\\}
+
+Type: Functional, Automated
+
+Initial State: N/A	
+
+Input/Condition: N/A
+
+Desired Output/Result:  
+
+Actual Output/Result:
+
+Test Case Derivation: As NFR13 states, the system shall be able to handle an infinite amount of users.
+
+How test will be performed: Script to run several instances of the program will stress test the system. System's response to a large number of users shall be recorded. 
+
+\item{test-pr-6\\}
+
+Type: Functional, Manual
+
+Initial State: N/A	
+
+Input/Condition: N/A		
+
+Desired Output/Result:  
+
+Actual Output/Result:
+
+Test Case Derivation: As NFR14 states, the system shall operate as long as possible.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 13. A majority 'No' response is a pass.
+
+\end{enumerate}
+
+
+\subsection{Technology}
+
+\paragraph{Technological Tests}
+
+\begin{enumerate}
+
+\item{test-t-1\\}
+
+Type: Functional, Manual		
+
+Initial State: N/A	
+
+Input/Condition: N/A		
+
+Desired Output/Result:  
+
+Actual Output/Result:
+
+Test Case Derivation: As NFR15 states, the system shall be able to run on all modern browsers.
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 5. A majority 'Yes' response is a pass.
+
+\item{test-t-2\\}
+
+Type: Functional, Manual
+
+Initial State: N/A
+
+Input/Condition: N/A
+
+Desired Output/Result:  
+
+Actual Output/Result:
+
+Test Case Derivation: As NFR17 states, the system shall be available to download for the public via GitHub.		
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 9. A majority 'Yes' response is a pass.
+
+\item{test-t-3\\}
+
+Type: Functional, Manual
+
+Initial State: N/A
+
+Input/Condition: N/A		
+
+Desired Output/Result:  
+
+Actual Output/Result:
+
+Test Case Derivation: As NFR20 states, the system shall be compatible to run between Windows, Mac, and Linux-based operating systems.		
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 10. A majority 'Yes' response is a pass.
+
+\end{enumerate}
+
+\subsection{Maintainability}
+
+\paragraph{Maintainability Tests}
+
+\begin{enumerate}
+
+\item{test-m-1\\}
+
+Type: Functional, Manual		
+
+Initial State: N/A	
+
+Input/Condition: N/A		
+
+Desired Output/Result:  
+
+Actual Output/Result:
+
+Test Case Derivation: As NFR18 states, he system's code shall be well documented and clear to be easily understandable for any developer maintaining the code.
+
+How test will be performed: Code inspection will be used to validate that all source code changes are documented and maintainable. 
+
+\item{test-m-2\\}
+
+Type: Functional, Manual
+
+Initial State: N/A
+
+Input/Condition: N/A
+
+Desired Output/Result:  
+
+Actual Output/Result:
+
+Test Case Derivation: As NFR19 states, supporting documentation shall be available on GitHub, which includes a user's guide on how to use the application.	
+
+How test will be performed: This test will be verified using responses to Usability Survey Question 14. A majority 'Yes' response is a pass.
+
+\end{enumerate}
+
+\subsection{Legal}
+
+\paragraph{Legal Tests}
+
+\begin{enumerate}
+
+\item{test-l-1\\}
+
+Type: Functional, Manual
+
+Initial State: N/A	
+
+Input/Condition: N/A		
+
+Desired Output/Result:  
+
+Actual Output/Result:
+
+Test Case Derivation: As NFR21 states, the system should comply with the Google Maps Platform Terms of Service.
+
+How test will be performed: Use Google Maps API to validate that our system is compliant with Google TOS. 
+
+\end{enumerate}
 	
 \section{Comparison to Existing Implementation}
 
