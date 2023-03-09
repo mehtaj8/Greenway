@@ -64,6 +64,242 @@ Date 2 & 1.1 & Notes\\
 This document ...
 
 \section{Functional Requirements Evaluation}
+Tests taken from V and V Plan section 5.1 are evaluated here and the corresponding section names are used as well.
+
+\subsection{Start Screen}
+
+Start screen covers functional requirements 1-5 from the SRS as all those requirements 
+are related to the inputs and functionality that exists in the program before any 
+processing or output is shown
+		
+\paragraph{Preliminary Information Tests} 
+
+\begin{enumerate}
+
+\item{preliminary-information-test-1\\}
+
+Control: Automatic
+					
+Initial State: No input in the start screen
+					
+Input: Start Location
+					
+Desired output: Status Message stating if the start Location was accepted
+
+Actual Output: No status message found
+
+Result: Test case failed as the app failed to display a popup of location being validated.
+
+Impact: The app will assume the use of valid start location as input as the core use of this app is 
+to find the cost of trips not validate locations it is given.
+					
+\item{preliminary-information-test-2\\}
+
+Control: Automatic
+					
+Initial State: No input in the start screen
+					
+Input: Location of the Destination
+					
+Output: Status Message stating if the Location was accepted
+
+Desired output: Status Message stating if the destination location was accepted
+
+Actual Output: No status message found
+
+Result: Test case failed as the app failed to display a popup of the location being validated.
+
+Impact: The app will assume the use of valid end locations as input as the core use of this app is 
+to find the cost of trips not validate locations it is given.
+
+\item{preliminary-information-test-3\\}
+
+Control: Automatic
+					
+Initial State: No input in the start screen
+					
+Input: Car Details
+
+Desired output: Status Message stating if the Car Information was accepted
+
+Actual Output: No status message found
+
+Result: Test case failed as the app failed to display a popup of the status message validating car details.
+
+Impact: The app with its dropdown menus only allows the user to select valid cars and similarily only asks for 
+mileage as alternative.
+
+\item{preliminary-information-test-4\\}
+
+Control: Automatic
+					
+Initial State: Accepted Car details in the start screen
+					
+Input: Car mileage/fuel economy information
+
+Desired output: Status Message stating if the Car mileage/fuel economy information was accepted
+
+Actual Output: No status message found
+
+Result: Test case failed as the app failed to display a popup of the status message validating mileage information.
+
+Impact: Small popup known as toast will be added to the app to indicate a valid/invalid value has been added to the mileage.
+
+\item{preliminary-information-test-5\\}
+
+Control: Automatic
+					
+Initial State: Accepted Car details in the start screen
+					
+Input: Car information
+
+Desired output: Status Message stating if the Car information was updated
+
+Actual Output: No status message found
+
+Result: Test case failed as the app failed to display a popup of the status message stating if the Car information was updated successfully.
+
+Impact: The popup does not need to exist as the app should require a full reset as a lot of different information needs to be 
+updated to make this feature viable for the major goal of this app.
+
+\end{enumerate}
+
+\subsection{Map Interactions}
+
+Map Interaction covers functional requirements 6-8 as these requirements 
+are concerned with functionality related to the map on display.
+		
+\paragraph{Map Tests}
+
+\begin{enumerate}
+
+\item{map-test-1\\}
+
+Control: Manual
+					
+Initial State: Start Screen finished
+					
+Input: None
+
+Desired output: Map displaying a route from start to end based on start screen input
+
+Actual Output: Found full route displayed on the map to indicate the route the app considers most ideal
+
+Result: Test case passed as the desired output was found in the app.
+
+Impact: None
+					
+\item{map-test-2\\}
+
+Control: Manual
+					
+Initial State: Start Screen finished
+					
+Input: None
+
+Desired output: Map displaying all gas stations that it can possibly encounter along the route from a start to end destination
+
+Actual Output: Found no gas stations along the route being displayed.
+
+Result: Test case failed as the desired output was not found in the app.
+
+Impact: The requirement that was used in the derivation process for this is not important anymore as the app functions on the basis that refueling 
+is done at the start of the trip.
+					
+\item{map-test-3\\}
+
+Control: Manual
+					
+Initial State: Start Screen finished
+					
+Input: None
+
+Desired output: Map displaying all gas station prices as they come up along the displayed route
+
+Actual Output: Found no gas stations as such  along the route being displayed.
+
+Result: Test case failed as the desired output was not found in the app.
+
+Impact: Gas prices could not feasibly be found for all the gas stations as such the requirements used to derive this test case are not 
+valid anymore.
+
+\end{enumerate}
+
+\subsection{Backend Processing}
+
+Backend processing covers functional requirements 9-12 as these 
+requirements are concerned with calculations and, external data collection and processing 
+alike.
+		
+\paragraph{Backend Tests}
+
+\begin{enumerate}
+
+\item{backend-test-1\\}
+
+Control: Automatic
+					
+Initial State: Start Screen finished
+					
+Input: Route Details
+
+Desired output: Route returned to the user is one that is optimizing the distance and elevation perfectly to reduce fuel costs
+
+Actual Output: Route returned to the user is optimized to minimize fuel costs
+
+Result: Test case passed as the main goal of the optimization is achieved as minimal fuel costs are being shown.
+
+Impact: None.
+					
+\item{backend-test-2\\}
+
+Control: Automatic
+					
+Initial State: Start Screen finished
+					
+Input: Route Details
+
+Desired output: The database call on the backend returns correct elevation data for a route.
+
+Actual Output: The route details for multiple routes was matched with correct reference data in the framework and was found to be identical.
+
+Result: Test case passed as the desired output was achieved.
+
+Impact: None.
+					
+\item{backend-test-3\\}
+
+Control: Automatic
+					
+Initial State: Start Screen finished
+					
+Input: Route Details
+
+Desired output: Correct mileage is given by backend for a certain coordinate.
+
+Actual Output: Mileage that matched reference value is given by the backend.
+
+Result: Test case passed as the desired output was achieved.
+
+Impact: None.
+					
+\item{backend-test-4\\}
+
+Control: Automatic
+					
+Initial State: Start Screen finished
+					
+Input: Route Details
+
+Desired output: Correct total cost is calculated by the backend for a certain route with a start and end decisions as the route details.
+
+Actual Output: All data required for correct total cost is given by the backend which is verified with reference data and equated in the front end.
+
+Result: Test case passed as the desired output was achieved.
+
+Impact: None.
+
+\end{enumerate}
 
 \section{Nonfunctional Requirements Evaluation}
 
