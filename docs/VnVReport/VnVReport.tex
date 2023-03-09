@@ -3,6 +3,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\usepackage{multirow}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -24,6 +25,10 @@
 
 \pagenumbering{roman}
 
+\tableofcontents
+
+\newpage
+
 \section{Revision History}
 
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
@@ -33,8 +38,6 @@ Date 1 & 1.0 & Notes\\
 Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
-
-~\newpage
 
 \section{Symbols, Abbreviations and Acronyms}
 
@@ -47,21 +50,12 @@ Date 2 & 1.1 & Notes\\
   \bottomrule
 \end{tabular}\\
 
-\wss{symbols, abbreviations or acronyms -- you can reference the SRS tables if needed}
-
 \newpage
 
-\tableofcontents
-
-\listoftables %if appropriate
-
-\listoffigures %if appropriate
 
 \newpage
 
 \pagenumbering{arabic}
-
-This document ...
 
 \section{Functional Requirements Evaluation}
 Tests taken from V and V Plan section 5.1 are evaluated here and the corresponding section names are used as well.
@@ -309,11 +303,65 @@ Impact: None.
 
 \subsection{etc.}
 	
-\section{Comparison to Existing Implementation}	
+\section{Comparison to Existing Implementation}
 
 This section will not be appropriate for every project.
 
-\section{Unit Testing}
+\newpage
+\section{Testing Results}
+  \begin{table}[h!]
+	
+	\begin{tabular}{|p{3.5cm}|p{6.5cm}|p{4.5cm}|}
+
+	\hline
+	\textbf{Requirement \#} & \textbf{Test ID(s)}   &\textbf{Test Results}  \\ \hline
+	FR1 & preliminary-information-test-1 & \textcolor{red}{Failed} \\ \hline
+	FR2 & preliminary-information-test-2 & \textcolor{red}{Failed}   \\ \hline
+	FR3 & preliminary-information-test-3 & \textcolor{red}{Failed} \\ \hline
+	FR4 & preliminary-information-test-4 & \textcolor{red}{Failed} \\ \hline
+	FR5 & preliminary-information-test-5 & \textcolor{red}{Failed}  \\ \hline
+	FR6 & map-test-1 & \textcolor{green}{Passed} \\ \hline
+	FR7 & map-test-2 & \textcolor{red}{Failed}  \\ \hline
+	FR8 & map-test-3 & \textcolor{red}{Failed}  \\ \hline
+	FR9 & backend-test-1 & \textcolor{green}{Passed}\\ \hline
+	FR10 & backend-test-2 & \textcolor{green}{Passed} \\ \hline
+	FR11 & backend-test-3 & \textcolor{green}{Passed}\\ \hline
+	FR12 & backend-test-4 & \textcolor{green}{Passed}\\ \hline
+	
+	\end{tabular}
+	
+  \end{table}
+
+\newpage
+  \begin{table}[h!]
+	
+	\begin{tabular}{|p{3.5cm}|p{6.5cm}|p{4.5cm}|}
+
+	\hline
+	\textbf{Requirement \#} & \textbf{Test ID(s)}   &\textbf{Test Results}  \\ \hline
+	NFR1 & test-ui-1 & \textcolor{green}{Passed} \\ \hline
+	NFR2 & test-ui-2 & \textcolor{green}{Passed}   \\ \hline
+	NFR3 & test-ui-3 & \textcolor{green}{Passed} \\ \hline
+	NFR6 & test-ui-4 & \textcolor{green}{Passed} \\ \hline
+	NFR7 & test-ui-5 & \textcolor{red}{Failed}  \\ \hline
+	NFR16 & test-qol-1 & \textcolor{red}{Failed} \\ \hline
+	NFR8 & test-pr-1 & \textcolor{red}{Failed}  \\ \hline
+	NFR9 & test-pr-2 & \textcolor{green}{Passed} \\ \hline
+	NFR10 & test-pr-3 & \textcolor{green}{Passed}\\ \hline
+	NFR11 & test-pr-4 & \textcolor{red}{Failed} \\ \hline
+	NFR13 & test-pr-5 & \textcolor{green}{Passed}\\ \hline
+	NFR14 & test-pr-6 & \textcolor{green}{Passed}\\ \hline
+	NFR15 & test-t-1 & \textcolor{green}{Passed}\\ \hline
+	NFR17 & test-t-2 & \textcolor{green}{Passed}\\ \hline
+	NFR20 & test-t-3 & \textcolor{green}{Passed}\\ \hline
+	NFR18 & test-m-6 & \textcolor{green}{Passed}\\ \hline
+	NFR19 & test-m-6 & \textcolor{green}{Passed}\\ \hline
+	NFR21 & test-l-1 & \textcolor{green}{Passed}\\ \hline	
+\end{tabular}
+	
+  \end{table}
+
+\newpage
 
 \section{Changes Due to Testing}
 
@@ -342,12 +390,98 @@ unable to correctly respond to a lot of invalid inputs and since the focus of ou
 be updated to modify or remove NFR11.
 
 \section{Automated Testing}
+\newpage
 		
 \section{Trace to Requirements}
-		
-\section{Trace to Modules}		
+  \begin{table}[h!]
+	
+	\begin{tabular}{|p{3.5cm}|p{6.5cm}|p{4.5cm}|}
+
+	\hline
+	\textbf{Requirement \#} & \textbf{Description}   &\textbf{Test ID(s)}  \\ \hline
+	FR1 & The system shall allow the user a way to input a start location.    & preliminary-information-test-1  \\ \hline
+	FR2 & The system shall allow the user a way to input a final destination.   & preliminary-information-test-2   \\ \hline
+	FR3 & The system shall allow the user a way to select any car model and make.    & preliminary-information-test-3 \\ \hline
+	FR4 & The system shall allow the user a way to input the fuel economy of their car.  & preliminary-information-test-4 \\ \hline
+	FR5 & The system shall have a way to update available car models from either user input or external sources. & preliminary-information-test-5  \\ \hline
+	FR6 & The system shall have a map to show journey from start to final destination. & map-test-1 \\ \hline
+	FR7 & The system shall display the gas stations along the route.     & map-test-2  \\ \hline
+	FR8 & The system shall display gas prices at stations on route to destination. & map-test-3  \\ \hline
+	FR9 & The system shall have a way to calculate the most fuel efficient route.   & backend-test-1 \\ \hline
+	FR10 & The system shall have a way to collect elevation data along the suggested route. & backend-test-2 \\ \hline
+	FR11 & The system shall have a way to calculate fuel consumption on different terrain elevations. & backend-test-3 \\ \hline
+	FR12 & The system must calculate the total cost of the journey.  & backend-test-4 \\ \hline
+	
+	\end{tabular}
+	
+  \end{table}
+
+   \begin{table}[!hbp]
+	
+	\begin{tabular}{|p{3.5cm}|p{6.5cm}|p{4.5cm}|}
+
+	\hline
+	\textbf{Requirement \#} & \textbf{Description}                                                                                                                                                                  & \textbf{Test ID(s)}                                                                                          \\ \hline
+	NFR1                     & The system shall have a modern minimalist user interface.                                                                                    & test-ui-1                                                                                                 \\ \hline
+	NFR2                     & The system shall have a consistent style across the different pages (or interfaces) of the platform.                                                                             & test-ui-2                                                                                                 \\ \hline
+	NFR3                     & The system shall have a user interface which is intuitive and easy to navigate.                                                                                                 & test-ui-3                                                                                         \\ \hline
+	NFR6                     & The system shall hide the details of its implementation from the user. & test-ui-4                                                                                           \\ \hline
+	NFR7                     & The system shall be accessible to users with visual impairments.                                                                                                        & test-ui-5                                                                                            \\ \hline
+	NFR16                     & The system shall have a simple installation process for all potential users.                                                                                                                                 & test-qol-1                                                                                          \\ \hline
+	NFR8                     & The system shall complete the route and fuel consumption calculation in a reasonable amount of time ($<$5 seconds).                                                                                                                                & test-pr-1                                                                                          \\ \hline
+	NFR9                    & The system shall calculate fuel consumption as accurately as possible.                                                                                                                                & test-pr-2                                                                                          \\ \hline
+	NFR10                     & The system shall be available for use 98\% (i.e. The system will be down for 1 day every month for maintenance) .                                                                                                                                & test-pr-3                                                                                          \\ \hline
+	NFR11                     & The system shall be able to respond to invalid or unconventional inputs.                                                                                                                                & test-pr-4                                                                                          \\ \hline
+	NFR13                     & The system shall be able to handle an infinite amount of users.                                                                                                                                & test-pr-5                                                                                          \\ \hline
+	NFR14                     & The system shall operate as long as possible.                                                                                                                                & test-pr-6                                                                                          \\ \hline
+	NFR15                     & The system shall be able to run on all modern browsers.                                                                                                        & test-t-1                                                                                          \\ \hline
+	NFR17                    & The system shall be available to download for the public via GitHub.                                                                                                        & test-t-2                                                                                          \\ \hline
+	\end{tabular}
+	
+  \end{table}
+  
+  \newpage	
+  
+\begin{table}[!hbp]
+	
+	\begin{tabular}{|p{3.5cm}|p{6.5cm}|p{4.5cm}|}
+
+	\hline
+	\textbf{Requirement \#} & \textbf{Description}                                                                                                                                                                  & \textbf{Test ID(s)}                                                                                          \\ \hline	
+	NFR20                     & The system shall be compatible to run between Windows, Mac, and Linux-based operating systems.                                                                                                       & test-t-3                                                                                          \\ \hline
+	NFR18                    & The system's code shall be well documented and clear to be easily understandable for any developer maintaining the code.                                                                                                        & test-m-1                                                                                          \\ \hline
+	NFR19                    & Supporting documentation shall be available on GitHub, which includes a user's guide on how to use the application.                                                                                                        & test-m-2                                                                                          \\ \hline
+	NFR21                     & The system should comply with the Google Maps Platform Terms of Service.                                                                                                        & test-l-1                                                                                          \\ \hline
+		\end{tabular}
+  \end{table}
+
+\newpage
 
 \section{Code Coverage Metrics}
+
+\subsection{Front-end Testing}
+
+\begin{tabular}{ |p{6cm}|p{6cm}|  }
+ \hline
+ \multicolumn{2}{|c|}{Coverage Summary} \\
+ \hline
+Statements   & 76\% ( 777/1022 )   \\ \hline
+Branches   & 100\% ( 2/2 )  \\ \hline
+Functions  & 100\%  ( 9/9 )  \\ \hline
+Lines   & 76\% ( 777/1022 ) \\ \hline
+\end{tabular}
+
+\subsection{Back-end Testing}
+
+\begin{tabular}{ |p{6cm}|p{6cm}|  }
+ \hline
+ \multicolumn{2}{|c|}{Coverage Summary} \\
+ \hline
+Statements   & 100\% ( 108/108 )   \\ \hline
+Branches   & 100\% ( 1/1 )  \\ \hline
+Functions  & 100\%  ( 13/13 )  \\ \hline
+Lines   & 100\% ( 108/108 ) \\ \hline
+\end{tabular}
 
 \bibliographystyle{plainnat}
 \bibliography{../../refs/References}
@@ -359,8 +493,15 @@ The information in this section will be used to evaluate the team members on the
 graduate attribute of Lifelong Learning.  Please answer the following questions:
 
 \begin{enumerate}
-  \item 
-  \item 
+  \item In what ways was the Verification and Validation (VnV) Plan different from the activities that were actually conducted for VnV? If there were differences, what changes required the modification in the plan? Why did these changes occur? Would you be able to anticipate these changes in future projects? If there weren't any differences, how was your team able to clearly predict a feasible amount of effort and the right tasks needed to build the evidence that demonstrates the required quality? (It is expected that most teams will have had to deviate from their original VnV Plan.)  
 \end{enumerate}
+
+\begin{itemize}
+\item Utsharga: A lot more external testing was required compared to what we had planned. These changes had occured due to us lacking of insight. Through our user survey we verfied and validated our results and we plan to make changes according to that.
+\item Bilal: The VnV plan was different from the VnV as the requirements implemented have changed for the implementation so the test results are 
+different from expectations. A lot of changes occured due to infeasible implementation of certain core features and changes in focus for the app. 
+All these changes are not possible to predicted before hand unless multiple small poc are made for each feature which is obviously not doable in 
+the timeframe of this project.
+\end{itemize}
 
 \end{document}
