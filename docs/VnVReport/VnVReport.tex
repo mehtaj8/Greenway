@@ -391,7 +391,7 @@ How test will be performed: This test will be verified using responses to Usabil
 
 Result: Test case failed as the desired output was not achieved.
 
-Impact: 
+Impact: This failure shows that we can remove the requirement of use of application for people with visual impairment as the requirement is not met.
 
 \end{enumerate}
 
@@ -443,7 +443,7 @@ How test will be performed: Starting and ending location are entered. Calculate 
 
 Result: Test case failed as the desired output was not achieved.
 
-Impact: 
+Impact: This failure shows that the calculation time after the route calculation button is pressed needs to be optimized further in order for the requirement to be met.
 
 \item{test-pr-2\\}
 
@@ -451,79 +451,89 @@ Type: Functional, Manual
 
 Initial State: The tester is on the main page of the application.
 
-Input/Condition: The tester 
+Input/Condition: The tester will enter details into all the input fields on the UI and press the route calculation button. They will then check to see if the fuel calculation consumption is done as accurately as possible.
 
-Desired Output/Result: 
+Desired Output/Result: After 10 testers use the application, about 70\% of testers answered 'Yes' on question 11 of the survey.
 
-Actual Output/Result:
-
-Test Case Derivation: As NFR9 states, the system shall calculate fuel consumption as accurately as possible.
+Actual Output/Result: 90\% of testers answered 'Yes' on question 11 of the survey.
 
 How test will be performed: This test will be verified using responses to Usability Survey Question 11. A majority 'Yes' response is a pass.
+
+Result: Test case passed as the desired output was achieved.
+
+Impact: None.
 
 \item{test-pr-3\\}
 
 Type: Functional, Manual
 
-Initial State: The application is running. 
+Initial State: The application is already running running. 
 
-Input/Condition: N/A
+Input/Condition: The tester will simply observe to see if the application is available for use 24 hours per day, 365 days per year.
 
-Desired Output/Result: 
+Desired Output/Result: After 10 testers use the application, about 70\% of testers answered 'Yes' on question 12 of the survey.
 
-Actual Output/Result:
-
-Test Case Derivation: As NFR10 states, the system shall be available for use 24 hours per day, 365 days per year.
+Actual Output/Result: 100\% of testers answered 'Yes' on question 12 of the survey.
 
 How test will be performed: This test will be verified using responses to Usability Survey Question 12. A majority 'No' response is a pass.
+
+Result: Test case passed as the desired output was achieved.
+
+Impact: None.
 
 \item{test-pr-4\\}
 
 Type: Functional, Manual
 
-Initial State: N/A	
+Initial State: The tester is on the main page of the application.
 
-Input/Condition: Invalid and edge case inputs for input fields. 
+Input/Condition: Invalid and edge case inputs for input fields are entered by the tester. 
 
-Desired Output/Result:  User is notified that they need to modify input (error handling). 
+Desired Output/Result: For 70\% of testers, they're notified that they need to modify input (error handling). 
 
-Actual Output/Result:
-
-Test Case Derivation: As NFR11 states, the system shall be able to respond to invalid or unconventional inputs.
+Actual Output/Result: Only for 50\% of testers, they're notified to change their input due to invalid or unconventional inputs.
 
 How test will be performed: User inputs invalid and edge cases inputs. System's response to these inputs shall be recorded.
+
+Result: Test case failed as the desired output was not achieved.
+
+Impact: The failure of this test shows that the error handling for inputs needs to be fixed in order to account for edge cases.
 
 \item{test-pr-5\\}
 
 Type: Functional, Automated
 
-Initial State: N/A	
+Initial State: A tester launches the Greenway app using a script to run several instances of the program.
 
-Input/Condition: N/A
+Input/Condition: The tester will run the several instances to check if the system can handle an infinite amount of users.
 
-Desired Output/Result:  
+Desired Output/Result: For the majority of testers, they will report back that the system works fine with a very large amount of users.
 
-Actual Output/Result:
-
-Test Case Derivation: As NFR13 states, the system shall be able to handle an infinite amount of users.
+Actual Output/Result: All the testers have reported that the system works fine with a lot of users in the system.
 
 How test will be performed: Script to run several instances of the program will stress test the system. System's response to a large number of users shall be recorded. 
+
+Result: Test case passed as the desired output was achieved.
+
+Impact: None.
 
 \item{test-pr-6\\}
 
 Type: Functional, Manual
 
-Initial State: N/A	
+Initial State: The application is already running running. 
 
-Input/Condition: N/A		
+Input/Condition: The tester will simply observe to see if the system will operate as long as possible.
 
-Desired Output/Result:  
+Desired Output/Result: After 10 testers use the application, about 70\% of testers answered 'No' on question 13 of the survey.
 
-Actual Output/Result:
-
-Test Case Derivation: As NFR14 states, the system shall operate as long as possible.
+Actual Output/Result: 90\% of testers answered 'No' on question 13 of the survey.
 
 How test will be performed: This test will be verified using responses to Usability Survey Question 13. A majority 'No' response is a pass.
+
+Result: Test case passed as the desired output was achieved.
+
+Impact: None.
 
 \end{enumerate}
 
