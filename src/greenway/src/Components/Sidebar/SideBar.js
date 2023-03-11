@@ -30,7 +30,7 @@ import TripDetails from './../Trip Details Module/TripDetails';
         <Spacer/>
         <CarInput setMileage={setMileage}/>
         <Spacer/>
-        <Button onClick={() => {setX(!x); props.evalFunc(mileage);}} w="100%" bg='#FFBC49' borderRadius='40px' p={5}>
+        <Button onClick={() => {setX(!x); props.evalFunc(mileage);}} w="100%" bg='#29e694' borderRadius='40px' p={5}>
             Evaluate
         </Button>
         </VStack>
@@ -39,7 +39,7 @@ import TripDetails from './../Trip Details Module/TripDetails';
         <Spacer/>
         <TripDetails Mileage={mileage} GasPrice={props.GasPrice} Distance={props.Distance} TotalPrice={props.TotalPrice}/>
         <Spacer/>
-        <Button onClick={() => {setX(!x); }} w="100%" bg='#FFBC49' borderRadius='40px' p={5}>
+        <Button onClick={() => {setX(!x); }} w="100%" bg='#29e694' borderRadius='40px' p={5}>
             <ChevronLeftIcon/> Back
         </Button>
         </VStack>
@@ -61,7 +61,7 @@ import TripDetails from './../Trip Details Module/TripDetails';
         boxShadow='2xl'
       >
         <Center
-        bg='#FFBC49' 
+        bg='#29e694' 
         color='#000000' 
         h='120px' 
         w='100%' 
