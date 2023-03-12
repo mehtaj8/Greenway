@@ -3,10 +3,20 @@ import {
     Input,
     Select,
     VStack,
-    Text
-  } from '@chakra-ui/react';  
+    Text,
+    Icon,
+    HStack,
+    Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContent,
+    ModalHeader,
+    ModalOverlay,
+    useDisclosure
+} from '@chakra-ui/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { AiOutlineQuestionCircle } from 'react-icons/ai'
 
 // const CircleIcon = (props) => (
 // <Icon viewBox='0 0 200 200' {...props}>
@@ -19,9 +29,9 @@ import { useEffect, useState } from 'react';
 // )
 
 export default function CarInput(props) {
-    const [yearSelectActive, setYearSelectActive] =  useState(true);
-    const [makeSelectActive, setMakeSelectActive] =  useState(true);
-    const [modelSelectActive, setModelSelectActive] =  useState(true);
+    const [yearSelectActive, setYearSelectActive] = useState(true);
+    const [makeSelectActive, setMakeSelectActive] = useState(true);
+    const [modelSelectActive, setModelSelectActive] = useState(true);
     const [yearsList, setYearsList] = useState([]);
     const [makesList, setMakesList] = useState([]);
     const [modelList, setModelList] = useState([]);
@@ -38,22 +48,22 @@ export default function CarInput(props) {
     }
 
     const getMakes = async () => {
-        await axios.get("http://localhost:3001/db/cardata/makes/"+selectedYear).then((response, error) => {
+        await axios.get("http://localhost:3001/db/cardata/makes/" + selectedYear).then((response, error) => {
             setMakesList(response.data);
         });
     }
 
     const getModels = async () => {
-        await axios.get("http://localhost:3001/db/cardata/models/"+selectedYear+"/"+selectedMake).then((response, error) => {
+        await axios.get("http://localhost:3001/db/cardata/models/" + selectedYear + "/" + selectedMake).then((response, error) => {
             setModelList(response.data);
         });
     }
 
     const getMileage = async () => {
-        await axios.get("http://localhost:3001/db/cardata/getMilage/"+selectedYear+"/"+selectedMake+"/"+selectedModel).then((response, error) => {
-            if (response.data.length > 1){
-                setMileage((response.data[0]+response.data[1])/2);
-            }else {
+        await axios.get("http://localhost:3001/db/cardata/getMilage/" + selectedYear + "/" + selectedMake + "/" + selectedModel).then((response, error) => {
+            if (response.data.length > 1) {
+                setMileage((response.data[0] + response.data[1]) / 2);
+            } else {
                 setMileage(response.data[0]);
             }
 
@@ -68,15 +78,15 @@ export default function CarInput(props) {
 
     const handleSelect = (event) => {
         //console.log(event.target.id)
-        if (event.target.id === 'year'){
-            if (event.target.value !== 'Select Year'){
+        if (event.target.id === 'year') {
+            if (event.target.value !== 'Select Year') {
                 setSelectedYear(event.target.value);
                 setManualMileageDisable(true);
-            } 
-        }else if (event.target.id === 'make'){
+            }
+        } else if (event.target.id === 'make') {
             if (event.target.value !== 'Select Make')
                 setSelectedMake(event.target.value);
-        }else if (event.target.id === 'model'){
+        } else if (event.target.id === 'model') {
             if (event.target.value !== 'Select Model')
                 setSelectedModel(event.target.value);
         }
@@ -84,73 +94,94 @@ export default function CarInput(props) {
 
     function isNumeric(str) {
         return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
-               !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+            !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
     }
 
-    useEffect(()=>{
-        if (mileage !== 0 && isNumeric(mileage)){
+    useEffect(() => {
+        if (mileage !== 0 && isNumeric(mileage)) {
             //console.log(mileage);
             props.setMileage(parseFloat(mileage));
         }
-    },[mileage]);
+    }, [mileage]);
 
-    useEffect(()=>{
+    useEffect(() => {
         if (selectedModel != null)
             getMileage();
-    },[selectedModel]);
+    }, [selectedModel]);
 
-    useEffect(()=>{
+    useEffect(() => {
         if (selectedYear != null)
             getMakes();
-    },[selectedYear]);
+    }, [selectedYear]);
 
-    useEffect(()=>{
+    useEffect(() => {
         if (selectedMake != null)
             getModels();
-    },[selectedMake]);
+    }, [selectedMake]);
 
-    useEffect(()=>{
+    useEffect(() => {
         setYearSelectActive(false);
-    },[yearsList]);
+    }, [yearsList]);
 
-    useEffect(()=>{
+    useEffect(() => {
         //console.log(makesList);
-        if (makesList.length > 0){
+        if (makesList.length > 0) {
             setMakeSelectActive(false);
         }
-    },[makesList]);
+    }, [makesList]);
 
-    useEffect(()=>{
-        if (modelList.length > 0){
+    useEffect(() => {
+        if (modelList.length > 0) {
             //console.log(modelList);
             setModelSelectActive(false);
         }
-    },[modelList]);
+    }, [modelList]);
 
-    useEffect(()=>{
+    useEffect(() => {
         getYears();
-    },[])
+    }, [])
+
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
         <>
-            <Text color='585858' fontSize='20px' textAlign='left' w='100%'>Select your Vehicle</Text>
+            <HStack p={5}>
+                <Text color='585858' fontSize='20px' textAlign='left' w='100%'>Select Your Vehicle</Text>
+                <Icon as={AiOutlineQuestionCircle} color='#29e694' boxSize='20px' onClick={onOpen}></Icon>
+            </HStack>
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay/>
+                <ModalContent>
+                    <ModalHeader>Car Information Input Help</ModalHeader>
+                    <ModalCloseButton></ModalCloseButton>
+                    <ModalBody>
+                        <b>Option 1:</b><br></br>
+                        Enter <b>Year</b>, <b>Make</b> and <b>Model</b> of the car you use, the gas mileage will be collected automatically.<br></br>
+                        <br></br>
+                        <b>Option 2:</b><br></br>
+                        Enter your vehicles gas mileage in the input box.<br></br>
+                        <br></br>
+                        Press <b>Evaluate</b> once done
+                    </ModalBody>
+                </ModalContent>
+            </Modal>
             <Box border='2px' borderColor='#A5A5A5' borderRadius='20px' w='100%'>
                 <VStack p={5}>
-                    <Select id='year' variant='outline' placeholder='Select Year' isDisabled={yearSelectActive} onChange={handleSelect}>
+                    <Select id='year' variant='outline' placeholder='Select Year' borderRadius={"36px"} isDisabled={yearSelectActive} onChange={handleSelect}>
                         {
                             yearsList.map(item =>
-                                <option value={item}>{item}</option>
+                                <option borderRadius={"36px"} value={item}>{item}</option>
                             )
                         }
                     </Select>
-                    <Select id='make' variant='outline' placeholder='Select Make' isDisabled={makeSelectActive} onChange={handleSelect}>
+                    <Select id='make' variant='outline' placeholder='Select Make' borderRadius={"36px"} isDisabled={makeSelectActive} onChange={handleSelect}>
                         {
                             makesList.map(item =>
                                 <option value={item}>{item}</option>
                             )
                         }
                     </Select>
-                    <Select id='model' variant='outline' placeholder='Select Model' isDisabled={modelSelectActive} onChange={handleSelect}>
+                    <Select id='model' variant='outline' placeholder='Select Model' borderRadius={"36px"} isDisabled={modelSelectActive} onChange={handleSelect}>
                         {
                             modelList.map(item =>
                                 <option value={item}>{item}</option>
@@ -158,7 +189,7 @@ export default function CarInput(props) {
                         }
                     </Select>
                     <Text>OR</Text>
-                    <Input variant='outline' placeholder='Enter your vehicle mileage' isDisabled={manualMileageDisable} onChange={setManualMileage}/>
+                    <Input variant='outline' placeholder='Enter Your Vehicle Mileage' borderRadius={"36px"} isDisabled={manualMileageDisable} onChange={setManualMileage} />
                 </VStack>
             </Box>
         </>
