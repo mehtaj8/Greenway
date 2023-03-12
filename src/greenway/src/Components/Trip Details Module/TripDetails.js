@@ -45,7 +45,7 @@ const TripDetails = (props) => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Location Input Help</ModalHeader>
+          <ModalHeader>Trip Details Information</ModalHeader>
           <ModalCloseButton></ModalCloseButton>
           <ModalBody>
             Our calculations for the total price of the trip was done based on average gas prices along the route of the trip. <br></br>
