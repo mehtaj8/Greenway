@@ -12,13 +12,14 @@
     urlcolor=blue
 }
 \usepackage[round]{natbib}
+\usepackage[normalem]{ulem}
 
 \input{../Comments}
 \input{../Common}
 
 \begin{document}
 
-\title{Project Title: System Verification and Validation Report for Greenway} 
+\title{Greenway: System Verification and Validation Report} 
 \author{\authname{}}
 \date{\today}
 	
@@ -386,13 +387,13 @@ Input/Condition: The tester will try to use the application with colour blind gl
 
 Desired Output/Result: After 10 testers use the application, about 70\% of testers answered 'Yes' on question 7 of the survey.
 
-Actual Output/Result: 40\% of testers answered 'Yes' on question 7 of the survey.
+Actual Output/Result: \textcolor{red}{First test:} 40\% of testers answered 'Yes' on question 7 of the survey. \textcolor{red}{Revised test: 80\% of testers answered 'Yes' on question 7 of the survey.}
 
 How test will be performed: This test will be verified using responses to Usability Survey Question 7. A majority 'Yes' response is a pass.
 
-Result: Test case failed as the desired output was not achieved.
+Result: \textcolor{red}{First test:} Test case failed as the desired output was not achieved. \textcolor{red}{Revised test: Test case passed as the desired output was achieved.}
 
-Impact: This failure shows that we can remove the requirement of use of application for people with visual impairment as the requirement is not met.
+Impact: \textcolor{red}{First test:} This failure shows that we can remove the requirement of use of application for people with visual impairment as the requirement is not met. \textcolor{red}{Revised test: None}.
 
 \end{enumerate}
 
@@ -438,13 +439,13 @@ Input/Condition: The tester inputs the starting location and the ending location
 
 Desired Output/Result: After 10 testers use the application, the average time calculated between all testers should be less than 5 seconds.
 
-Actual Output/Result: The average time calculated between all testers is 9.8 seconds.
+Actual Output/Result: \textcolor{red}{First test:} The average time calculated between all testers is 9.8 seconds. \textcolor{red}{Revised test: The average time calculated between all testers is 4.9 seconds.}
 
 How test will be performed: Starting and ending location are entered. Calculate route button is selected. Amount of time to complete calculation is measured. 
 
-Result: Test case failed as the desired output was not achieved.
+Result: \textcolor{red}{First test:} Test case failed as the desired output was not achieved. \textcolor{red}{Revised test: Test case passed as the desired output was achieved.}
 
-Impact: This failure shows that the calculation time after the route calculation button is pressed needs to be optimized further in order for the requirement to be met.
+Impact: \textcolor{red}{First test:} This failure shows that the calculation time after the route calculation button is pressed needs to be optimized further in order for the requirement to be met. \textcolor{red}{Revised test: None}.
 
 \item{test-pr-2\\}
 
