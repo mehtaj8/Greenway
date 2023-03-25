@@ -501,9 +501,9 @@ qualities that the software is expected to exhibit.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_10}:] 
 \begin{itemize}
-  \item \textit{Description}: The system shall be available for use 24 hours per day, 365 days per year.
-  \item \textit{Rationale}: Since this is a web app, it will be available for use at any time. Users will be able to use the application at any time of the day without any restriction.
-  \item \textit{Fit Criterion}: 90\% of a panel of 10 users shall be able to use the application without it going offline.
+  \item \textit{Description}: The system shall be available for use \sout{24 hours per day, 365 days per year} \textcolor{red}{98\% of the time}.
+  \item \textit{Rationale}: Since this is a web app, it will be available for use at any time, \textcolor{red}{except for a few hours during the year when the app is down for maintenance}. \textcolor{red}{When the app is not down for maintenance}, users will be able to use the application at any time of the day without any restriction.
+  \item \textit{Fit Criterion}: 90\% of a panel of 10 users shall be able to use the application without it going offline \textcolor{red}{except during maintenance}.
   \item \textit{Undesired Event Handling}: N/A.
   \item \textit{Priority}: Low
 \end{itemize}
