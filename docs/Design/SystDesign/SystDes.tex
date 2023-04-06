@@ -48,7 +48,7 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 Jan 18, 2023 & 1.0 & Revision 0\\
-Date 2 & 1.1 & Notes\\
+April 5, 2023 & 1.1 & Revision 1, UI updates\\
 \bottomrule
 \end{tabularx}
 
@@ -62,13 +62,20 @@ This section records information for easy reference.
 
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{l l} 
-  \toprule		
-  \textbf{symbol} & \textbf{description}\\
-  \midrule 
-  \progname & Explanation of program name\\
-  \wss{...} & \wss{...}\\
-  \bottomrule
-\end{tabular}\\
+    \toprule		
+    \textbf{symbol} & \textbf{description}\\
+    \midrule 
+    AC & Anticipated Change\\
+    DAG & Directed Acyclic Graph \\
+    M & Module \\
+    MG & Module Guide \\
+    OS & Operating System \\
+    R & Requirement\\
+    SC & Scientific Computing \\
+    SRS & Software Requirements Specification\\
+    UC & Unlikely Change \\
+    \bottomrule
+  \end{tabular}\\
 
 \newpage
 
@@ -140,42 +147,47 @@ and MIS respectively with the traceability matrices found in the documents.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.23]{Desktop-1.png}
+    \includegraphics[scale=0.36]{landing-page.PNG}
     \caption{Landing Page}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.23]{Desktop-2.png}
+    \includegraphics[scale=0.36]{location-selection.PNG}
     \caption{Location Selection}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.26]{Desktop-3.png}
-    \caption{Select Make}
-\end{figure}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[scale=0.26]{Desktop-4.png}
-    \caption{Select Model}
-\end{figure}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[scale=0.26]{Desktop-5.png}
+    \includegraphics[scale=0.36]{select-year.PNG}
     \caption{Select Year}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.26]{Desktop-6.png}
-    \caption{All input correct, Select Evaluate}
+    \includegraphics[scale=0.36]{select-make.PNG}
+    \caption{Select Make}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.26]{Desktop-7.png}
+    \includegraphics[scale=0.36]{select-model.PNG}
+    \caption{Select Model}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.36]{correct-input.PNG}
+    \caption{All inputs correct, Select Evaluate}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.36]{loading.PNG}
+    \caption{Loading, System performing calculations}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.36]{total-cost.PNG}
     \caption{Total Price of Trip}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.26]{Desktop-8.png}
+    \includegraphics[scale=0.36]{trip-details.PNG}
     \caption{Trip Details}
 \end{figure}
 
@@ -198,15 +210,14 @@ No communication protocols are utilized in the system.
 \begin{table}[H]
 	\begin{tabular}{|l|l|l|l|}
 		\hline
-		Figure & Timeline Rev 0   & Timeline Final Rev & Who's Responsible           \\ \hline
-		3      & February 13, 2023 & March 20, 2023     & Utsharga and Jash           \\ \hline
-		4      & February 13, 2023 & March 20, 2023     & Utsharga and Priyansh           \\ \hline
-		5      & February 13, 2023 & March 20, 2023     & Utsharga and Priyansh           \\ \hline
-		6      & February 13, 2023 & March 20, 2023     & Pranay and Jash               \\ \hline
-		7      & February 13, 2023 & March 20, 2023     & Bilal and Sharjil              \\ \hline
-		8      & February 13, 2023 & March 20, 2023     & Bilal and Sharjil              \\ \hline
-		9      & February 13, 2023 & March 20, 2023     & Bilal and Priyansh            \\ \hline
-		10      & February 13, 2023 & March 20, 2023     & Pranay, Sharjil, and Jash \\ \hline
+		Component & Timeline Rev 0   & Timeline Final Rev & Who's Responsible \\ \hline
+		Landing Page & February 13, 2023 & March 20, 2023     & Utsharga and Jash \\ \hline
+		Location Selection & February 13, 2023 & March 20, 2023     & Utsharga and Priyansh \\ \hline
+		Select Car Year, Make, Model & February 13, 2023 & March 20, 2023     & Utsharga and Priyansh \\ \hline
+		Input Validation & February 13, 2023 & March 20, 2023     & Pranay and Jash \\ \hline
+		Loading Screen & February 13, 2023 & March 20, 2023     & Bilal and Sharjil \\ \hline
+		Total Cost Calculation & February 13, 2023 & March 20, 2023     & Bilal and Priyansh \\ \hline
+		Trip Details & February 13, 2023 & March 20, 2023     & Bilal and Priyansh \\ \hline
 	\end{tabular}
 \end{table}
 
