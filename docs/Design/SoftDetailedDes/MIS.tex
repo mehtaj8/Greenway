@@ -134,8 +134,10 @@ The following table is taken directly from the Module Guide document for this pr
 \multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & Location Input Module\\
 & Car Input Module\\
 & Map Display Module\\
-& Fuel Information Module\\
-& Elevation Module\\
+% & Fuel Information Module\\
+& Trip Details Module\\
+& Navigation Module\\
+& SideBar Module\\
 \midrule
 
 \multirow{3}{0.3\textwidth}{Software Decision Module} & Map Data Module\\
@@ -170,6 +172,17 @@ Map\_Data\_Module
 
 None
 
+\subsubsection{Inputs}
+\begin{tabular}{| l | l | l |}
+  \hline
+  \textbf{Input Name} & \textbf{Type} & \textbf{Description}\\
+  \hline
+  Start & String & Address of the start location \\
+  \hline
+  Start & String & Address of the end location \\
+  \hline
+\end{tabular}
+
 \subsubsection{Exported Access Programs}
 
 \begin{tabular}{| l | l | l | l |}
@@ -178,9 +191,9 @@ None
   \hline
   constructor & HTML attribute & ~ & ~\\
   \hline
-  setCurrentLocation & String & ~ & Location not found.\\
+  setStartLocation & String Start & ~ & Location not found.\\
   \hline
-  setDestinationLocation & String & ~ & Location not found.\\
+  setEndLocation & String End & ~ & Location not found.\\
   \hline
   render & ~ & ReactDOM & ~\\
   \hline
@@ -209,13 +222,13 @@ None
 \item exception: none
 \end{itemize}
 
-\noindent setCurrentLocation($String$):
+\noindent setStartLocation($String$ Start):
 \begin{itemize}
-\item transition: This function sets the current location from the user.
+\item transition: This function sets the start location from the user.
 \item exception: Location not found.
 \end{itemize}
 
-\noindent setDestinationLocation($String$):
+\noindent setDestinationLocation($String$ End):
 \begin{itemize}
 \item transition: This function sets the destination location from the user.
 \item exception: Location not found.
@@ -256,6 +269,21 @@ Car\_Data\_Module
 
 None
 
+\subsubsection{Inputs}
+\begin{tabular}{| l | l | l |}
+  \hline
+  \textbf{Input Name} & \textbf{Type} & \textbf{Description}\\
+  \hline
+  Make & String & Make of the Car \\
+  \hline
+  Model & String & Model of the Car \\
+  \hline
+  Year & Number & Year of the Car \\
+  \hline
+  Mileage & String & Mileage of the Car \\
+  \hline
+\end{tabular}
+
 \subsubsection{Exported Access Programs}
 
 \begin{tabular}{| l | l | l | l |}
@@ -269,6 +297,8 @@ None
   setCarModel & String & ~ & Model not found.\\
   \hline
   setCarYear & Number & ~ & Car not found.\\
+  \hline
+  setCarMileage & Number & ~ & Invalid mileage.\\
   \hline
   render & ~ & ReactDOM & ~\\
   \hline
@@ -297,22 +327,28 @@ None
 \item exception: none
 \end{itemize}
 
-\noindent setCarMake($String$):
+\noindent setCarMake($String$ Make):
 \begin{itemize}
-\item transition: This function sets the make of the car from the user.
-\item exception: Location not found.
+\item transition: This function sets the make of the car from the user by making a call to the database to find all available makes.
+\item exception: Make not found.
 \end{itemize}
 
-\noindent setCarModel($String$):
+\noindent setCarModel($String$ Model):
 \begin{itemize}
-\item transition: This function sets the model of the car from the user.
-\item exception: Location not found.
+\item transition: This function sets the model of the car from the user by making a call to the database to find all available Models.
+\item exception: Model not found.
 \end{itemize}
 
-\noindent setCarYear($String$):
+\noindent setCarYear($Number$ Year):
 \begin{itemize}
-\item transition: This function sets the manufacturing year of the car from the user.
-\item exception: Location not found.
+\item transition: This function sets the manufacturing year of the car from the user by making a call to the database to find all available Years.
+\item exception: Year not found.
+\end{itemize}
+
+\noindent setCarMileage($Number$ Mileage):
+\begin{itemize}
+\item transition: This function sets the mileage of the car from the user as an alternative the other car details.
+\item exception: Year not found.
 \end{itemize}
 
 \noindent render():
@@ -346,17 +382,35 @@ Map\_Data\_Module
 
 \subsubsection{Exported Constants}
 
+\subsubsection{Inputs}
+\begin{tabular}{| l | l | p{0.6\linewidth}|}
+  \hline
+  \textbf{Input Name} & \textbf{Type} & \textbf{Description}\\
+  \hline
+  startEndLoc & List$<$String, String$>$ & Array of the start and end location as addresses that the user entered \\
+  \hline
+  mileageLocal & $\mathbb{R}$ & Price of gas locally \\
+  \hline
+  points & List$<\mathbb{R},\mathbb{R}>$  & Coordinates for points along the route \\
+  \hline
+  mileage & $\mathbb{R}$ & Mileage of the Car \\
+  \hline
+\end{tabular}
+
 \subsubsection{Exported Access Programs}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| l |  p{0.3\linewidth}|  p{0.3\linewidth}| l |}
   \hline
   \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
   \hline
-  getRoute & List$<$String, String$>$ & List$<\mathbb{R},\mathbb{R}>$ & Location not found.\\
+  getRoute & List$<$String, String$>$ startEndLoc & List$<\mathbb{R},\mathbb{R}>$  startEndLocCoords & Location not found.\\
   \hline
-  calRoute & $\mathbb{R}$ & ~ & Make not found.\\
+  calRoute & $\mathbb{R}$ mileageLocal & ~ & Make not found.\\
   \hline
-  pathOverview & List$<\mathbb{R},\mathbb{R}>$ & ReactDOM & Location not found.\\
+  pathOverview & List$<\mathbb{R},\mathbb{R}>$ points, $\mathbb{R}$ mileage  & ReactDOM & Location not found.\\
+  \hline
+  getRoadGrade & List$<\mathbb{R},\mathbb{R}>$ Points & List$<\mathbb{R}>$ roadGrades & Make not found.\\
+  \hline
   render & ~ & ReactDOM & ~\\
   \hline
 \end{tabular}
@@ -378,21 +432,27 @@ None
 
 \subsubsection{Access Routine Semantics}
 
-\noindent getRoute(List$<$String, String$>$):
+\noindent getRoute(List$<$String, String$>$ startEndLoc):
 \begin{itemize}
 \item output: List$<\mathbb{R},\mathbb{R}>$ : Coordinates of the start and destination locations.
 \item exception: Location not found.
 \end{itemize}
 
-\noindent calRoute($String$):
+\noindent calRoute($String$ mileageLocal):
 \begin{itemize}
 \item transition: This function sets the model of the car from the user.
 \item exception: Location not found.
 \end{itemize}
 
-\noindent pathOverview(List$<\mathbb{R},\mathbb{R}>$):
+\noindent pathOverview(List$<\mathbb{R},\mathbb{R}>$ points, $\mathbb{R}$ mileage):
 \begin{itemize}
 \item Output: The route from start to end destination.
+\item exception: Map component not loaded.
+\end{itemize}
+
+\noindent getRoadGrade(List$<\mathbb{R},\mathbb{R}>$ points):
+\begin{itemize}
+\item Output: The road grade for each pair of coordiantes in points.
 \item exception: Map component not loaded.
 \end{itemize}
 
@@ -412,21 +472,36 @@ None
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{MIS of Fuel Information Module (M5)} 
+\section{MIS of Trip Detail Module (M5)} 
 
 \label{Module} 
 
 \subsection{Module extends React.Component}
 
-Fuel\_Information\_Module
+TripDetails\_Module
 
 \subsection{Uses}
 
-Fuel\_Data\_Module, Car\_Data\_Module, Car\_Input\_Module
 
 \subsection{Syntax}
 
 \subsubsection{Exported Constants}
+
+\subsubsection{Inputs}
+\begin{tabular}{| l | l | l |}
+  \hline
+  \textbf{Input Name} & \textbf{Type} & \textbf{Description}\\
+  \hline
+  GasPrice & $\mathbb{R}$ & Price of gas in the start location \\
+  \hline
+  mileage & $\mathbb{R}$ & Mileage of car \\
+  \hline
+  Distance & $\mathbb{R}$  & Total distance to travel along the route in km \\
+  \hline
+  Total Price & $\mathbb{R}$ & Total Price of the trip \\
+  \hline
+\end{tabular}
+
 
 \subsubsection{Exported Access Programs}
 
@@ -434,15 +509,7 @@ Fuel\_Data\_Module, Car\_Data\_Module, Car\_Input\_Module
   \hline
   \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
   \hline
-  getMileage & List$<$String, String, $\mathbb{R}>$ & $\mathbb{R}$ & ~\\
-  \hline
-  getFuelPrice & List$<\mathbb{R},\mathbb{R}>$ & $\mathbb{R}$ & ~\\
-  \hline
-  getElevation & List$<\mathbb{R},\mathbb{R}>$ & Array$<\mathbb{R}>$ & ~\\
-  \hline
-  calFuelUsage & List$<\mathbb{R},\mathbb{R},\mathbb{R}>$ & $\mathbb{R}$ & ~\\
-  \hline
-  render & ~ & ReactDOM & ~\\
+  render & $\mathbb{R}$ GasPrice, $\mathbb{R}$ mileage, $\mathbb{R}$ Distance, $\mathbb{R}$ TotalPrice & ReactDOM & ~\\
   \hline
 \end{tabular}
 
@@ -463,33 +530,9 @@ None
 
 \subsubsection{Access Routine Semantics}
 
-\noindent getMilage (List$<$String, String, $\mathbb{R}>$) :
+\noindent render($\mathbb{R}$ GasPrice, $\mathbb{R}$ mileage, $\mathbb{R}$ Distance, $\mathbb{R}$ TotalPrice):
 \begin{itemize}
-\item output: $\mathbb{R}$ : The mileage of the car model.
-\item exception: Location not found.
-\end{itemize}
-
-\noindent getFuelPrice(List$<\mathbb{R},\mathbb{R}>$) :
-\begin{itemize}
-\item output: $\mathbb{R}$ : The average fuel price on the route to destination.
-\item exception: Location not found.
-\end{itemize}
-
-\noindent getElevation(List$<\mathbb{R},\mathbb{R}>$) :
-\begin{itemize}
-\item output: Array$<\mathbb{R}>$ : All the elevation point from the current location to destination location.
-\item exception: Map component not loaded.
-\end{itemize}
-
-\noindent calFuelUsage(List$<\mathbb{R},\mathbb{R},\mathbb{R}>$):
-\begin{itemize}
-\item output: $\mathbb{R}$ : The total fuel usage for the trip.
-\item exception: Map component not loaded.
-\end{itemize}
-
-\noindent render():
-\begin{itemize}
-\item output: This function renders the outputs the milage, the distance travelled and the total cost.
+\item output: This function renders the outputs the milage, the distance traveled and the total cost.
 \item exception: none
 \end{itemize}
 
@@ -503,29 +546,46 @@ None
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{MIS of Elevation Module (M6)} 
+\section{MIS of Navigation Module (M6)} 
 
 \label{Module} 
 
 \subsection{Module extends React.Component}
 
-Elevation\_Information\_Module
+Navigation\_Module
 
 \subsection{Uses}
 
-Map\_Data\_Module
+Sidebar\_Module
 
 \subsection{Syntax}
 
 \subsubsection{Exported Constants}
 
+\subsubsection{Inputs}
+\begin{tabular}{| l | l | l |}
+  \hline
+  \textbf{Input Name} & \textbf{Type} & \textbf{Description}\\
+  \hline
+  evalFunc & Function & Function to evaluate the end result of the app or trip details \\
+  \hline
+  GasPrice & $\mathbb{R}$ & Price of gas in the start location \\
+  \hline
+  mileage & $\mathbb{R}$ & Mileage of car \\
+  \hline
+  Distance & $\mathbb{R}$  & Total distance to travel along the route in km \\
+  \hline
+  Total Price & $\mathbb{R}$ & Total Price of the trip \\
+  \hline
+\end{tabular}
+
 \subsubsection{Exported Access Programs}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| l | p{0.6\linewidth}| l | l |}
   \hline
   \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
   \hline
-  getElevation & List$<\mathbb{R},\mathbb{R}>$ & Array$<\mathbb{R}>$ & ~\\
+  render & $\mathbb{R}$ GasPrice, $\mathbb{R}$ mileage, $\mathbb{R}$ Distance, $\mathbb{R}$ TotalPrice, Function evalFunc & ReactDOM & ~\\
   \hline
 \end{tabular}
 
@@ -545,10 +605,10 @@ None
 
 \subsubsection{Access Routine Semantics}
 
-\noindent getElevation(List$<\mathbb{R},\mathbb{R}>$) :
+\noindent render($\mathbb{R}$ GasPrice, $\mathbb{R}$ mileage, $\mathbb{R}$ Distance, $\mathbb{R}$ TotalPrice, Function evalFunc) :
 \begin{itemize}
-\item output: Array$<\mathbb{R}>$ : All the elevation point from the current location to destination location.
-\item exception: Map component not loaded.
+\item output: Renders Sidebar along with a button to minimize it.
+\item exception: None
 \end{itemize}
 
 \subsubsection{Local Functions}
@@ -556,6 +616,83 @@ None
 None
 
 \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of SideBar Module (M7)} 
+
+\label{Module} 
+
+\subsection{Module extends React.Component}
+
+SideBar\_Module
+
+\subsection{Uses}
+
+Location\_Input\_Module, Car\_Input\_Module, Trip\_Details\_Module
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+\subsubsection{Inputs}
+\begin{tabular}{| l | l | l |}
+  \hline
+  \textbf{Input Name} & \textbf{Type} & \textbf{Description}\\
+  \hline
+  evalFunc & Function & Function to evaluate the end result of the app or trip details \\
+  \hline
+  GasPrice & $\mathbb{R}$ & Price of gas in the start location \\
+  \hline
+  updateStart & Function & Update start location \\
+  \hline
+  updateEnd & Function & Update end location \\
+  \hline
+  mileage & $\mathbb{R}$ & Mileage of car \\
+  \hline
+  Distance & $\mathbb{R}$  & Total distance to travel along the route in km \\
+  \hline
+  TotalPrice & $\mathbb{R}$ & Total Price of the trip \\
+  \hline
+\end{tabular}
+
+\subsubsection{Exported Access Programs}
+
+\begin{tabular}{| l | p{0.6\linewidth}| l | l |}
+  \hline
+  \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+  \hline
+  render & $\mathbb{R}$ GasPrice, $\mathbb{R}$ mileage, $\mathbb{R}$ Distance, $\mathbb{R}$ TotalPrice, Function evalFunc, Function updateStart, Function updateEnd & ReactDOM & ~\\
+  \hline
+\end{tabular}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None
+
+\subsubsection{Environment Variables}
+
+None
+
+\subsubsection{Assumptions}
+
+None
+
+\subsubsection{Access Routine Semantics}
+
+\noindent render($\mathbb{R}$ GasPrice, $\mathbb{R}$ mileage, $\mathbb{R}$ Distance, $\mathbb{R}$ TotalPrice, Function evalFunc, Function updateStart, Function updateEnd) :
+\begin{itemize}
+\item output: Renders the content of Sidebar along with any other components that it uses like Trip Details Module.
+\item exception: None
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -577,13 +714,22 @@ None
 
 \subsubsection{Exported Constants}
 
+\subsubsection{Inputs}
+\begin{tabular}{| l | l | l |}
+  \hline
+  \textbf{Input Name} & \textbf{Type} & \textbf{Description}\\
+  \hline
+  points & List$<\mathbb{R},\mathbb{R}>$  & coords of different points along a route \\
+  \hline
+\end{tabular}
+
 \subsubsection{Exported Access Programs}
 
 \begin{tabular}{| l | l | l | l |}
   \hline
   \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
   \hline
-  getMapData & List$<\mathbb{R},\mathbb{R}>$ & Array$<\mathbb{R}>$ & ~\\
+  getMapData & List$<\mathbb{R},\mathbb{R}>$ points & Array$<\mathbb{R}>$ & ~\\
   \hline
 \end{tabular}
 
@@ -635,13 +781,22 @@ None
 
 \subsubsection{Exported Constants}
 
+\subsubsection{Inputs}
+\begin{tabular}{| l | l | l |}
+  \hline
+  \textbf{Input Name} & \textbf{Type} & \textbf{Description}\\
+  \hline
+  carDetails & List$<$string, string, $\mathbb{R}>$  & A car's make, model and year. \\
+  \hline
+\end{tabular}
+
 \subsubsection{Exported Access Programs}
 
 \begin{tabular}{| l | l | l | l |}
   \hline
   \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
   \hline
-  getCarData & List$<$string, string, $\mathbb{R}>$ & Array$<\mathbb{R}>$ & ~\\
+  getCarData & List$<$string, string, $\mathbb{R}>$ carDetails & Array$<\mathbb{R}>$ & ~\\
   \hline
 \end{tabular}
 
@@ -661,7 +816,7 @@ None
 
 \subsubsection{Access Routine Semantics}
 
-\noindent getCarData(List$<$string, string, $\mathbb{R}>$) :
+\noindent getCarData(List$<$string, string, $\mathbb{R}>$ carDetails) :
 \begin{itemize}
 \item output: Array$<\mathbb{R}>$ : Retrieves all the data related to the car chosen by the user from the database, which includes the make and the model of the car, the year it was manufactured, and it's fuel mileage.
 \item exception: Car component not loaded.
@@ -693,13 +848,22 @@ None
 
 \subsubsection{Exported Constants}
 
+\subsubsection{Inputs}
+\begin{tabular}{| l | l | l |}
+  \hline
+  \textbf{Input Name} & \textbf{Type} & \textbf{Description}\\
+  \hline
+  coords & List$<\mathbb{R},\mathbb{R}>$  & Coordinates to find a fuel price at. \\
+  \hline
+\end{tabular}
+
 \subsubsection{Exported Access Programs}
 
 \begin{tabular}{| l | l | l | l |}
   \hline
   \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
   \hline
-  getFuelData & List$<\mathbb{R},\mathbb{R}>$ & Array$<\mathbb{R}>$ & ~\\
+  getFuelData & List$<\mathbb{R},\mathbb{R}>$ coords & Array$<\mathbb{R}>$ & ~\\
   \hline
 \end{tabular}
 
@@ -719,9 +883,9 @@ None
 
 \subsubsection{Access Routine Semantics}
 
-\noindent getFuelData(List$<\mathbb{R},\mathbb{R}>$) :
+\noindent getFuelData(List$<\mathbb{R},\mathbb{R}>$ coords) :
 \begin{itemize}
-\item output: Array$<\mathbb{R}>$ : Retrieves all fuel prices near current location.
+\item output: $<\mathbb{R}>$ : Retrieves fuel price for a desired location.
 \item exception: Fuel component not loaded.
 \end{itemize}
 
