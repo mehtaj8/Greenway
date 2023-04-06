@@ -5,14 +5,18 @@
 
 \title{Reflection Report on \progname}
 
-\author{author name}
+\author{\authname}
 
-\date{}
+\date{\today}
 
 \input{../Comments}
 \input{../Common}
 
 \begin{document}
+
+\maketitle
+
+\newpage
 
 \begin{table}[hp]
 \caption{Revision History} \label{TblRevisionHistory}
@@ -20,33 +24,44 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-Date1 & Name(s) & Description of changes\\
-Date2 & Name(s) & Description of changes\\
-... & ... & ...\\
+April 5, 2023 & Everyone & Rev 1\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \newpage
 
-\maketitle
-
-Put your introductory blurb here.
+Greenway is a mapping application that not only provides fuel efficient routes to the user's destination, but it also provides the user with the fuel cost calculations. It calculates the fuel cost fuel costs using gas price data, car mileage information and terrain information
+to show how much money it will take to get to the destination using the most fuel efficient route.
 
 \section{Project Overview}
-
-\plt{Summarize the original project goals and requirements}
+There are several goals that this application aims to accomplish:
+\begin{itemize}
+  \item The application able to determine the fuel economy of any given car
+as input.
+  \item The application is able to calculate the trip cost based on mileage and distance travelled, while factoring in terrain.
+  \item The application ensures that the cost of trips are calculated as accurately as possible factoring in trip length, fluctuating gas prices,
+and elevation changes over the route.
+  \item The application is to be used reliable for long-term trips without need to regularly updated. By limiting the number of updates, it ensures product reliability and user familiarity.
+  \item The application ensures the user gets gas prices in real time, hence cost of trip updates with changing prices.
+\end{itemize}
 
 \section{Key Accomplishments}
 
-\plt{What went well?  This can be what went well with the documentation, the
-  coding, the project management, etc.}
+There are various aspects of the development of Greenway that can be viewed as a key accomplishment of the application. First, the rigorous process of user testing for our application was key to the success of the application as it enabled more users to be more satisfied while using Greenway. An example of this was when we first tested the usability of our application on users with colourblindness, we noted that only 40\% of users were able to use the application with a vision impairment. Using this feedback, we were able to refine the front-end of our application to make it more user-friendly for those with colourblindess and as a result, we found that 80\% of users were able to use the application with a vision impairment. 
+
+Another accomplishment was how effectively we were able to finalize all the changes in the documentation for revision 1. For our problem statement, we were able redefine inputs and outputs to more accurately represent the statement of our application. After doing more research and taking the feedback from our user testing into account, we upgraded our UI and made any revised changes accordingly in the system design document. The source code was updated to be more up to date with the requirements that we stated earlier and were reflected in the MIS. The MG was also updated to fix any typo and minor formatting issues. The Gantt chart was updated to show that we have completed 100\% of the project in the development plan. Finally, the requirements were tweaked to more accurately the state of our application in the SRS. 
 
 \section{Key Problem Areas}
 
-\plt{What went wrong?  This can be what went wrong with the documentation, the
-  technology, the coding, time management, etc.}
+Throughout the development process, there were multiple occasions where the project did not go according to the original plan. One issue that became problematic for our team was creating a meeting time that suited everyone. Near the end of the school year, it became difficult for us to follow our pre-determined timeslot as we had developers falling ill or having sudden conflicts in their timing. Despite this, our team was able to finish all the deliverables on time while maintaining team communication. Another issue that our team faced was the overextension of our project scope at the beginning of the capstone course. As time went along while we were working on the project, we began to realize that certain aspects of Greenway that we had planned were too ambitious to complete in the given time period, and as a result we had to heavily change our requirements in the middle of the development process. Lastly, our developers faced a lot of bug and interface issues throughout the process as a result of delaying the prototype testing multiple times.
 
 \section{What Would you Do Differently Next Time}
+\begin{itemize}
+    \item Plan for contingencies: There were several times the project did not go as planned. One thing we could have done is essentially have contingency plans in place. Identify potential risks and plan for how to mitigate them. Though a part of it was done while planning we did not account for our developers falling ill or unplanned conflicts in timing. Having a backup plan could have helped to keep the project on track and minimize any setbacks.
+    \item Scope Creep: During Rev 0 we had a lot of scope creep. The project's scope expanded beyond what was originally planned, which led to delays, and increased time spent on development, re-planning and testing. Hence, we should have started with a much more attainable goal and expanded features along Rev 0, Rev 1 and Final Project presentation.
+    \item Lack of early testing: During initial testing after our first high-fidelity prototype there were a lot of bugs and user interface issues. These would have avoided had we planned to vigorously test our high-fidelity prototype. We could have saved time on development and retesting. Hence, we could started testing early with our high-fidelity prototype.
+\end{itemize}
+
 
 \end{document}
