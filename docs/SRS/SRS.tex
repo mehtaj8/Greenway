@@ -152,6 +152,7 @@
 05-10-2022 & 1.0 & Software Requirements Specification Version 1\\
 08-10-2022 & 1.1 & Software Requirements Specification Updated\\
 13-02-2023 & 1.2 & Software Requirements Specification Rev 0 Updated\\
+05-04-2023 & 1.3 & SRS Rev 1\\
 \bottomrule
 \end{tabularx}
 
@@ -323,7 +324,7 @@ qualities that the software is expected to exhibit.
 
 \item[FR\refstepcounter{reqnum}\thereqnum. ] The system shall allow the user a way to select any car model and make.
 \begin{itemize}
-    \item Rationale: The system can use the user’s car model to internally calculate the fuel economy of the vehicle they will be driving in.
+    \item Rationale: The system can use the user's car model to internally calculate the fuel economy of the vehicle they will be driving in.
     \item Constants: None
     \item Undesired Event Handling: Assume the vehicle has the national average fuel economy of 8.9 L/100km.
     \item Normal Operation: The system is considered to be operating normally if the user can select any car by make/model and the system uses the corresponding fuel economy for its calculations.
@@ -366,13 +367,13 @@ qualities that the software is expected to exhibit.
     \item \sout{Priority: Low}
 \end{itemize}
 
-\item[FR\refstepcounter{reqnum}\thereqnum. ] The system shall display gas prices at stations on route to destination.
+\item[FR\refstepcounter{reqnum}\thereqnum. ] \sout{The system shall display gas prices at stations on route to destination.}
 \begin{itemize}
-    \item Rationale: A key feature of the system is to have real-time gas prices factor into the cost calculations.
-    \item Constants: None
-    \item Undesired Event Handling: Use most recent price available if real-time value is not available.
-    \item Normal Operation: The system is considered to be operating normally if the map displays gas stations at their locations, along with the price listed at each station.
-	\item Priority: High
+    \item \sout{Rationale: A key feature of the system is to have real-time gas prices factor into the cost calculations.}
+    \item \sout{Constants: None}
+    \item \sout{Undesired Event Handling: Use most recent price available if real-time value is not available.}
+    \item \sout{Normal Operation: The system is considered to be operating normally if the map displays gas stations at their locations, along with the price listed at each station.}
+	\item \sout{Priority: High}
 \end{itemize}
 
 \item[FR\refstepcounter{reqnum}\thereqnum. ] The system shall have a way to calculate the most fuel efficient route.
@@ -409,6 +410,15 @@ qualities that the software is expected to exhibit.
     \item Undesired Event Handling: Display a message “An error was encountered calculating the cost”
     \item Normal Operation: The system is considered to be operating normally if there is an output displaying the total cost of the trip after performing the appropriate calculations.
 	\item Priority: High
+\end{itemize}
+
+\item[FR\refstepcounter{reqnum}\thereqnum. ] The system shall provide a loading screen whilst it performs the neccessary calculations.
+\begin{itemize}
+    \item Rationale: The user can know that the application is working in the background before an output appears on the screen.
+    \item Constants: None
+    \item Undesired Event Handling: Display a message "An error was encountered calculating the cost"
+    \item Normal Operation: The system is considered to be operating normally if there is a short loading icon on screen while the application determines the fuel cost.
+	\item Priority: Medium
 \end{itemize}
 
 \end{itemize}
@@ -483,7 +493,7 @@ qualities that the software is expected to exhibit.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_8}:] 
 \begin{itemize}
-  \item \textit{Description}: The system shall complete the route and fuel consumption calculation in a reasonable amount of time (<5 seconds). 
+  \item \textit{Description}: The system shall complete the route and fuel consumption calculation in a reasonable amount of time (less than 5 seconds). 
   \item \textit{Rationale}: The user should not have to wait a very long time after they input their destination into the application.
   \item \textit{Fit Criterion}: The time between the user input and the route calculation shall not exceed 5 seconds. The system calculation time should be comparable to the default google maps route calculation time.  
   \item \textit{Undesired Event Handling}: Given poor calculation time, algorithm time efficiency and other sources of lag should be considered and fixed (if possible). 
