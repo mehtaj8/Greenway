@@ -25,7 +25,7 @@ const TripDetails = (props) => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 12000);
+    }, 15000);
   }, []);
 
   if (isLoading) {
