@@ -156,6 +156,7 @@ export default function MapModule() {
                 origin: start,
                 destination: end,
                 travelMode: 'DRIVING',
+                avoidTolls: true,
             };
     
             directionsService.route(request, async function (result, status) {

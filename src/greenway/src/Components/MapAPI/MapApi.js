@@ -50,6 +50,7 @@ class MapContainer extends Component {
                 origin: start,
                 destination: end,
                 travelMode: 'DRIVING',
+                avoidTolls: true,
             };
     
             directionsService.route(request, function (result, status) {
