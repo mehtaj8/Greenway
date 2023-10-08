@@ -68,7 +68,7 @@ const Sidebar = (props) => {
         p={4}
         fontSize={32}
         borderBottomEndRadius='20px' >
-        <Text>Welcome to <b marginLeft='10px'>GreenWay!</b></Text>
+        <Text>Welcome to <b marginLeft='10px'>Greenway!</b></Text>
       </Center>
       <SidebarContent Mileage={props.Mileage} GasPrice={props.GasPrice} Distance={props.Distance} TotalPrice={props.TotalPrice} evalFunc={props.evalFunc} updateStart={props.updateStart} updateEnd={props.updateEnd} onClick={props.onClose} />
     </Box>
