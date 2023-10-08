@@ -43,7 +43,6 @@ export default function LocationInput(props) {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     var placesServices = props.placesServices;
-    console.log(placesServices)
 
     const inputFrom = document.getElementById("from")
     const inputTo = document.getElementById("to")
