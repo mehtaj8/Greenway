@@ -1,9 +1,9 @@
 [functions]
-  external_node_modules = ["express"]
+  external_node_modules = ["axios", "cors", "dotenv", "express", "mongodb", "mongoose", "nodemon", "serverless-http"]
   node_bundler = "esbuild"
 [[redirects]]
   force = true
-  from = "/app/*"
+  from = "*"
   status = 200
   to = "/.netlify/functions/app/:splat"
 [build]
